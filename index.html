@@ -7,17 +7,26 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-    <div class="player">
-        <div class="header">
-            <h2 class="title">Music Player</h2>
+    <!-- Top Bar with Logo and Theme Toggle -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <div class="logo-circle">
+                <img src="image/music logo.png" alt="Logo" class="logo-img" id="logo-img">
+            </div>
+            <span class="logo-text">✨Music❤️...</span>
+        </div>
+        <div class="top-controls">
             <button id="theme-toggle" title="Toggle Theme">🌓</button>
         </div>
+    </div>
 
-        <!-- Search Box -->
-        <div class="search-box">
-            <input type="text" id="search-input" placeholder="Search songs...">
-        </div>
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search songs...">
+    </div>
+
+    <div class="player">
+        <h2 class="title">Music Player</h2>
 
         <div class="main-content">
             <div class="now-playing">
@@ -63,6 +72,36 @@
         </div>
     </div>
 
+    <!-- Footer with Social Media Links -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="developer-info">
+                <p>Developed with ❤️ and ☕ by ✨5ukoon...</p>
+                <p class="copyright">©2025 | All Rights Reserved.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" title="Website" class="social-icon" id="website">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="#" title="LinkedIn" class="social-icon" id="linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" title="GitHub" class="social-icon" id="github">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" title="Twitter" class="social-icon" id="twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" title="Instagram" class="social-icon" id="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <script src="script.js"></script>
 </body>
 </html>
