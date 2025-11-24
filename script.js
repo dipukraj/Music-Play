@@ -169,7 +169,7 @@ const songs = [
         cover: "image/Agar Tum Saath Ho.jpg",
         category: "sad"
     },
-     
+
     // Bhojpuri Songs
     {
         title: "Lollipop Lagelu",
@@ -273,8 +273,8 @@ const songs = [
         cover: "bhojpuriimage/Tharmamiter.jpg",
         category: "bhojpuri"
     },
-     
-     
+
+
 ];
 
 let index = 0;
