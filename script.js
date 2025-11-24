@@ -30,8 +30,8 @@ const songs = [
         category: "new"
     },
     // 80s Dasak Songs
-     
-     
+
+
     {
         title: "Tere Mere Beech Mein",
         file: "music/Tere Mere Beech Mein.mp3",
@@ -137,7 +137,144 @@ const songs = [
         file: "music/Raabta.mp3",
         cover: "image/Raabta.jpg",
         category: "romantic"
-    }
+    },
+    // Sad Songs
+    {
+        title: "Ae Dil Hai Mushkil",
+        file: "music/Ae Dil Hai Mushkil.mp3",
+        cover: "image/Ae Dil Hai Mushkil.jpg",
+        category: "sad"
+    },
+    {
+        title: "Channa Mereya",
+        file: "music/Channa Mereya.mp3",
+        cover: "image/Channa Mereya.jpg",
+        category: "sad"
+    },
+    {
+        title: "Tum Se Hi",
+        file: "music/Tum Se Hi Jab.mp3",
+        cover: "image/Tum Se Hi.jpg",
+        category: "sad"
+    },
+    {
+        title: "Kabira",
+        file: "music/Kabira Yeh.mp3",
+        cover: "image/Kabira.jpg",
+        category: "sad"
+    },
+    {
+        title: "Agar Tum Saath Ho",
+        file: "music/Agar Tum Saath Ho.mp3",
+        cover: "image/Agar Tum Saath Ho.jpg",
+        category: "sad"
+    },
+     
+    // Bhojpuri Songs
+    {
+        title: "Lollipop Lagelu",
+        file: "bhojpurimusic/Lallipop Lagelu.mp3",
+        cover: "bhojpuriimage/Lollipop Lagelu.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Aaho Raja",
+        file: "bhojpurimusic/Aaho Raja.mp3",
+        cover: "bhojpuriimage/Aaho Raja.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Anchre se Bandhal Dil Bandhale Rahe Da",
+        file: "bhojpurimusic/Anchre se Bandhal Dil Bandhale Rahe Da.mp3",
+        cover: "bhojpuriimage/Anchre Se Bandhal Dil Bandhale Rahe Da.JPG",
+        category: "bhojpuri"
+    },
+    {
+        title: "Baithal Rahi Kela Ke Tham Pe",
+        file: "bhojpurimusic/Baithal Rahi Kera Ke Tham Pe.mp3",
+        cover: "bhojpuriimage/kela Ke tham pe.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Balamuwa Ke Ballam",
+        file: "bhojpurimusic/Balamuwa Ke Ballam.mp3",
+        cover: "bhojpuriimage/Balamuwa Ke Ballam.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Chhalakata Hamro Jawaniya",
+        file: "bhojpurimusic/Chhalakata Hamro Jawaniya.mp3",
+        cover: "bhojpuriimage/Hamro Jawaniya.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Dilwa Le Gaile Raja Bottle Me Bhar Ke",
+        file: "bhojpurimusic/Dilwa Le Gaile Raja Bottle Me Bhar Ke.mp3",
+        cover: "bhojpuriimage/Dilwa Le Gaile Raja.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Dilwa Le Ja Rumaal Me",
+        file: "bhojpurimusic/Dilwa Le Ja Rumaal Me.mp3",
+        cover: "bhojpuriimage/Dilwa Le Ja Rumaal Me.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Gulab Jaisan Khilal Badu",
+        file: "bhojpurimusic/Gulab Jaisan Khilal Badu.mp3",
+        cover: "bhojpuriimage/Gulab Jaisan Khilal Badu.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Makaiya Me Raja Ji",
+        file: "bhojpurimusic/Makaiya Me Raja Ji.mp3",
+        cover: "bhojpuriimage/Makaiya Me Raja Ji.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Marad Ha Matha Ke Darad",
+        file: "bhojpurimusic/Marad Ha Matha Ke Darad.mp3",
+        cover: "bhojpuriimage/Marad Matha Ke Darad.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Maroon Color Sadiya",
+        file: "bhojpurimusic/Maroon Color Sadiya.mp3",
+        cover: "bhojpuriimage/Maroon Color Sadiya.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Milan Aasman Me",
+        file: "bhojpurimusic/Milan Aasman Me.mp3",
+        cover: "bhojpuriimage/Milan Aasman Me Hoi.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Milbau Chori Tohra Se Gori",
+        file: "bhojpurimusic/Milbau Chori Tohra Se Gori.mp3",
+        cover: "bhojpuriimage/Milbau Chori Tohra Se Gori.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Saiyan Seva Kare",
+        file: "bhojpurimusic/Saiyan Seva Kare.mp3",
+        cover: "bhojpuriimage/Saiyan Seva Kare.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Shila Hau Ka Chand",
+        file: "bhojpurimusic/Shila Hau Ka Chand.mp3",
+        cover: "bhojpuriimage/Shila Hau Ka.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Tharmamiter",
+        file: "bhojpurimusic/Tharmamiter.mp3",
+        cover: "bhojpuriimage/Tharmamiter.jpg",
+        category: "bhojpuri"
+    },
+     
+     
 ];
 
 let index = 0;
@@ -185,10 +322,21 @@ function loadSong(i) {
     currentTimeEl.textContent = '0:00';
     durationEl.textContent = '0:00';
 
+    // Update song counter
+    updateSongCounter();
+
     // When metadata is loaded, update the duration
     audio.onloadedmetadata = function () {
         durationEl.textContent = formatTime(audio.duration);
     };
+}
+
+// Update song counter display
+function updateSongCounter() {
+    const songCountEl = document.getElementById('song-count');
+    if (songCountEl && currentPlaylist.length > 0) {
+        songCountEl.textContent = `(${index + 1}/${currentPlaylist.length})`;
+    }
 }
 
 // Filter songs by category
@@ -359,7 +507,9 @@ function showCategoryNotification(category) {
         '90s': '90s Dasak',
         'new': 'New Songs',
         'old': 'Old Songs',
-        'romantic': 'Romantic Songs'
+        'romantic': 'Romantic Songs',
+        'sad': 'Sad Songs',
+        'bhojpuri': 'Bhojpuri Songs'
     };
 
     // You can add a toast notification here if needed

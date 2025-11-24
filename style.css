@@ -407,6 +407,12 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+    .volume-control {
+        display: none;
+    }
+}
+
 @media (max-width: 400px) {
     .player {
         width: 90%;
