@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Player</title>
     <link rel="stylesheet" href="style.css" />
+
+    <link rel="icon" type="image/jpg" href="/image/music logo.png">
+
 </head>
 <body>
     <!-- Top Bar with Logo and Theme Toggle -->
@@ -13,10 +16,47 @@
             <div class="logo-circle">
                 <img src="image/music logo.png" alt="Logo" class="logo-img" id="logo-img">
             </div>
-            <span class="logo-text">✨Music❤️...</span>
+            <span class="logo-text">✨Music❤️</span>
         </div>
         <div class="top-controls">
-            <button id="theme-toggle" title="Toggle Theme">🌓</button>
+            <div class="playlist-dropdown-container">
+                <button id="playlist-toggle" class="top-btn pulse" title="Playlist">
+                    <span class="playlist-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22">
+                            <path fill="currentColor" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z" />
+                            <path fill="currentColor" d="M12 9.5v9l6-4.5z" opacity="0.8" />
+                        </svg>
+                        <span class="pulse-dot"></span>
+                    </span>
+                </button>
+                <div id="playlist-dropdown" class="playlist-dropdown">
+                    <div class="dropdown-item" data-category="all">
+                        <span class="category-icon">🎵</span>
+                        <span>All Songs</span>
+                    </div>
+                    <div class="dropdown-item" data-category="80s">
+                        <span class="category-icon">🎸</span>
+                        <span>80s Dasak</span>
+                    </div>
+                    <div class="dropdown-item" data-category="90s">
+                        <span class="category-icon">🎤</span>
+                        <span>90s Dasak</span>
+                    </div>
+                    <div class="dropdown-item" data-category="new">
+                        <span class="category-icon">✨</span>
+                        <span>New Songs</span>
+                    </div>
+                    <div class="dropdown-item" data-category="old">
+                        <span class="category-icon">📻</span>
+                        <span>Old Songs</span>
+                    </div>
+                    <div class="dropdown-item" data-category="romantic">
+                        <span class="category-icon">💕</span>
+                        <span>Romantic</span>
+                    </div>
+                </div>
+            </div>
+            <button id="theme-toggle" class="top-btn" title="Toggle Theme">🌓</button>
         </div>
     </div>
 
@@ -46,11 +86,11 @@
         <audio id="audio"></audio>
 
         <div class="controls">
-            <button id="shuffle" title="Shuffle">🔀</button>
+            <!-- <button id="shuffle" title="Shuffle">🔀</button> -->
             <button id="prev">⏮️</button>
             <button id="play">▶️</button>
             <button id="next">⏭️</button>
-            <button id="repeat" title="Repeat">🔁</button>
+            <!-- <button id="repeat" title="Repeat">🔁</button> -->
         </div>
 
         <div class="time-display">
