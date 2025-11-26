@@ -273,6 +273,124 @@ const songs = [
         cover: "bhojpuriimage/Tharmamiter.jpg",
         category: "bhojpuri"
     },
+    // Bhakti Songs
+    {
+        title: "Hanuman Chalisa",
+        file: "bhakti music/Hanuman Chalisa.mp3",
+        cover: "bhakti image/Hanuman Chalisa.webp",
+        category: "bhakti"
+    },
+    {
+        title: "Jai Ganesh Deva",
+        file: "bhakti music/Jai Ganesh Deva.mp3",
+        cover: "bhakti image/Jai Ganesh Deva.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Om Jai Jagdish Hare",
+        file: "bhakti music/Om Jai Jagdish Hare.mp3",
+        cover: "bhakti image/Om Jai Jagdish Hare.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Shree Ram Chandra Kripalu",
+        file: "bhakti music/Shree Ram Chandra Kripalu.mp3",
+        cover: "bhakti image/Shree Ram Chandra Kripalu.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Jai Ambe Gauri",
+        file: "bhakti music/Jai Ambe Gauri.mp3",
+        cover: "bhakti image/Jai Ambe Gauri.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Achyutam Keshavam",
+        file: "bhakti music/Achyutam Keshavam.mp3",
+        cover: "bhakti image/Achyutam Keshavam.webp",
+        category: "bhakti"
+    },
+    // Mahadev Songs
+    {
+        title: "Om Namah Shivaya",
+        file: "mahadev music/Om Namah Shivaya.mp3",
+        cover: "mahadev image/Om Namah Shivaya.webp",
+        category: "mahadev"
+    },
+    {
+        title: "Shiv Tandav Stotram",
+        file: "mahadev music/Shiva Tandava Stotram.mp3",
+        cover: "mahadev image/Shiv Tandav Stotram.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Bhole Baba",
+        file: "mahadev music/Bhole Baba.mp3",
+        cover: "mahadev image/Bhole Baba.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Mere Bhole Baba",
+        file: "mahadev music/Mere Bhole Baba.mp3",
+        cover: "mahadev image/Mere Bhole Baba.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Shiv Shambhu",
+        file: "mahadev music/Shiv Shambhu.mp3",
+        cover: "mahadev image/Shiv Shambhu.webp",
+        category: "mahadev"
+    },
+    {
+        title: " Har Har Shambhu",
+        file: "mahadev music/Har Har Shambhu.mp3",
+        cover: "mahadev image/Har Har Shambhu.webp",
+        category: "mahadev"
+    },
+    {
+        title: "Mahakal Mahadev",
+        file: "mahadev music/Mahakaal Mahadev.mp3",
+        cover: "mahadev image/Mahakal Mahadev.webp",
+        category: "mahadev"
+    },
+     
+    // Krishna Songs
+    {
+        title: "Hare Krishna Hare Rama",
+        file: "music/Hare Krishna Hare Rama.mp3",
+        cover: "image/Hare Krishna.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Radha Krishna",
+        file: "music/Radha Krishna.mp3",
+        cover: "image/Radha Krishna.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Govind Bolo Hari Gopal Bolo",
+        file: "music/Govind Bolo.mp3",
+        cover: "image/Govind Bolo.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Achyutam Keshavam Krishna Damodaram",
+        file: "music/Krishna Damodaram.mp3",
+        cover: "image/Krishna Damodaram.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Shri Krishna Govind Hare Murari",
+        file: "music/Shri Krishna Govind.mp3",
+        cover: "image/Shri Krishna Govind.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Banke Bihari",
+        file: "music/Banke Bihari.mp3",
+        cover: "image/Banke Bihari.jpg",
+        category: "krishna"
+    }
 
 
 ];
@@ -509,7 +627,10 @@ function showCategoryNotification(category) {
         'old': 'Old Songs',
         'romantic': 'Romantic Songs',
         'sad': 'Sad Songs',
-        'bhojpuri': 'Bhojpuri Songs'
+        'bhojpuri': 'Bhojpuri Songs',
+        'bhakti': 'Bhakti Songs',
+        'mahadev': 'Mahadev Songs',
+        'krishna': 'Krishna Songs'
     };
 
     // You can add a toast notification here if needed
