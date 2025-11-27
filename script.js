@@ -356,39 +356,39 @@ const songs = [
      
     // Krishna Songs
     {
-        title: "Hare Krishna Hare Rama",
-        file: "music/Hare Krishna Hare Rama.mp3",
-        cover: "image/Hare Krishna.jpg",
+        title: "Radhe Radhe Barsane Wali Radhe",
+        file: "krishna music/Radhe Radhe Barsane Wali Radhe.mp3",
+        cover: "krishna image/Radhe Radhe Barsane Wali Radhe.webp",
         category: "krishna"
     },
     {
-        title: "Radha Krishna",
-        file: "music/Radha Krishna.mp3",
-        cover: "image/Radha Krishna.jpg",
+        title: "Om Namo Bhagavate Vasudevaya",
+        file: "krishna music/Om Namo Bhagavate Vasudevaya.mp3",
+        cover: "krishna image/Om Namo Bhagavate Vasudevaya.jpg",
         category: "krishna"
     },
     {
-        title: "Govind Bolo Hari Gopal Bolo",
-        file: "music/Govind Bolo.mp3",
-        cover: "image/Govind Bolo.jpg",
+        title: "Adharam Madhuram",
+        file: "krishna music/Adharam Madhuram.mp3",
+        cover: "krishna image/Adharam Madhuram.webp",
         category: "krishna"
     },
     {
-        title: "Achyutam Keshavam Krishna Damodaram",
-        file: "music/Krishna Damodaram.mp3",
-        cover: "image/Krishna Damodaram.jpg",
+        title: "Jai Radha Madhav",
+        file: "krishna music/Jai Radha Madhav.mp3",
+        cover: "krishna image/Jai Radha Madhav.webp",
         category: "krishna"
     },
     {
-        title: "Shri Krishna Govind Hare Murari",
-        file: "music/Shri Krishna Govind.mp3",
-        cover: "image/Shri Krishna Govind.jpg",
+        title: "Radha Gori Gori",
+        file: "krishna music/Radha Gori Gori.mp3",
+        cover: "krishna image/Radha Gori Gori.jpg",
         category: "krishna"
     },
     {
-        title: "Banke Bihari",
-        file: "music/Banke Bihari.mp3",
-        cover: "image/Banke Bihari.jpg",
+        title: "Krishnaya Vasudevaya",
+        file: "krishna music/Krishnaya Vasudevaya.mp3",
+        cover: "krishna image/Krishnaya Vasudevaya.webp",
         category: "krishna"
     }
 
