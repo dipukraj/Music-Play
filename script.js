@@ -57,6 +57,36 @@ const songs = [
         cover: "image/Tujhe Dekha To.jpg",
         category: "90s"
     },
+    {
+        title: "Abhi Aaya Nahi Hai Jo",
+        file: "90s music/Abhi Aaya Nahi Hai Jo.mp3",
+        cover: "90s image/Abhi Aaya Nahi Hai Jo.jpg",
+        category: "90s"
+    },
+    {
+        title: " Dil Deewane Ka Dola Dildar Ke Liye",
+        file: "90s music/Dil Deewane Ka Dola Dildar Ke Liye.mp3",
+        cover: "90s image/Dil Deewane Ka Dola Dildar Ke Liye.jpg",
+        category: "90s"
+    },
+    {
+        title: " Do Lafzo Mein",
+        file: "90s music/Do Lafzo Mein.mp3",
+        cover: "90s image/Do Lafzo Mein.jpg",
+        category: "90s"
+    },
+    {
+        title: " Ganga Jaisa Man Tera",
+        file: "90s music/Ganga Jaisa Man Tera.mp3",
+        cover: "90s image/Ganga Jaisa Man Tera.jpg",
+        category: "90s"
+    },
+    {
+        title: " Har Kisike Dil Mein Ek Ladki Ka Khayal Rehta Hai",
+        file: "90s music/Har Kisike Dil Mein Ek Ladki Ka Khayal Rehta Hai Song.mp3",
+        cover: "90s image/Har Kisike Dil Mein Ek Ladki Ka Khayal Rehta Hai Song.jpg",
+        category: "90s"
+    },
     // New Songs
     {
         title: "Kesariya",
@@ -82,6 +112,12 @@ const songs = [
         cover: "image/Mann Meri Jaan.jpg",
         category: "new"
     },
+    {
+        title: " Noor Hi Noor",
+        file: "new music/Noor Hi Noor.mp3",
+        cover: "new image/Noor Hi Noor.jpg",
+        category: "new"
+    },
     // Old Songs
     {
         title: "Lag Jaa Gale",
@@ -105,6 +141,48 @@ const songs = [
         title: "Kya Hua Tera Wada",
         file: "music/Kya Hua Tera Wada.mp3",
         cover: "image/Kya Hua Tera Wada.jpg",
+        category: "old"
+    },
+    {
+        title: " Hum Khush Hue",
+        file: "old music/Hum Khush Hue.mp3",
+        cover: "old image/Hum Khush Hue.jpg",
+        category: "old"
+    },
+    {
+        title: " Jis Din Teri Meri Baat Nahin Hoti",
+        file: "old music/Jis Din Teri Meri Baat Nahin Hoti.mp3",
+        cover: "old image/Jis Din Teri Meri Baat Nahin Hoti.jpg",
+        category: "old"
+    },
+    {
+        title: " Kab Ban Jayega Tere Kabil Mera Dil",
+        file: "old music/Kab Ban Jayega Tere Kabil Mera Dil.mp3",
+        cover: "old image/Kab Ban Jayega Tere Kabil Mera Dil.jpg",
+        category: "old"
+    },
+    {
+        title: "  Maheroo Maheroo",
+        file: "old music/Maheroo Maheroo.mp3",
+        cover: "old image/Maheroo Maheroo.jpg",
+        category: "old"
+    },
+    {
+        title: " Main Ishq Ushka",
+        file: "old music/Main Ishq Uska.mp3",
+        cover: "old image/Main Ishq Uska.jpg",
+        category: "old"
+    },
+    {
+        title: " Rab Na Kare Ke Ye Zindagi",
+        file: "old music/Rab Na Kare Ke Ye Zindagi Kabhi Kisi Ko Daga De.mp3",
+        cover: "old image/Rab Na Kare Ke Ye Zindagi Kabhi Kisi Ko Daga De.webp",
+        category: "old"
+    },
+    {
+        title: " Tera Chehra",
+        file: "old music/Tera Chehra.mp3",
+        cover: "old image/Tera Chehra.jpg",
         category: "old"
     },
     // Romantic Songs
@@ -138,6 +216,24 @@ const songs = [
         cover: "image/Raabta.jpg",
         category: "romantic"
     },
+    {
+        title: " Ek Toh Kum Zindagani",
+        file: "romantic music/Ek Toh Kum Zindagani.mp3",
+        cover: "romantic image/Ek Toh Kum Zindagani.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Khuda  Bhi",
+        file: "romantic music/Khuda Bhi.mp3",
+        cover: "romantic image/Khuda Bhi.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Raanjhan",
+        file: "romantic music/Raanjhan.mp3",
+        cover: "romantic image/Raanjhan.jpg",
+        category: "romantic"
+    },
     // Sad Songs
     {
         title: "Ae Dil Hai Mushkil",
@@ -167,6 +263,12 @@ const songs = [
         title: "Agar Tum Saath Ho",
         file: "music/Agar Tum Saath Ho.mp3",
         cover: "image/Agar Tum Saath Ho.jpg",
+        category: "sad"
+    },
+    {
+        title: " Zaroori Tha",
+        file: "sad music/Zaroori tha.mp3",
+        cover: "sad image/Zaroori tha.jpg",
         category: "sad"
     },
 
