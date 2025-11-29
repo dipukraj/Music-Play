@@ -38,6 +38,12 @@ const songs = [
         cover: "image/tere mere beech me.jpg",
         category: "80s"
     },
+    {
+        title: " Koi Jaye To Le Aaye",
+        file: "80s music/koi jaye to le aye.mp3",
+        cover: "80s image/koi jaye to le aye.jpg",
+        category: "80s"
+    },
     // 90s Dasak Songs
     {
         title: "Dil Hai Ki Manta Nahin",
@@ -118,6 +124,48 @@ const songs = [
         cover: "new image/Noor Hi Noor.jpg",
         category: "new"
     },
+    {
+        title: "  Khuda Aur Mohabbat",
+        file: "new music/Khuda Aur Mohabbat.mp3",
+        cover: "new image/Khuda Aur Mohabbat.jpg",
+        category: "new"
+    },
+    {
+        title: "   Oonchi Oonchi Deewarein",
+        file: "new music/Oonchi Oonchi Deewarein.mp3",
+        cover: "new image/Oonchi Oonchi Deewarein.jpg",
+        category: "new"
+    },
+    {
+        title: " Tere Hawaale",
+        file: "new music/Tere Hawaale.mp3",
+        cover: "new image/Tere Hawaale.jpg",
+        category: "new"
+    },
+    {
+        title: "  Tera Chehra",
+        file: "new music/Tera Chehra.mp3",
+        cover: "new image/Tera Chehra.jpg",
+        category: "new"
+    },
+    {
+        title: "  Deewaniyat",
+        file: "new music/DEEWANIYAT.mp3",
+        cover: "new image/DEEWANIYAT.jpg",
+        category: "new"
+    },
+    {
+        title: " Chahun Main Ya Naa",
+        file: "new music/Chahun Main Ya Naa.mp3",
+        cover: "new image/Chahun Main Ya Naa.jpg",
+        category: "new"
+    },
+    {
+        title: " Saiyaara",
+        file: "new music/Saiyaara.mp3",
+        cover: "new image/Saiyaara.jpg",
+        category: "new"
+    },
     // Old Songs
     {
         title: "Lag Jaa Gale",
@@ -185,6 +233,18 @@ const songs = [
         cover: "old image/Tera Chehra.jpg",
         category: "old"
     },
+    {
+        title: "  Vaaste",
+        file: "old music/Vaaste.mp3",
+        cover: "old image/Vaaste.jpg",
+        category: "old"
+    },
+    {
+        title: " O Re Piya",
+        file: "old music/O Re Piya.mp3",
+        cover: "old image/O Re Piya.jpg",
+        category: "old"
+    },
     // Romantic Songs
     {
         title: "Tum Hi Ho",
@@ -234,6 +294,18 @@ const songs = [
         cover: "romantic image/Raanjhan.jpg",
         category: "romantic"
     },
+    {
+        title: " Teri Meri Prem Kahani",
+        file: "romantic music/Teri Meri Prem Kahani.mp3",
+        cover: "romantic image/Teri Meri Prem Kahani.jpg",
+        category: "romantic"
+    },
+    {
+        title: "  Tere Bina",
+        file: "romantic music/Tere Bina.mp3",
+        cover: "romantic image/Tere Bina.jpg",
+        category: "romantic"
+    },
     // Sad Songs
     {
         title: "Ae Dil Hai Mushkil",
@@ -269,6 +341,24 @@ const songs = [
         title: " Zaroori Tha",
         file: "sad music/Zaroori tha.mp3",
         cover: "sad image/Zaroori tha.jpg",
+        category: "sad"
+    },
+    {
+        title: "  Yeh Jisma Hai Toh Kya",
+        file: "sad music/Yeh Jism.mp3",
+        cover: "sad image/Yeh Jism.jpg",
+        category: "sad"
+    },
+    {
+        title: "  Lo Maan Liya",
+        file: "sad music/LO MAAN LIYA.mp3",
+        cover: "sad image/LO MAAN LIYA.jpg",
+        category: "sad"
+    },
+    {
+        title: "  Baatein Ye Kabhi Na",
+        file: "sad music/Baatein Ye Kabhi Na.mp3",
+        cover: "sad image/Baatein Ye Kabhi Na.jpg",
         category: "sad"
     },
 
