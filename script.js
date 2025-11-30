@@ -761,11 +761,11 @@ progress.oninput = () => {
 
 // Social Media Links
 const socialLinks = {
-    website: 'https://your-website.com',
-    linkedin: 'https://linkedin.com/in/your-profile',
-    github: 'https://github.com/your-username',
-    twitter: 'https://twitter.com/your-handle',
-    instagram: 'https://instagram.com/your-username'
+    website: 'https://dipukraj.me',
+    linkedin: 'https://www.linkedin.com/in/dipukraj',
+    github: 'https://github.com/dipukraj',
+    twitter: 'https://www.twitter.com/@DipuKRaj',
+    instagram: 'https://www.instagram.com/r.p.dipu'
 };
 
 // Add click event listeners to social media icons

@@ -34,8 +34,12 @@ body {
     align-items: center;
     color: var(--text-color);
     transition: all 0.3s ease;
-    padding: 30px 20px;
+
+    /* FIXED */
+    padding: 10px;
+    /* padding-top: 100px; */
 }
+
 
 .top-bar {
     position: fixed;
@@ -461,7 +465,12 @@ body {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
+
+    /* ADD THIS ↓↓↓ */
+    position: relative;
+    z-index: 9999;
 }
+
 
 .footer-content {
     display: flex;
@@ -510,3 +519,23 @@ body {
 .playing {
     animation: pulse 1.5s infinite;
 }
+
+
+
+footer .social-links {
+    display: flex !important;
+    gap: 15px !important;
+    margin-top: 8px !important;
+}
+
+footer .social-links a.social-icon {
+    color: var(--text-color) !important;
+    font-size: 22px !important;
+    transition: all 0.3s ease !important;
+}
+
+footer .social-links a.social-icon:hover {
+    transform: translateY(-4px) !important;
+    color: var(--primary-color) !important;
+}
+
