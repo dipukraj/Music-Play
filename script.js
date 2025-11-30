@@ -257,6 +257,13 @@ const songs = [
         cover: "old image/O Re Piya.jpg",
         category: "old"
     },
+    {
+        title: " Maine Pyar Kar Liya",
+        file: "old music/Maine Pyar Kar Liya.mp3",
+        cover: "old image/Maine Pyar Kar Liya.webp",
+        category: "old"
+    },
+
     // Romantic Songs
     {
         title: "Tum Hi Ho",
