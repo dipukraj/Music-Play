@@ -166,6 +166,18 @@ const songs = [
         cover: "new image/Saiyaara.jpg",
         category: "new"
     },
+    {
+        title: " Aawaara Angaara",
+        file: "new music/Aawaara Angaara.mp3",
+        cover: "new image/Aawaara Angaara.jpg",
+        category: "new"
+    },
+    {
+        title: " Bol Kaffara Kya Hoga",
+        file: "new music/Bol Kaffara Kya Hoga.mp3",
+        cover: "new image/Bol Kaffara Kya Hoga.jpg",
+        category: "new"
+    },
     // Old Songs
     {
         title: "Lag Jaa Gale",
