@@ -263,6 +263,12 @@ const songs = [
         cover: "old image/Maine Pyar Kar Liya.webp",
         category: "old"
     },
+    {
+        title: "  Dil To Pagal Hai",
+        file: "old music/Dil To Pagal Hai.mp3",
+        cover: "old image/Dil To Pagal Hai.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
