@@ -337,6 +337,12 @@ const songs = [
         cover: "romantic image/Tere Bina.jpg",
         category: "romantic"
     },
+    {
+        title: " Ram Chahe Leela Chahe Ram",
+        file: "romantic music/Ram Chahe Leela.mp3",
+        cover: "romantic image/Ram Chahe Leela.jpg",
+        category: "romantic"
+    },
     // Sad Songs
     {
         title: "Ae Dil Hai Mushkil",
