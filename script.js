@@ -862,3 +862,78 @@ function showCategoryNotification(category) {
 
 // Initialize with all songs
 filterSongsByCategory('all');
+
+// Search functionality
+const searchInput = document.getElementById('search-input');
+
+// Function to filter songs based on search input
+function filterSongsBySearch(query) {
+    if (!query.trim()) {
+        // If search is empty, show all songs in current category
+        filterSongsByCategory(currentCategory);
+        return;
+    }
+    
+    const searchTerm = query.toLowerCase().trim();
+    const searchTerms = searchTerm.split(/\s+/); // Split search query into words
+    
+    const filteredSongs = songs.filter(song => {
+        const title = song.title.toLowerCase();
+        // Check if ALL search terms are found in the title
+        return searchTerms.every(term => title.includes(term));
+    });
+    
+    // Update the current playlist with search results
+    currentPlaylist = filteredSongs;
+    
+    // If no songs match the search, show a message
+    if (filteredSongs.length === 0) {
+        songList.innerHTML = '<li class="no-results">No songs found. Try a different search term.</li>';
+        updateSongCounter();
+        return;
+    }
+    
+    // Update the song list
+    songList.innerHTML = '';
+    filteredSongs.forEach((song, i) => {
+        const li = document.createElement('li');
+        li.textContent = song.title;
+        if (i === index && audio.src.endsWith(song.file)) {
+            li.classList.add('active');
+        }
+        li.addEventListener('click', () => {
+            index = i;
+            loadSong(index);
+            audio.play();
+            playBtn.textContent = '⏸️';
+            document.querySelectorAll('#song-list li').forEach(item => item.classList.remove('active'));
+            li.classList.add('active');
+        });
+        songList.appendChild(li);
+    });
+    
+    updateSongCounter();
+}
+
+// Add event listener for search input
+searchInput.addEventListener('input', (e) => {
+    filterSongsBySearch(e.target.value);
+});
+
+// Add event listener for Enter key to play the first search result
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && currentPlaylist.length > 0) {
+        index = 0;
+        loadSong(index);
+        audio.play();
+        playBtn.textContent = '⏸️';
+        // Update active state in the list
+        document.querySelectorAll('#song-list li').forEach((item, i) => {
+            if (i === 0) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+});
