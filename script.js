@@ -516,6 +516,12 @@ const songs = [
         category: "bhakti"
     },
     {
+        title: "Om Jai Jagdish Hare",
+        file: "bhakti music/Om Jai Jagdish Hare.mp3",
+        cover: "bhakti image/Om Jai Jagdish Hare.jpg",
+        category: "bhakti"
+    },
+    {
         title: "Shree Ram Chandra Kripalu",
         file: "bhakti music/Shree Ram Chandra Kripalu.mp3",
         cover: "bhakti image/Shree Ram Chandra Kripalu.jpg",
