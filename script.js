@@ -178,6 +178,13 @@ const songs = [
         cover: "new image/Bol Kaffara Kya Hoga.jpg",
         category: "new"
     },
+    {
+        title: " Deewani Mastani",
+        file: "new music/Deewani Mastani.mp3",
+        cover: "new image/Deewani Mastani.jpg",
+        category: "new"
+    },
+
     // Old Songs
     {
         title: "Lag Jaa Gale",
