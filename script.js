@@ -392,6 +392,12 @@ const songs = [
         cover: "sad image/Baatein Ye Kabhi Na.jpg",
         category: "sad"
     },
+    {
+        title: "  Tere Ishq Mein Pagal",
+        file: "sad music/Tere Ishq Mein Pagal.mp3",
+        cover: "sad image/Tere Ishq Mein Pagal.jpg",
+        category: "sad"
+    },
 
     // Bhojpuri Songs
     {
