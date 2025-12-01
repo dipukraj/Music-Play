@@ -510,9 +510,9 @@ const songs = [
         category: "bhakti"
     },
     {
-        title: "Om Jai Jagdish Hare",
-        file: "bhakti music/Om Jai Jagdish Hare.mp3",
-        cover: "bhakti image/Om Jai Jagdish Hare.jpg",
+        title: "Aigiri Nandini",
+        file: "bhakti music/Aigiri Nandini.mp3",
+        cover: "bhakti image/Aigiri Nandini.webp",
         category: "bhakti"
     },
     {
