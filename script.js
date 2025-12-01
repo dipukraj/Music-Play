@@ -853,12 +853,47 @@ function showCategoryNotification(category) {
         'bhojpuri': 'Bhojpuri Songs',
         'bhakti': 'Bhakti Songs',
         'mahadev': 'Mahadev Songs',
-        'krishna': 'Krishna Songs'
+        'krishna': 'Krishna Songs',
+        'other': 'Other Songs'
     };
 
     // You can add a toast notification here if needed
     console.log(`Switched to: ${categoryNames[category]} (${currentPlaylist.length} songs)`);
 }
+
+// Add Punjabi songs to the 'other' category
+songs.push(
+    {
+        title: "Lahore - Guru Randhawa",
+        file: "other music/Lahore - Guru Randhawa.mp3",
+        cover: "other image/Lahore - Guru Randhawa.jpg",
+        category: "other"
+    },
+    {
+        title: "Brown Munde - AP Dhillon",
+        file: "other music/Brown Munde - AP Dhillon.mp3",
+        cover: "other image/Brown Munde - AP Dhillon.jpg",
+        category: "other"
+    },
+    {
+        title: "Diamond - Gurnam Bhullar",
+        file: "other music/Diamond - Gurnam Bhullar.mp3",
+        cover: "other image/Diamond - Gurnam Bhullar.jpg",
+        category: "other"
+    },
+    {
+        title: "Sakhiyaan - Maninder Buttar",
+        file: "other music/Sakhiyaan - Maninder Buttar.mp3",
+        cover: "other image/Sakhiyaan - Maninder Buttar.jpg",
+        category: "other"
+    },
+    {
+        title: "Titliaan - Hardy Sandhu",
+        file: "other music/Titliaan - Hardy Sandhu.mp3",
+        cover: "other image/Titliaan - Hardy Sandhu.jpg",
+        category: "other"
+    }
+);
 
 // Initialize with all songs
 filterSongsByCategory('all');
