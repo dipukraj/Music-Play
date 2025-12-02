@@ -895,6 +895,12 @@ songs.push(
         category: "other"
     },
     {
+        title: " Arash Feat - Helena",
+        file: "other music/Arash feat.mp3",
+        cover: "other image/Arash feat.jpg",
+        category: "other"
+    },
+    {
         title: " Dharia Sugar",
         file: "other music/Dharia Sugar.mp3",
         cover: "other image/Dharia Sugar.jpg",
@@ -925,9 +931,9 @@ songs.push(
         category: "other"
     },
     {
-        title: " Jenifer Lopez - On The Floor",
-        file: "other music/Jenifer Lopez Feat.mp3",
-        cover: "other image/Jenifer Lopez Feat.jpg",
+        title: " Panido Barsa De",
+        file: "other music/Panido Barsa De.mp3",
+        cover: "other image/Panido Barsa De.webp",
         category: "other"
     }
 );
