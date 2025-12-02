@@ -890,8 +890,8 @@ function showCategoryNotification(category) {
 songs.push(
     {
         title: " With You - AP Dhillon",
-        file: "other music/Arash feat.mp3",
-        cover: "other image/Arash feat.jpg",
+        file: "other music/With You.mp3",
+        cover: "other image/With You.jpg",
         category: "other"
     },
     {
