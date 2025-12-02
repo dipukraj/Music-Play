@@ -913,9 +913,9 @@ songs.push(
         category: "other"
     },
     {
-        title: "Titliaan - Hardy Sandhu",
-        file: "other music/Titliaan - Hardy Sandhu.mp3",
-        cover: "other image/Titliaan - Hardy Sandhu.jpg",
+        title: " Jenifer Lopez - On The Floor",
+        file: "other music/Jenifer Lopez Feat.mp3",
+        cover: "other image/Jenifer Lopez Feat.jpg",
         category: "other"
     }
 );
