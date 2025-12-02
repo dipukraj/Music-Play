@@ -907,9 +907,9 @@ songs.push(
         category: "other"
     },
     {
-        title: "Sakhiyaan - Maninder Buttar",
-        file: "other music/Sakhiyaan - Maninder Buttar.mp3",
-        cover: "other image/Sakhiyaan - Maninder Buttar.jpg",
+        title: " Ellie Goulding - Love Me Like You Do",
+        file: "other music/Ellie Goulding.mp3",
+        cover: "other image/Ellie Goulding.jpg",
         category: "other"
     },
     {
