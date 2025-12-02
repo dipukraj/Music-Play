@@ -889,7 +889,7 @@ function showCategoryNotification(category) {
 // Add Punjabi songs to the 'other' category
 songs.push(
     {
-        title: " Arash Feat - Helena",
+        title: " With You - AP Dhillon",
         file: "other music/Arash feat.mp3",
         cover: "other image/Arash feat.jpg",
         category: "other"
