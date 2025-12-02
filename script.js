@@ -889,9 +889,9 @@ function showCategoryNotification(category) {
 // Add Punjabi songs to the 'other' category
 songs.push(
     {
-        title: "Lahore - Guru Randhawa",
-        file: "other music/Lahore - Guru Randhawa.mp3",
-        cover: "other image/Lahore - Guru Randhawa.jpg",
+        title: " Arash Feat - Helena",
+        file: "other music/Arash feat.mp3",
+        cover: "other image/Arash feat.jpg",
         category: "other"
     },
     {
