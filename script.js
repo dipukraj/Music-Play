@@ -917,6 +917,18 @@ songs.push(
         file: "other music/Jenifer Lopez Feat.mp3",
         cover: "other image/Jenifer Lopez Feat.jpg",
         category: "other"
+    },
+    {
+        title: " Serhat Durmus Hislerim - Rain Over Me",
+        file: "other music/Serhat Durmus Hislerim.mp3",
+        cover: "other image/Serhat Durmus Hislerim.jpg",
+        category: "other"
+    },
+    {
+        title: " Jenifer Lopez - On The Floor",
+        file: "other music/Jenifer Lopez Feat.mp3",
+        cover: "other image/Jenifer Lopez Feat.jpg",
+        category: "other"
     }
 );
 
