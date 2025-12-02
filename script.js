@@ -901,9 +901,9 @@ songs.push(
         category: "other"
     },
     {
-        title: "Diamond - Gurnam Bhullar",
-        file: "other music/Diamond - Gurnam Bhullar.mp3",
-        cover: "other image/Diamond - Gurnam Bhullar.jpg",
+        title: " Don Omar - Danza Kuduro",
+        file: "other music/Don Omar.mp3",
+        cover: "other image/Don Omar.webp",
         category: "other"
     },
     {
