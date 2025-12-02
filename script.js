@@ -895,9 +895,9 @@ songs.push(
         category: "other"
     },
     {
-        title: "Brown Munde - AP Dhillon",
-        file: "other music/Brown Munde - AP Dhillon.mp3",
-        cover: "other image/Brown Munde - AP Dhillon.jpg",
+        title: " Dharia Sugar",
+        file: "other music/Dharia Sugar.mp3",
+        cover: "other image/Dharia Sugar.jpg",
         category: "other"
     },
     {
