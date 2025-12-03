@@ -282,6 +282,12 @@ const songs = [
         cover: "old image/Ho Gaya Hai Tujhko.jpg",
         category: "old"
     },
+    {
+        title: " Ho Gaya Hai Tujhko To Pyar Sajna",
+        file: "old music/Ho Gaya Hai Tujhko.mp3",
+        cover: "old image/Ho Gaya Hai Tujhko.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
