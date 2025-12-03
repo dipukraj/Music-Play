@@ -352,8 +352,8 @@ const songs = [
     },
     {
         title: " Pyar Dilon Ka Mela Hai",
-        file: "romantic music/Ram Chahe Leela.mp3",
-        cover: "romantic image/Ram Chahe Leela.jpg",
+        file: "romantic music/Pyar Dilon Ka Mela Hai.mp3",
+        cover: "romantic image/Pyar Dilon Ka Mela Hai.jpg",
         category: "romantic"
     },
 
