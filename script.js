@@ -351,12 +351,12 @@ const songs = [
         category: "romantic"
     },
     {
-        title: " Ram Chahe Leela Chahe Ram",
+        title: " Pyar Dilon Ka Mela Hai",
         file: "romantic music/Ram Chahe Leela.mp3",
         cover: "romantic image/Ram Chahe Leela.jpg",
         category: "romantic"
     },
-    
+
     // Sad Songs
     {
         title: "Ae Dil Hai Mushkil",
