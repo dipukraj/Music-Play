@@ -283,7 +283,7 @@ const songs = [
         category: "old"
     },
     {
-        title: " Ho Gaya Hai Tujhko To Pyar Sajna",
+        title: " Qayamat Qayamat",
         file: "old music/Ho Gaya Hai Tujhko.mp3",
         cover: "old image/Ho Gaya Hai Tujhko.jpg",
         category: "old"
