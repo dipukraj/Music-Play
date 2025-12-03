@@ -284,8 +284,8 @@ const songs = [
     },
     {
         title: " Qayamat Qayamat",
-        file: "old music/Ho Gaya Hai Tujhko.mp3",
-        cover: "old image/Ho Gaya Hai Tujhko.jpg",
+        file: "old music/Qayamat Qayamat.mp3",
+        cover: "old image/Qayamat Qayamat.jpg",
         category: "old"
     },
 
