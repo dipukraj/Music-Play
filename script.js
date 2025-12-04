@@ -288,6 +288,12 @@ const songs = [
         cover: "old image/Qayamat Qayamat.jpg",
         category: "old"
     },
+    {
+        title: " Qayamat Qayamat",
+        file: "old music/Qayamat Qayamat.mp3",
+        cover: "old image/Qayamat Qayamat.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
