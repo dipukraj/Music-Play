@@ -291,7 +291,7 @@ const songs = [
     {
         title: "  ",
         file: "old music/Qayamat .mp3",
-        cover: "old image/Qayamat Qayamat.jpg",
+        cover: "old image/Qayamat .jpg",
         category: "old"
     },
 
