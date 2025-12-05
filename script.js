@@ -294,6 +294,12 @@ const songs = [
         cover: "old image/Meri Jawani Kisko Milegi.jpg",
         category: "old"
     },
+    {
+        title: "  Meri Jawani Kisko Milegi",
+        file: "old music/Meri Jawani Kisko Milegi.mp3",
+        cover: "old image/Meri Jawani Kisko Milegi.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
