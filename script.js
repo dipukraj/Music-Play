@@ -296,8 +296,8 @@ const songs = [
     },
     {
         title: " Teri Jawani Badi Mast Mast Hai",
-        file: "old music/Teri Jawani Badi Mast Mast Hai.mp3",
-        cover: "old image/Teri Jawani Badi Mast Mast Hai.jpg",
+        file: "old music/Teri jawani badi mast mast hai.mp3",
+        cover: "old image/Teri jawani badi mast mast hai.jpg",
         category: "old"
     },
 
