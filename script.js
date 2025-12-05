@@ -291,7 +291,7 @@ const songs = [
     {
         title: "  Meri Jawani Kisko Milegi",
         file: "old music/Meri Jawani Kisko Milegi.mp3",
-        cover: "old image/.jpg",
+        cover: "old image/Meri Jawani Kisko Milegi.jpg",
         category: "old"
     },
 
