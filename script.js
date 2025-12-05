@@ -295,7 +295,7 @@ const songs = [
         category: "old"
     },
     {
-        title: "  Meri Jawani Kisko Milegi",
+        title: " Teri Jawani Badi Mast Mast Hai",
         file: "old music/Meri Jawani Kisko Milegi.mp3",
         cover: "old image/Meri Jawani Kisko Milegi.jpg",
         category: "old"
