@@ -300,6 +300,12 @@ const songs = [
         cover: "old image/Teri jawani badi mast mast hai.jpg",
         category: "old"
     },
+    {
+        title: " Diwanon Se Poochho",
+        file: "old music/Diwanon Se Poochho.mp3",
+        cover: "old image/Diwanon Se Poochho.webp",
+        category: "old"
+    },
 
     // Romantic Songs
     {
