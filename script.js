@@ -215,9 +215,9 @@ const songs = [
         category: "new"
     },
     {
-        title: " Deewani Mastani",
-        file: "new music/Deewani Mastani.mp3",
-        cover: "new image/Deewani Mastani.jpg",
+        title: "Laal Pari",
+        file: "new music/Laal Pari.mp3",
+        cover: "new image/Laal Pari.jpg",
         category: "new"
     },
 
