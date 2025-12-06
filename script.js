@@ -185,33 +185,33 @@ const songs = [
         category: "new"
     },
     {
-        title: " Deewani Mastani",
-        file: "new music/Deewani Mastani.mp3",
-        cover: "new image/Deewani Mastani.jpg",
+        title: "Aayi Nai",
+        file: "new music/Aayi Nai.mp3",
+        cover: "new image/Aayi Nai.jpg",
         category: "new"
     },
     {
-        title: " Deewani Mastani",
-        file: "new music/Deewani Mastani.mp3",
-        cover: "new image/Deewani Mastani.jpg",
+        title: "Bijuria Sunny Sanskari Ki Tulsi Kumari",
+        file: "new music/Bijuria Sunny Sanskari Ki Tulsi Kumari.mp3",
+        cover: "new image/Bijuria Sunny Sanskari Ki Tulsi Kumari.jpg",
         category: "new"
     },
     {
-        title: " Deewani Mastani",
-        file: "new music/Deewani Mastani.mp3",
-        cover: "new image/Deewani Mastani.jpg",
+        title: "Mare Mehboob",
+        file: "new music/Mere Mehboob.mp3",
+        cover: "new image/Mere Mehboob.jpg",
         category: "new"
     },
     {
-        title: " Deewani Mastani",
-        file: "new music/Deewani Mastani.mp3",
-        cover: "new image/Deewani Mastani.jpg",
+        title: "Nasha",
+        file: "new music/Nasha.mp3",
+        cover: "new image/Nasha.jpg",
         category: "new"
     },
     {
-        title: " Deewani Mastani",
-        file: "new music/Deewani Mastani.mp3",
-        cover: "new image/Deewani Mastani.jpg",
+        title: "Pardesiya Param Sundari",
+        file: "new music/Pardesiya Param.mp3",
+        cover: "new image/Pardesiya Param.jpg",
         category: "new"
     },
     {
