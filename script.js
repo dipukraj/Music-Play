@@ -93,6 +93,13 @@ const songs = [
         cover: "90s image/Har Kisike Dil Mein Ek Ladki Ka Khayal Rehta Hai Song.jpg",
         category: "90s"
     },
+    {
+        title: "Na Kajre Ki Dhar",
+        file: "90s music/Na Kajre Ki Dhar.mp3",
+        cover: "90s image/Na Kajre Ki Dhar.jpg",
+        category: "90s"
+    },
+
     // New Songs
     {
         title: "Kesariya",
@@ -706,8 +713,6 @@ const songs = [
         cover: "krishna image/Krishnaya Vasudevaya.webp",
         category: "krishna"
     }
-
-
 ];
 
 let index = 0;
@@ -995,6 +1000,12 @@ songs.push(
         title: " Serhat Durmus Hislerim - Rain Over Me",
         file: "other music/Serhat Durmus Hislerim.mp3",
         cover: "other image/Serhat Durmus Hislerim.jpg",
+        category: "other"
+    },
+    {
+        title: " Panido Barsa De",
+        file: "other music/Panido Barsa De.mp3",
+        cover: "other image/Panido Barsa De.webp",
         category: "other"
     },
     {
