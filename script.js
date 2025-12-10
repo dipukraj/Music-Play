@@ -423,6 +423,12 @@ const songs = [
         cover: "romantic image/Pyar Dilon Ka Mela Hai.jpg",
         category: "romantic"
     },
+    {
+        title: "Jug Jug Jeeve",
+        file: "romantic music/Jug Jug Jeeve.mp3",
+        cover: "romantic image/Jug Jug Jeeve.jpg",
+        category: "romantic"
+    },
 
     // Sad Songs
     {
@@ -1009,9 +1015,9 @@ songs.push(
         category: "other"
     },
     {
-        title: " Panido Barsa De",
-        file: "other music/Panido Barsa De.mp3",
-        cover: "other image/Panido Barsa De.webp",
+        title: " Laung Laachi",
+        file: "other music/Laung Laachi.mp3",
+        cover: "other image/Laung Laachi.webp",
         category: "other"
     }
 );
