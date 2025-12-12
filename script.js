@@ -439,8 +439,8 @@ const songs = [
     },
     {
         title: " Mere Sapnon Ka Woh Raja",
-        file: "romantic music/Jug Jug Jeeve.mp3",
-        cover: "romantic image/Jug Jug Jeeve.jpg",
+        file: "romantic music/Mere Sapnon Ka Woh Raja.mp3",
+        cover: "romantic image/ .jpg",
         category: "romantic"
     },
 
