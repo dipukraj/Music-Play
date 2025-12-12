@@ -508,7 +508,7 @@ const songs = [
     {
         title: " Khali Dil Nahi Jaan Bhi",
         file: "sad music/Khali Dil Nahi Jaan Bhi.mp3",
-        cover: "sad image/Tere Ishq Mein Pagal.jpg",
+        cover: "sad image/Khali Dil Nahi Jaan Bhi.jpg",
         category: "sad"
     },
 
