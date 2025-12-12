@@ -505,6 +505,12 @@ const songs = [
         cover: "sad image/Tere Ishq Mein Pagal.jpg",
         category: "sad"
     },
+    {
+        title: " Khali Dil Nahi Jaan Bhi",
+        file: "sad music/Tere Ishq Mein Pagal.mp3",
+        cover: "sad image/Tere Ishq Mein Pagal.jpg",
+        category: "sad"
+    },
 
     // Bhojpuri Songs
     {
