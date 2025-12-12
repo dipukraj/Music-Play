@@ -440,7 +440,7 @@ const songs = [
     {
         title: " Mere Sapnon Ka Woh Raja",
         file: "romantic music/Mere Sapnon Ka Woh Raja.mp3",
-        cover: "romantic image/ .jpg",
+        cover: "romantic image/Mere Sapnon Ka Woh Raja.jpg",
         category: "romantic"
     },
 
