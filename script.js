@@ -443,6 +443,12 @@ const songs = [
         cover: "romantic image/Mere Sapnon Ka Woh Raja.jpg",
         category: "romantic"
     },
+    {
+        title: " Hum Tumko Nigahon Mein",
+        file: "romantic music/Hum Tumko Nigahon Mein.mp3",
+        cover: "romantic image/Hum Tumko Nigahon Mein.webp",
+        category: "romantic"
+    },
 
     // Sad Songs
     {
@@ -509,6 +515,18 @@ const songs = [
         title: " Khali Dil Nahi Jaan Bhi",
         file: "sad music/Khali Dil Nahin Jaan Bhi.mp3",
         cover: "sad image/Khali Dil Nahi Jaan Bhi.jpg",
+        category: "sad"
+    },
+    {
+        title: " Bewajah",
+        file: "sad music/Bewajah.mp3",
+        cover: "sad image/Bewajah.jpg",
+        category: "sad"
+    },
+    {
+        title: " Humnava Mere",
+        file: "sad music/Humnava Mere.mp3",
+        cover: "sad image/Humnava Mere.jpg",
         category: "sad"
     },
 
