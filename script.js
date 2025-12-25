@@ -529,6 +529,12 @@ const songs = [
         cover: "sad image/Humnava Mere.jpg",
         category: "sad"
     },
+    {
+        title: " Humnava Mere",
+        file: "sad music/Humnava Mere.mp3",
+        cover: "sad image/Humnava Mere.jpg",
+        category: "sad"
+    },
 
     // Bhojpuri Songs
     {
