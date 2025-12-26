@@ -449,6 +449,12 @@ const songs = [
         cover: "romantic image/Hum Tumko Nigahon Mein.webp",
         category: "romantic"
     },
+    {
+        title: " Teri Chunnariya",
+        file: "romantic music/Teri Chunnariya.mp3",
+        cover: "romantic image/Teri Chunnariya.jpg",
+        category: "romantic"
+    },
 
     // Sad Songs
     {
