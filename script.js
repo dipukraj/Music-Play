@@ -865,6 +865,8 @@ function playNextSong() {
     loadSong(index);
     audio.play();
     playBtn.textContent = "⏸️";
+    // Update song card states
+    updateSongCardStates();
 }
 
 // Play the next song when the current one ends
@@ -880,6 +882,8 @@ playBtn.onclick = () => {
         audio.pause();
         playBtn.textContent = "▶️";
     }
+    // Update song card states
+    updateSongCardStates();
 };
 
 nextBtn.onclick = () => {
@@ -888,6 +892,8 @@ nextBtn.onclick = () => {
     loadSong(index);
     audio.play();
     playBtn.textContent = "⏸️";
+    // Update song card states
+    updateSongCardStates();
 };
 
 prevBtn.onclick = () => {
@@ -896,6 +902,8 @@ prevBtn.onclick = () => {
     loadSong(index);
     audio.play();
     playBtn.textContent = "⏸️";
+    // Update song card states
+    updateSongCardStates();
 };
 
 audio.ontimeupdate = () => {
@@ -985,7 +993,13 @@ dropdownItems.forEach(item => {
     item.addEventListener('click', (e) => {
         e.stopPropagation();
         const category = item.dataset.category;
+        
+        // Show song grid instead of filtering
+        showSongGrid(category);
+        
+        // Also update the current playlist for normal playback
         filterSongsByCategory(category);
+        
         playlistDropdown.classList.remove('show');
 
         // Show notification
@@ -1012,6 +1026,127 @@ function showCategoryNotification(category) {
 
     // You can add a toast notification here if needed
     console.log(`Switched to: ${categoryNames[category]} (${currentPlaylist.length} songs)`);
+}
+
+// Song Grid Functionality
+const songGridContainer = document.getElementById('song-grid-container');
+const songGrid = document.getElementById('song-grid');
+const gridTitle = document.getElementById('grid-title');
+const closeGridBtn = document.getElementById('close-grid');
+
+// Show song grid for category
+function showSongGrid(category) {
+    const categoryNames = {
+        'all': 'All Songs',
+        '80s': '80s Dasak',
+        '90s': '90s Dasak',
+        'new': 'New Songs',
+        'old': 'Old Songs',
+        'romantic': 'Romantic Songs',
+        'sad': 'Sad Songs',
+        'bhojpuri': 'Bhojpuri Songs',
+        'bhakti': 'Bhakti Songs',
+        'mahadev': 'Mahadev Songs',
+        'krishna': 'Krishna Songs',
+        'other': 'Other Songs'
+    };
+
+    // Filter songs for the selected category
+    let filteredSongs;
+    if (category === 'all') {
+        filteredSongs = songs;
+    } else {
+        filteredSongs = songs.filter(song => song.category === category);
+    }
+
+    // Update grid title
+    gridTitle.textContent = `${categoryNames[category]} (${filteredSongs.length} songs)`;
+
+    // Clear existing grid
+    songGrid.innerHTML = '';
+
+    // Create song cards
+    filteredSongs.forEach((song, songIndex) => {
+        const card = document.createElement('div');
+        card.className = 'song-card';
+        if (audio.src.endsWith(song.file) && !audio.paused) {
+            card.classList.add('playing');
+        }
+
+        card.innerHTML = `
+            <div class="play-indicator">▶</div>
+            <img src="${song.cover}" alt="${song.title}" class="song-card-cover" onerror="this.src='image/image cover.jpg'">
+            <h4 class="song-card-title">${song.title}</h4>
+        `;
+
+        // Add click event to play song
+        card.addEventListener('click', () => {
+            // Find the index of this song in the current playlist
+            const playlistIndex = currentPlaylist.findIndex(s => s.file === song.file);
+            if (playlistIndex !== -1) {
+                index = playlistIndex;
+                loadSong(index);
+                audio.play();
+                playBtn.textContent = "⏸️";
+                
+                // Update active states
+                updateSongCardStates();
+                updateSongListStates();
+            }
+        });
+
+        songGrid.appendChild(card);
+    });
+
+    // Show the grid
+    songGridContainer.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+// Update song card active states
+function updateSongCardStates() {
+    const cards = document.querySelectorAll('.song-card');
+    cards.forEach(card => {
+        card.classList.remove('playing', 'active');
+        const cardCover = card.querySelector('.song-card-cover');
+        if (cardCover && audio.src.endsWith(cardCover.src.split('/').pop()) && !audio.paused) {
+            card.classList.add('playing');
+        }
+    });
+}
+
+// Close song grid
+function closeSongGrid() {
+    songGridContainer.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Event listeners for grid
+closeGridBtn.addEventListener('click', closeSongGrid);
+
+// Close grid when clicking outside (on the background)
+songGridContainer.addEventListener('click', (e) => {
+    if (e.target === songGridContainer) {
+        closeSongGrid();
+    }
+});
+
+// Close grid with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && songGridContainer.classList.contains('show')) {
+        closeSongGrid();
+    }
+});
+
+// Update song list states function
+function updateSongListStates() {
+    const songListItems = document.querySelectorAll('#song-list li');
+    songListItems.forEach((item, i) => {
+        item.classList.remove('active');
+        if (i === index) {
+            item.classList.add('active');
+        }
+    });
 }
 
 // Add Punjabi songs to the 'other' category
