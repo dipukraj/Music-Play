@@ -850,6 +850,163 @@ const songs = [
         cover: "bhojpuriimage/Tharmamiter.jpg",
         category: "bhojpuri"
     },
+    {
+        title: "Apne Lover Ko Dhokha Do",
+        file: "bhojpurimusic/Apne Lover Ko Dhokha Do.mp3",
+        cover: "bhojpuriimage/Apne Labhar Ko Dhokha Do.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Heroine",
+        file: "bhojpurimusic/Heroine.mp3",
+        cover: "bhojpuriimage/Heroine.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Kamar Me Pareshani Ba",
+        file: "bhojpurimusic/Kamar Me Pareshani Ba.mp3",
+        cover: "bhojpuriimage/Kamar Me Pareshani Ba.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Kamariya Dole Dole",
+        file: "bhojpurimusic/Kamariya Dole Dole.mp3",
+        cover: "bhojpuriimage/Kamariya Dole Dole.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Pagli Dekhave Agarbatti",
+        file: "bhojpurimusic/Pagli Dekhave Agarbatti.mp3",
+        cover: "bhojpuriimage/Pagli Dekhave Agarbatti.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Piyar Farak Wali",
+        file: "bhojpurimusic/Piyar Farak Wali.mp3",
+        cover: "bhojpuriimage/Piyar Farak Wali.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Raate Diya Butake",
+        file: "bhojpurimusic/Raate Diya Butake.mp3",
+        cover: "bhojpuriimage/Rate Diya Butake.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Tut Jai Palang Raja Ji",
+        file: "bhojpurimusic/Tut Jai Palang Raja Ji.mp3",
+        cover: "bhojpuriimage/Tut Jai Palang Raja Ji.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Kamar Kare Lach Lach",
+        file: "bhojpurimusic/Kamar Kare Lach Lach Lach.mp3",
+        cover: "bhojpuriimage/Kamar Kare Lach Lach.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Rajaji Ke Dilwa",
+        file: "bhojpurimusic/Raja Ji Ke Dilwa.mp3",
+        cover: "bhojpuriimage/Rajaji Ke Dilwa.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Nach Re Patarki Nagin Jaisan",
+        file: "bhojpurimusic/Naach Re Patarki.mp3",
+        cover: "bhojpuriimage/Nach Re Patarki Nagin Jaisan.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Hari Hari Odhani",
+        file: "bhojpurimusic/Hari Hari Odhani.mp3",
+        cover: "bhojpuriimage/Hari Hari Odhani.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Chadhal Jawani Rasgulla",
+        file: "bhojpurimusic/Chadhal Jawani Rasgulla.mp3",
+        cover: "bhojpuriimage/Chadhal Jawani Rasgulla.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Nathuniya Pe Goli Maare",
+        file: "bhojpurimusic/Nathuniya Pe Goli Maare.mp3",
+        cover: "bhojpuriimage/Nathuniya Pe Goli Maare.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Bullet Pa Jija",
+        file: "bhojpurimusic/Bullet Pa Jija.mp3",
+        cover: "bhojpuriimage/Bullet Pa Jija.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Lal Ghaghra",
+        file: "bhojpurimusic/Laal Ghaghra.mp3",
+        cover: "bhojpuriimage/Lal Ghaghra.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Maaja Milela Na Pura",
+        file: "bhojpurimusic/Maaja Milela Na Pura.mp3",
+        cover: "bhojpuriimage/Maaja Milela Na Pura.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Nimbu Kharbuja Bhail",
+        file: "bhojpurimusic/Nimbu Kharbuja Bhail.mp3",
+        cover: "bhojpuriimage/Nimbu Kharbuja Bhail.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Sent Gamkauwa",
+        file: "bhojpurimusic/Sent Gamkauwa.mp3",
+        cover: "bhojpuriimage/Sent Gamkauwa.webp",
+        category: "bhojpuri"
+    },
+    {
+        title: "Sorry Sorry",
+        file: "bhojpurimusic/Sorry Sorry.mp3",
+        cover: "bhojpuriimage/Sorry Sorry.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Nathuniya",
+        file: "bhojpurimusic/Nathuniya.mp3",
+        cover: "bhojpuriimage/Nathuniya.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Sadiya",
+        file: "bhojpurimusic/Sadiya.mp3",
+        cover: "bhojpuriimage/Sadiya.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Laundiya London Se Layenge",
+        file: "bhojpurimusic/Laundiya London Se Layenge.mp3",
+        cover: "bhojpuriimage/Laundiya London Se Layenge.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Bam Lagatara",
+        file: "bhojpurimusic/Bam Lagatara.mp3",
+        cover: "bhojpuriimage/Bam Lagatara.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Kamariya Gole Gole Dole",
+        file: "bhojpurimusic/Kamariya Gole Gole Dole.mp3",
+        cover: "bhojpuriimage/Kamariya Gole Gole Dole.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Chapra Ke Boss",
+        file: "bhojpurimusic/Chapra Ke Boss.mp3",
+        cover: "bhojpuriimage/Chapra Ke Boss.webp",
+        category: "bhojpuri"
+    },
+
     // Bhakti Songs
     {
         title: "Hanuman Chalisa",
