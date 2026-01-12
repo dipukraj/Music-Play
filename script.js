@@ -455,6 +455,193 @@ const songs = [
         cover: "romantic image/Teri Chunnariya.jpg",
         category: "romantic"
     },
+    {
+        title: "Hookah Bar Khiladi 786",
+        file: "romantic music/Hookah Bar Khiladi 786.mp3",
+        cover: "romantic image/Hookah Bar Khiladi 786.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Saturday Saturday Humpty Sharma Ki Dulhania",
+        file: "romantic music/Saturday Saturday Humpty Sharma Ki Dulhania.mp3",
+        cover: "romantic image/Saturday Saturday Humpty Sharma Ki Dulhania.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Tamma Tamma Again Badrinath Ki Dulhania",
+        file: "romantic music/Tamma Tamma Again Badrinath Ki Dulhania.mp3",
+        cover: "romantic image/Tamma Tamma Again Badrinath Ki Dulhania.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Afghan Jalebi Ya Baba Phantom",
+        file: "romantic music/Afghan Jalebi Ya Baba Phantom.mp3",
+        cover: "romantic image/Afghan Jalebi Ya Baba Phantom.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Bom Diggy Diggy Sonu Ke Titu Ki Sweety",
+        file: "romantic music/Bom Diggy Diggy Sonu Ke Titu Ki Sweety.mp3",
+        cover: "romantic image/Bom Diggy Diggy Sonu Ke Titu Ki Sweety.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Dilbar Satyameva Jayate",
+        file: "romantic music/Dilbar Satyameva Jayate.mp3",
+        cover: "romantic image/Dilbar Satyameva Jayate.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Gali Gali Mein Phirta Hai",
+        file: "romantic music/Gali Gali.mp3",
+        cover: "romantic image/Gali Gali.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Cheez Badi Machine",
+        file: "romantic music/Cheez Badi Machine.mp3",
+        cover: "romantic image/Cheez Badi Machine.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Radha Student Of The Year",
+        file: "romantic music/Radha Student Of The Year.mp3",
+        cover: "romantic image/Radha Student Of The Year.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Mujhse Shaadi Karogi Dulhan Hum Le Jayenge",
+        file: "romantic music/Mujhse Shaadi Karogi Dulhan Hum Le Jayenge.mp3",
+        cover: "romantic image/Mujhse Shaadi Karogi Dulhan Hum Le Jayenge.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Dulhan Hum Le Jayenge",
+        file: "romantic music/Dulhan Hum Le Jayenge.mp3",
+        cover: "romantic image/Dulhan Hum Le Jayenge.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Ek Ladki Chahiye Khas Khas",
+        file: "romantic music/Ek Ladki Chahiye Khas Khas.mp3",
+        cover: "romantic image/Ek Ladki Chahiye Khas Khas.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Har Dil Jo Pyar Karega",
+        file: "romantic music/Har Dil Jo Pyar Karega.mp3",
+        cover: "romantic image/Har Dil Jo Pyar Karega.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Tumse Milke Dil Ka",
+        file: "romantic music/Tumse Milke Dil Ka.mp3",
+        cover: "romantic image/Tumse Milke Dil Ka.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Odhani Odh Ke Nachu",
+        file: "romantic music/Odhani Odh Ke Nachu.mp3",
+        cover: "romantic image/Odhani Odh Ke Nachu.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Sajan Tumse Pyar",
+        file: "romantic music/Sajan Tumse Pyar.mp3",
+        cover: "romantic image/Sajan Tumse Pyar.webp",
+        category: "romantic"
+    },
+    {
+        title: "Mujhse Mohabbat Ka Izhaar Karta",
+        file: "romantic music/Mujhse Mohabbat Ka Izhaar Karta.mp3",
+        cover: "romantic image/Mujhse Mohabbat Ka Izhaar Karta.jpg",
+        category: "romantic"
+    },
+    {
+        title: " Lal Dupatta",
+        file: "romantic music/Lal Dupatta.mp3",
+        cover: "romantic image/Lal Dupatta.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Chhoti Chhoti Raatein",
+        file: "romantic music/Chhoti Chhoti Raatein.mp3",
+        cover: "romantic image/Chhoti Chhoti Raatein.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Dil Na Diya",
+        file: "romantic music/Dil Na Diya.mp3",
+        cover: "romantic image/Dil Na Diya.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Mera Man Kun Tum Chahe",
+        file: "romantic music/Mera Man Kun Tum Chahe.mp3",
+        cover: "romantic image/Mera Man Kun Tum Chahe.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Main Yahaan Hoon",
+        file: "romantic music/Main Yahaan Hoon.mp3",
+        cover: "romantic image/Main Yahaan Hoon.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Chunnari Chunnari",
+        file: "romantic music/Chunnari Chunnari.mp3",
+        cover: "romantic image/Chunnari Chunnari.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Jaanam Samjha Karo",
+        file: "romantic music/Jaanam Samjha Karo.mp3",
+        cover: "romantic image/Jaanam Samjha Karo.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Ladki Badi Anjani Hai",
+        file: "romantic music/Ladki Badi Anjani Hai.mp3",
+        cover: "romantic image/Ladki Badi Anjani Hai.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Aye Meri Natkhati College Ki Ladkiyon",
+        file: "romantic music/Aye Meri Natkhati College Ki Ladkiyon.mp3",
+        cover: "romantic image/Aye Meri Natkhati College Ki Ladkiyon.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Saat Samundar Paar Main Tere",
+        file: "romantic music/Saat Samundar Paar Main Tere.mp3",
+        cover: "romantic image/Saat Samundar Paar Main Tere.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Mohabbat Dil Ka Sakoon Hai Aitbaar",
+        file: "romantic music/Mohabbat Dil Ka Sakoon Hai Aitbaar.mp3",
+        cover: "romantic image/Mohabbat Dil Ka Sakoon Hai Aitbaar.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Daiya Daiya Daiya Re Dil Ka Rishta",
+        file: "romantic music/Daiya Daiya Daiya Re Dil Ka Rishta.mp3",
+        cover: "romantic image/Daiya Daiya Daiya Re Dil Ka Rishta.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Mohabbat Ki Nahi Jati",
+        file: "romantic music/Mohabbat Ki Nahi Jati.mp3",
+        cover: "romantic image/Mohabbat Ki Nahi Jati.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Tere Pyar Mein Main Marjawan",
+        file: "romantic music/Tere Pyar Mein Main Marjawan.mp3",
+        cover: "romantic image/Tere Pyar Mein Main Marjawan.jpg",
+        category: "romantic"
+    },
+     
 
     // Sad Songs
     {
@@ -539,6 +726,24 @@ const songs = [
         title: " Humnava Mere",
         file: "sad music/Humnava Mere.mp3",
         cover: "sad image/Humnava Mere.jpg",
+        category: "sad"
+    },
+    {
+        title: "O Dil Tod Ke Hansti Ho Mera Bewafa Sanam",
+        file: "sad music/O Dil Tod Ke Hansti Ho Mera Bewafa Sanam.mp3",
+        cover: "sad image/O Dil Tod Ke Hansti Ho Mera Bewafa Sanam.jpg",
+        category: "sad"
+    },
+    {
+        title: "Tujhse Bichhad Kar Zinda Hain",
+        file: "sad music/Tujhse Bichhad Kar Zinda Hain.mp3",
+        cover: "sad image/Tujhse Bichhad Kar Zinda Hain.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
+        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
+        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
         category: "sad"
     },
 
