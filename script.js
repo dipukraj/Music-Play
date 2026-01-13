@@ -1,5 +1,23 @@
 const songs = [
     {
+        title: "Humko Humise Chura Lo Mohabbatein",
+        file: "music/Humko Humise Chura Lo Mohabbatein.mp3",
+        cover: "image/Humko Humise Chura Lo Mohabbatein.jpg",
+        category: "90s"
+    },
+    {
+        title: "Diwana Hai Ye Man Chori Chori Chupke Chupke",
+        file: "90S music/Diwana Hai Ye Man Chori Chori Chupke Chupke.mp3",
+        cover: "90S image/Diwana Hai Ye Man Chori Chori Chupke Chupke.jpg",
+        category: "90s"
+    },
+    {
+        title: "Meri Tarah Tum Bhi Kabhi",
+        file: "music/Meri Tarah Tum Bhi.mp3",
+        cover: "image/Meri Tarah Tum Bhi.jpg",
+        category: "90s"
+    },
+    {
         title: "Ishq Samundar Kaante",
         file: "music/Ishq Samundar Kaante 128 Kbps.mp3",
         cover: "image/ishq samunder.jpg",
@@ -233,6 +251,30 @@ const songs = [
         title: "Laal Pari",
         file: "new music/Laal Pari.mp3",
         cover: "new image/Laal Pari.jpg",
+        category: "new"
+    },
+    {
+        title: "Gehra Hua Dhurandhar",
+        file: "new music/Gehra Hua Dhurandhar.mp3",
+        cover: "new image/Gehra Hua Dhurandhar.jpg",
+        category: "new"
+    },
+    {
+        title: "Ishq Jalakar Dhurandhar",
+        file: "new music/Ishq Jalakar Dhurandhar.mp3",
+        cover: "new image/Ishq Jalakar Dhurandhar.jpg",
+        category: "new"
+    },
+    {
+        title: "Lutt Le Gaya Dhurandhar",
+        file: "new music/Lutt Le Gaya Dhurandhar.mp3",
+        cover: "new image/Lutt Le Gaya Dhurandhaar.jpg",
+        category: "new"
+    },
+    {
+        title: "Shararat Dhurandhar",
+        file: "new music/Shararat dhurandhar.mp3",
+        cover: "new image/Shararat dhurandhar.jpg",
         category: "new"
     },
 
