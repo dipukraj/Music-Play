@@ -776,6 +776,12 @@ const songs = [
         cover: "sad image/Bhooli Bisri Ek Kahani Nagina.jpg",
         category: "sad"
     },
+    {
+        title: "Hamari Adhuri Kahani",
+        file: "sad music/Hamari Adhuri Kahani.mp3",
+        cover: "sad image/Hamari Adhuri Kahani.webp",
+        category: "sad"
+    },
 
     // Bhojpuri Songs
     {
