@@ -771,9 +771,9 @@ const songs = [
         category: "sad"
     },
     {
-        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
-        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
-        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
+        title: "Bhooli Bisri Ek Kahani Nagina",
+        file: "sad music/Bhooli Bisri Ek Kahani Nagina.mp3",
+        cover: "sad image/Bhooli Bisri Ek Kahani Nagina.jpg",
         category: "sad"
     },
 
