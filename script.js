@@ -765,9 +765,9 @@ const songs = [
         category: "sad"
     },
     {
-        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
-        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
-        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
+        title: "Zindagi Ki Na Toote Ladi Kranti",
+        file: "sad music/Zindagi Ki Na Toote Ladi Kranti.mp3",
+        cover: "sad image/Zindagi Ki Na Toote Ladi Kranti.jpg",
         category: "sad"
     },
     {
