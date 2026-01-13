@@ -746,6 +746,36 @@ const songs = [
         cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
         category: "sad"
     },
+    {
+        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
+        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
+        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
+        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
+        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
+        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
+        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
+        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
+        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge",
+        file: "sad music/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.mp3",
+        cover: "sad image/Dil Phir Bhi Tumhe Dete Hain Kya Yaad Karoge.jpg",
+        category: "sad"
+    },
 
     // Bhojpuri Songs
     {
