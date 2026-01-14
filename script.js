@@ -683,6 +683,12 @@ const songs = [
         cover: "romantic image/Tere Pyar Mein Main Marjawan.jpg",
         category: "romantic"
     },
+    {
+        title: "Kaho Naa Pyar Hai",
+        file: "romantic music/Kaho Naa Pyar Hai.mp3",
+        cover: "romantic image/Kaho Naa Pyaar Hai.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
