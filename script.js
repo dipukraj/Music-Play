@@ -689,6 +689,30 @@ const songs = [
         cover: "romantic image/Kaho Naa Pyaar Hai.jpg",
         category: "romantic"
     },
+    {
+        title: "Aaj Unse Milne Hai Prem Ratan Dhan Payo",
+        file: "romantic music/Aaj Unse Milna Hai Prem Ratan Dhan Payo.mp3",
+        cover: "romantic image/Aaj Unse Milna Hai Prem Ratan Dhan Payo.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Chand Chhupa Badal Mein Hum Dil De Chuke Sanam",
+        file: "romantic music/Chand Chhupa Badal Mein Hum Dil De Chuke Sanam.mp3",
+        cover: "romantic image/Chand Chhupa Badal Mein Hum Dil De Chuke Sanam.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Gore Gore Mukhde Pe Kala Kala Chasma Suhaag",
+        file: "romantic music/Gore Gore Mukhde Pe Kala Kala Chasma Suhaag.mp3",
+        cover: "romantic image/Gore Gore Mukhde Pe Kala Kala Chasma Suhaag.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Tinku Jiya Yamla Pagla Deewana",
+        file: "romantic music/Tinku Jiya Yamla Pagla Deewana.mp3",
+        cover: "romantic image/Tinku Jiya Yamla Pagla Deewana.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
@@ -866,6 +890,134 @@ const songs = [
         cover: "sad image/Kyo Kisi Ko Tere Naam.jpg",
         category: "sad"
     },
+    {
+        title: "Tadap Tadap Ke",
+        file: "sad music/Tadap Tadap Ke.mp3",
+        cover: "sad image/Tadap Tadap Ke.jpg",
+        category: "sad"
+    },
+    {
+        title: "Aur Iss Dil Mein Kya Rakha Hai",
+        file: "sad music/Aur Iss Dil Mein Kya Rakha Hai.mp3",
+        cover: "sad image/Aur Iss Dil Mein Kya Rakha Hai.jpg",
+        category: "sad"
+    },
+    {
+        title: "Achchha Sila Diya Toone Mere Pyar Ka Bewafa Sanam",
+        file: "sad music/Achchha Sila Diya Toone Mere Pyar Ka Bewafa Sanam.mp3",
+        cover: "sad image/Achchha Sila Diya Toone Mere Pyar Ka Bewafa Sanam.jpg",
+        category: "sad"
+    },
+    {
+        title: "Pyar Jhutha Sahi Duniya Ko Dikhane Aaja",
+        file: "sad music/Pyar Jhutha Sahi Duniya Ko Dikhane Aaja.mp3",
+        cover: "sad image/Pyar Jhutha Sahi Duniya Ko Dikhane Aaja.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Ki Jo Maanu To Jag Rooth Jaye",
+        file: "sad music/Dil Ki Jo Maanu To Jag Rooth Jaye.mp3",
+        cover: "sad image/Dil Ki Jo Maanu To Jag Rooth Jaye.jpg",
+        category: "sad"
+    },
+    {
+        title: "Har Kadam Par Koyi Katil Hai",
+        file: "sad music/Har Kadam Par Koi Katil Hai.mp3",
+        cover: "sad image/Har Kadam Par Koyi Katil Hai.jpg",
+        category: "sad"
+    },
+    {
+        title: "O Priya Priya Dil",
+        file: "sad music/O Priya Priya Dil.mp3",
+        cover: "sad image/O Priya Priya Dil.jpg",
+        category: "sad"
+    },
+    {
+        title: "Shishe Ki Umar Prem Pratigyaa",
+        file: "sad music/Shishe Ki Umar Prem Pratigyaa.mp3",
+        cover: "sad image/Shishe Ki Umar Prem Pratigyaa.jpg",
+        category: "sad"
+    },
+    {
+        title: "Zindagi Ki Talash Mein Saathi",
+        file: "sad music/Zindagi Ki Talash Mein Saathi.mp3",
+        cover: "sad image/Zindagi Ki Talash Mein Saathi.jpg",
+        category: "sad"
+    },
+    {
+        title: "Salame Ishq Meri Jaan Muqaddar Ka Sikandar",
+        file: "sad music/Salame Ishq Meri Jaan Muqaddar Ka Sikandar.mp3",
+        cover: "sad image/Salame Ishq Meri Jaan Muqaddar Ka Sikandar.jpg",
+        category: "sad"
+    },
+    {
+        title: "Mujhe Naulakha Manga De Re O Saiya Deewane",
+        file: "sad music/Mujhe Naulakha Manga De Re O Saiya Deewane.mp3",
+        cover: "sad image/Mujhe Naulakha Manga De Re O Saiya Deewane.jpg",
+        category: "sad"
+    },
+    {
+        title: "Ek Radha Ek Meera",
+        file: "sad music/Ek Radha Ek Meera.mp3",
+        cover: "sad image/Ek Radha Ek Meera.jpg",
+        category: "sad"
+    },
+    {
+        title: "To Chaloon Border",
+        file: "sad music/To Chaloon Border.mp3",
+        cover: "sad image/To Chaloon Border.jpg",
+        category: "sad"
+    },
+    {
+        title: "Der Na Ho Jaye Kahin Bikhre Moti",
+        file: "sad music/Der Na Ho Jaye Kahin Bikhre Moti.mp3",
+        cover: "sad image/Der Na Ho Jaye Kahin Bikhre Moti.jpg",
+        category: "sad"
+    },
+    {
+        title: "Nayak Nahi Khalnayak Hoon Main",
+        file: "sad music/Nayak Nahi Khalnayak Hoon Main.mp3",
+        cover: "sad image/Nayak Nahi Khalnayak Hoon Main.jpg",
+        category: "sad"
+    },
+    {
+        title: "Shaam Hai Dhuaan Dhuaan",
+        file: "sad music/Shaam Hai Dhuaan Dhuaan.mp3",
+        cover: "sad image/Shaam Hai Dhuaan Dhuaan.jpg",
+        category: "sad"
+    },
+    {
+        title: "Tu Naa Jaa Mere Badshah",
+        file: "sad music/Tu Naa Jaa Mere Badshah.mp3",
+        cover: "sad image/Tu Naa Jaa Mere Badshah.webp",
+        category: "sad"
+    },
+    {
+        title: "Ramta Jogi Taal",
+        file: "sad music/Ramta Jogi Taal.mp3",
+        cover: "sad image/Ramta Jogi Taal.jpg",
+        category: "sad"
+    },
+    {
+        title: "Laga Laga Re",
+        file: "sad music/Laga Laga Re.mp3",
+        cover: "sad image/Laga Laga Re.jpg",
+        category: "sad"
+    },
+    {
+        title: "Chaahton Ki Duniya Mein Dekh Aisa Hota Hai Kya Yehi Pyaar Hai",
+        file: "sad music/Chaahton Ki Duniya Mein Dekh Aisa Hota Hai Kya Yehi Pyaar Hai.mp3",
+        cover: "sad image/Chaahton Ki Duniya Mein Dekh Aisa Hota Hai Kya Yehi Pyaar Hai.jpg",
+        category: "sad"
+    },
+    {
+        title: "Ishq Na Karna Ishq Na Karna",
+        file: "sad music/Ishq Na Karna Ishq Na Karna.mp3",
+        cover: "sad image/Ishq Na Karna Ishq Na Karna.jpg",
+        category: "sad"
+    },
+
+ 
 
     // Bhojpuri Songs
     {
