@@ -831,33 +831,33 @@ const songs = [
         category: "sad"
     },
     {
-        title: "Hamari Adhuri Kahani",
-        file: "sad music/Hamari Adhuri Kahani.mp3",
-        cover: "sad image/Hamari Adhuri Kahani.webp",
+        title: "Tu Befafa Hai Jo Main Jaan Jata Tujhse Bhi Dil Na Lagata",
+        file: "sad music/Tu Bewafa Hai Jo Main Jaan Jata Tujhse Kabhi Bhi Dil Na Lagata.mp3",
+        cover: "sad image/Tu Bewafa Hai Jo Main Jaan Jata Tujhse Kabhi Bhi Dil Na Lagata.jpg",
         category: "sad"
     },
     {
-        title: "Hamari Adhuri Kahani",
-        file: "sad music/Hamari Adhuri Kahani.mp3",
-        cover: "sad image/Hamari Adhuri Kahani.webp",
+        title: "Mat Ro Mere Dil Aayee Milan Ki Raat",
+        file: "sad music/Mat Ro Mere Dil Aayee Milan Ki Raat.mp3",
+        cover: "sad image/Mat Ro Mere Dil Aayee Milan Ki Raat.jpg",
         category: "sad"
     },
     {
-        title: "Hamari Adhuri Kahani",
-        file: "sad music/Hamari Adhuri Kahani.mp3",
-        cover: "sad image/Hamari Adhuri Kahani.webp",
+        title: "Kasam Se Kasam Se",
+        file: "sad music/Kasam Se Kasam Se.mp3",
+        cover: "sad image/Kasam Se Kasam Se.webp",
         category: "sad"
     },
     {
-        title: "Hamari Adhuri Kahani",
-        file: "sad music/Hamari Adhuri Kahani.mp3",
-        cover: "sad image/Hamari Adhuri Kahani.webp",
+        title: "Kasam Se Kasam Se Aayee Milan Ki Raat",
+        file: "sad music/Kasam Se Kasam Se Aayee Milan Ki Raat.mp3",
+        cover: "sad image/Kasam Se Kasam Se Aayee Milan Ki Raat.jpg",
         category: "sad"
     },
     {
-        title: "Hamari Adhuri Kahani",
-        file: "sad music/Hamari Adhuri Kahani.mp3",
-        cover: "sad image/Hamari Adhuri Kahani.webp",
+        title: "Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin",
+        file: "sad music/Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin.mp3",
+        cover: "sad image/Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin.jpg",
         category: "sad"
     },
 
