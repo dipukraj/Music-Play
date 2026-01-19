@@ -861,9 +861,9 @@ const songs = [
         category: "sad"
     },
     {
-        title: "Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin",
-        file: "sad music/Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin.mp3",
-        cover: "sad image/Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin.jpg",
+        title: "Kyo Kisi Ko Tere",
+        file: "sad music/Kyo Kisi Ko Tere Naam.mp3",
+        cover: "sad image/Kyo Kisi Ko Tere Naam.jpg",
         category: "sad"
     },
 
