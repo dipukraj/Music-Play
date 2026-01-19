@@ -860,6 +860,12 @@ const songs = [
         cover: "sad image/Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin.jpg",
         category: "sad"
     },
+    {
+        title: "Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin",
+        file: "sad music/Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin.mp3",
+        cover: "sad image/Tu Pyar Hai Kisi Aur Ka Dil Hai Ke Manta Nahin.jpg",
+        category: "sad"
+    },
 
     // Bhojpuri Songs
     {
