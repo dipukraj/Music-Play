@@ -47,6 +47,7 @@ const songs = [
         cover: "image/saanso ki zid.jpg",
         category: "new"
     },
+     
     // 80s Dasak Songs
 
 
@@ -117,6 +118,12 @@ const songs = [
         title: " Har Kisike Dil Mein Ek Ladki Ka Khayal Rehta Hai",
         file: "90s music/Har Kisike Dil Mein Ek Ladki Ka Khayal Rehta Hai Song.mp3",
         cover: "90s image/Har Kisike Dil Mein Ek Ladki Ka Khayal Rehta Hai Song.jpg",
+        category: "90s"
+    },
+    {
+        title: "Na Kajre Ki Dhar",
+        file: "90s music/Na Kajre Ki Dhar.mp3",
+        cover: "90s image/Na Kajre Ki Dhar.jpg",
         category: "90s"
     },
     {
