@@ -406,6 +406,18 @@ const songs = [
         cover: "old image/Diwanon Se Poochho.webp",
         category: "old"
     },
+    {
+        title: "Jab Hum Jawan Honge Betaab",
+        file: "old music/Jab Hum Jawan Honge Betaab.mp3",
+        cover: "old image/Jab Hum Jawan Honge Betaab.jpg",
+        category: "old"
+    },
+    {
+        title: "Likhe Jo Khat Tujhe",
+        file: "old music/Likhe Jo Khat Tujhe.mp3",
+        cover: "old image/Likhe Jo Khat Tujhe.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
