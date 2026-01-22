@@ -290,6 +290,12 @@ const songs = [
         cover: "new image/Dil Lauta Do Jubin Nautiyal.jpg",
         category: "new"
     },
+    {
+        title: "Dil Lauta Do Jubin Nautiyal",
+        file: "new music/Dil Lauta Do Jubin Nautiyal.mp3",
+        cover: "new image/Dil Lauta Do Jubin Nautiyal.jpg",
+        category: "new"
+    },
 
     // Old Songs
     {
