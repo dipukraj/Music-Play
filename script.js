@@ -285,9 +285,9 @@ const songs = [
         category: "new"
     },
     {
-        title: "Shararat Dhurandhar",
-        file: "new music/Shararat dhurandhar.mp3",
-        cover: "new image/Shararat dhurandhar.jpg",
+        title: "Dil Lauta Do Jubin Nautiyal",
+        file: "new music/Dil Lauta Do Jubin Nautiyal.mp3",
+        cover: "new image/Dil Lauta Do Jubin Nautiyal.jpg",
         category: "new"
     },
 
