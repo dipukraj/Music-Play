@@ -291,9 +291,9 @@ const songs = [
         category: "new"
     },
     {
-        title: "Dil Lauta Do Jubin Nautiyal",
-        file: "new music/Dil Lauta Do Jubin Nautiyal.mp3",
-        cover: "new image/Dil Lauta Do Jubin Nautiyal.jpg",
+        title: "Mera Hua Ek Deewane Ki Deewaniyat",
+        file: "new music/Mera Hua Ek Deewane Ki Deewaniyat.mp3",
+        cover: "new image/Mera Hua Ek Deewane Ki Deewaniyat.jpg",
         category: "new"
     },
 
