@@ -284,6 +284,12 @@ const songs = [
         cover: "new image/Shararat dhurandhar.jpg",
         category: "new"
     },
+    {
+        title: "Shararat Dhurandhar",
+        file: "new music/Shararat dhurandhar.mp3",
+        cover: "new image/Shararat dhurandhar.jpg",
+        category: "new"
+    },
 
     // Old Songs
     {
