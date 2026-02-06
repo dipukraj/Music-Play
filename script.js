@@ -75,6 +75,12 @@ const songs = [
         cover: "80s image/Pritam Ka Kuch Dosh Nahi Hai.jpg",
         category: "80s"
     },
+    {
+        title: "Pritam Ka Kuch Dosh Nahi Hai",
+        file: "80s music/Pritam Ka Kuch Dosh Nahi Hai.mp3",
+        cover: "80s image/Pritam Ka Kuch Dosh Nahi Hai.jpg",
+        category: "80s"
+    },
 
 
     // 90s Dasak Songs
