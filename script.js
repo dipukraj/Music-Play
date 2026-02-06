@@ -71,8 +71,8 @@ const songs = [
     },
     {
         title: "Pritam Ka Kuch Dosh Nahi Hai",
-        file: "80s music/Kaun Disha Mein Leke Chala.mp3",
-        cover: "80s image/Kaun Disha Mein Leke Chala.jpg",
+        file: "80s music/Pritam Ka Kuch Dosh Nahi Hai.mp3",
+        cover: "80s image/Pritam Ka Kuch Dosh Nahi Hai.jpg",
         category: "80s"
     },
 
