@@ -77,8 +77,8 @@ const songs = [
     },
     {
         title: "Tera Mera Pyar Amar",
-        file: "80s music/Pritam Ka Kuch Dosh Nahi Hai.mp3",
-        cover: "80s image/Pritam Ka Kuch Dosh Nahi Hai.jpg",
+        file: "80s music/Tera Mera Pyar Amar.mp3",
+        cover: "80s image/Tera Mera Pyar Amar.jpg",
         category: "80s"
     },
 
