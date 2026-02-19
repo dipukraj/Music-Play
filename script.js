@@ -1461,6 +1461,7 @@ let currentCategory = 'all';
 const audio = document.getElementById("audio");
 const title = document.getElementById("song-title");
 const cover = document.getElementById("cover");
+const songList = document.getElementById("song-list");
 const playBtn = document.getElementById("play");
 const prevBtn = document.getElementById("prev");
 const nextBtn = document.getElementById("next");
@@ -1491,21 +1492,34 @@ function updateTimeDisplay() {
 function loadSong(i) {
     if (currentPlaylist.length === 0) return;
 
-    audio.src = currentPlaylist[i].file;
-    title.textContent = currentPlaylist[i].title;
-    cover.src = currentPlaylist[i].cover;
+    // Smooth fade-out before switching
+    cover.style.opacity = '0';
+    title.style.opacity = '0';
 
-    // Reset time display when loading a new song
-    currentTimeEl.textContent = '0:00';
-    durationEl.textContent = '0:00';
+    setTimeout(() => {
+        audio.src = currentPlaylist[i].file;
+        title.textContent = currentPlaylist[i].title;
 
-    // Update song counter
-    updateSongCounter();
+        // Fade in when cover image loads (cached images bhi sahi chalenge)
+        cover.onload = function () {
+            cover.style.opacity = '1';
+        };
+        cover.src = currentPlaylist[i].cover;
+        if (cover.complete) cover.style.opacity = '1';
+        title.style.opacity = '1';
 
-    // When metadata is loaded, update the duration
-    audio.onloadedmetadata = function () {
-        durationEl.textContent = formatTime(audio.duration);
-    };
+        // Reset time display when loading a new song
+        currentTimeEl.textContent = '0:00';
+        durationEl.textContent = '0:00';
+
+        // Update song counter
+        updateSongCounter();
+
+        // When metadata is loaded, update the duration
+        audio.onloadedmetadata = function () {
+            durationEl.textContent = formatTime(audio.duration);
+        };
+    }, 100);
 }
 
 // Update song counter display
@@ -1539,6 +1553,31 @@ function filterSongsByCategory(category) {
     });
 
     currentCategory = category;
+    renderPlaylist();
+}
+
+// Playlist ko UI mein dikhane ke liye
+function renderPlaylist() {
+    if (!songList) return;
+    songList.innerHTML = '';
+    currentPlaylist.forEach((song, i) => {
+        const li = document.createElement('li');
+        li.textContent = song.title;
+        if (i === index) {
+            li.classList.add('active');
+        }
+        li.addEventListener('click', () => {
+            index = i;
+            loadSong(index);
+            audio.play();
+            playBtn.textContent = '⏸️';
+            document.querySelectorAll('#song-list li').forEach(item => item.classList.remove('active'));
+            li.classList.add('active');
+            updateSongCardStates();
+        });
+        songList.appendChild(li);
+    });
+    updateSongCounter();
 }
 
 // Function to play the next song
@@ -1901,16 +1940,17 @@ function filterSongsBySearch(query) {
     if (!query.trim()) {
         // If search is empty, show all songs in current category
         filterSongsByCategory(currentCategory);
+        renderPlaylist();
         return;
     }
     
     const searchTerm = query.toLowerCase().trim();
-    const searchTerms = searchTerm.split(/\s+/); // Split search query into words
+    const searchTerms = searchTerm.split(/\s+/).filter(t => t.length > 0);
     
     const filteredSongs = songs.filter(song => {
         const title = song.title.toLowerCase();
-        // Check if ALL search terms are found in the title
-        return searchTerms.every(term => title.includes(term));
+        // Koi bhi word match ho to song aa jaye (OR logic) - 2,4 word ya partial bhi chalega
+        return searchTerms.some(term => title.includes(term));
     });
     
     // Update the current playlist with search results

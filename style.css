@@ -354,6 +354,7 @@ body {
     margin-bottom: 10px;
     object-fit: cover;
     box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    transition: opacity 0.2s ease;
 }
 
 @keyframes rotateCover {
@@ -365,6 +366,7 @@ body {
     color: var(--text-color);
     margin-bottom: 15px;
     font-size: 18px;
+    transition: opacity 0.2s ease;
 }
 
 .controls button {
@@ -439,6 +441,7 @@ body {
 .playlist-container {
     margin-top: 20px;
     width: 100%;
+    display: none; /* Hide playlist list */
 }
 
 .playlist-container h3 {
