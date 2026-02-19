@@ -320,6 +320,33 @@ body {
     letter-spacing: 1px;
 }
 
+/* Layout for main now playing section to look like a square album card */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.now-playing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+}
+
+.song-info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.visualizer {
+    margin-top: 6px;
+}
+
 .cover {
     width: 220px;
     height: 220px;
@@ -327,7 +354,6 @@ body {
     margin-bottom: 10px;
     object-fit: cover;
     box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    animation: rotateCover 20s linear infinite;
 }
 
 @keyframes rotateCover {

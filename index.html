@@ -95,9 +95,26 @@
         <div class="main-content">
             <div class="now-playing">
                 <img src="image/image cover.jpg" class="cover" id="cover">
+
                 <div class="song-info">
                     <h3 id="song-title">Song Name</h3>
                     <div class="visualizer" id="visualizer"></div>
+                </div>
+
+                <!-- Song time and progress just below the cover & title -->
+                <div class="time-display">
+                    <span id="current-time">0:00</span>
+                    <input type="range" id="progress" value="0">
+                    <span id="duration">0:00</span>
+                </div>
+
+                <!-- Play / previous / next controls below time -->
+                <div class="controls">
+                    <!-- <button id="shuffle" title="Shuffle">🔀</button> -->
+                    <button id="prev">⏮️</button>
+                    <button id="play">▶️</button>
+                    <button id="next">⏭️</button>
+                    <!-- <button id="repeat" title="Repeat">🔁</button> -->
                 </div>
             </div>
 
@@ -108,20 +125,6 @@
         </div>
 
         <audio id="audio"></audio>
-
-        <div class="controls">
-            <!-- <button id="shuffle" title="Shuffle">🔀</button> -->
-            <button id="prev">⏮️</button>
-            <button id="play">▶️</button>
-            <button id="next">⏭️</button>
-            <!-- <button id="repeat" title="Repeat">🔁</button> -->
-        </div>
-
-        <div class="time-display">
-            <span id="current-time">0:00</span>
-            <input type="range" id="progress" value="0">
-            <span id="duration">0:00</span>
-        </div>
 
         <div class="volume-control">
             <span>🔊</span>
