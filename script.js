@@ -1561,9 +1561,18 @@ function loadSong(i, autoPlay = false) {
 
 // Update song counter display
 function updateSongCounter() {
+    // Update hidden playlist counter
     const songCountEl = document.getElementById('song-count');
     if (songCountEl && currentPlaylist.length > 0) {
         songCountEl.textContent = `(${index + 1}/${currentPlaylist.length})`;
+    }
+    
+    // Update visible counter in now-playing section
+    const songCounter = document.getElementById('song-counter');
+    if (songCounter && currentPlaylist.length > 0) {
+        songCounter.textContent = `${index + 1} / ${currentPlaylist.length}`;
+    } else if (songCounter) {
+        songCounter.textContent = `0 / 0`;
     }
 }
 
