@@ -1489,7 +1489,7 @@ function updateTimeDisplay() {
     }
 }
 
-function loadSong(i) {
+function loadSong(i, autoPlay = false) {
     if (currentPlaylist.length === 0) return;
 
     // Smooth fade-out before switching
@@ -1519,6 +1519,43 @@ function loadSong(i) {
         audio.onloadedmetadata = function () {
             durationEl.textContent = formatTime(audio.duration);
         };
+
+        // Auto play after song loads (for mobile compatibility)
+        if (autoPlay) {
+            // Remove any previous handlers
+            audio.oncanplay = null;
+            audio.onloadeddata = null;
+            audio.oncanplaythrough = null;
+            
+            // Try multiple events for better mobile compatibility
+            const tryPlay = () => {
+                if (audio.readyState >= 2) { // HAVE_CURRENT_DATA or higher
+                    const playPromise = audio.play();
+                    if (playPromise !== undefined) {
+                        playPromise
+                            .then(() => {
+                                // Successfully started playing
+                                playBtn.textContent = "⏸️";
+                            })
+                            .catch(error => {
+                                // Auto-play was prevented (mobile restriction)
+                                // This is okay - user can manually play
+                                console.log('Auto-play prevented (mobile):', error);
+                            });
+                    }
+                }
+            };
+
+            // Try when enough data is loaded
+            audio.oncanplay = tryPlay;
+            audio.onloadeddata = tryPlay;
+            audio.oncanplaythrough = tryPlay;
+            
+            // Also try after delays as fallback (for slow connections)
+            setTimeout(tryPlay, 100);
+            setTimeout(tryPlay, 300);
+            setTimeout(tryPlay, 500);
+        }
     }, 100);
 }
 
@@ -1568,8 +1605,7 @@ function renderPlaylist() {
         }
         li.addEventListener('click', () => {
             index = i;
-            loadSong(index);
-            audio.play();
+            loadSong(index, true); // auto play when clicked
             playBtn.textContent = '⏸️';
             document.querySelectorAll('#song-list li').forEach(item => item.classList.remove('active'));
             li.classList.add('active');
@@ -1584,8 +1620,7 @@ function renderPlaylist() {
 function playNextSong() {
     if (currentPlaylist.length === 0) return;
     index = (index + 1) % currentPlaylist.length;
-    loadSong(index);
-    audio.play();
+    loadSong(index, true); // true = auto play after load
     playBtn.textContent = "⏸️";
     // Update song card states
     updateSongCardStates();
@@ -1611,8 +1646,7 @@ playBtn.onclick = () => {
 nextBtn.onclick = () => {
     if (currentPlaylist.length === 0) return;
     index = (index + 1) % currentPlaylist.length;
-    loadSong(index);
-    audio.play();
+    loadSong(index, true); // true = auto play
     playBtn.textContent = "⏸️";
     // Update song card states
     updateSongCardStates();
@@ -1621,8 +1655,7 @@ nextBtn.onclick = () => {
 prevBtn.onclick = () => {
     if (currentPlaylist.length === 0) return;
     index = (index - 1 + currentPlaylist.length) % currentPlaylist.length;
-    loadSong(index);
-    audio.play();
+    loadSong(index, true); // true = auto play
     playBtn.textContent = "⏸️";
     // Update song card states
     updateSongCardStates();
@@ -1807,10 +1840,9 @@ function showSongGrid(category) {
             const playlistIndex = currentPlaylist.findIndex(s => s.file === song.file);
             if (playlistIndex !== -1) {
                 index = playlistIndex;
-                loadSong(index);
-                audio.play();
+                loadSong(index, true); // auto play when clicked
                 playBtn.textContent = "⏸️";
-                
+
                 // Update active states
                 updateSongCardStates();
                 updateSongListStates();
@@ -1973,8 +2005,7 @@ function filterSongsBySearch(query) {
         }
         li.addEventListener('click', () => {
             index = i;
-            loadSong(index);
-            audio.play();
+            loadSong(index, true); // auto play when clicked
             playBtn.textContent = '⏸️';
             document.querySelectorAll('#song-list li').forEach(item => item.classList.remove('active'));
             li.classList.add('active');
@@ -1994,8 +2025,7 @@ searchInput.addEventListener('input', (e) => {
 searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter' && currentPlaylist.length > 0) {
         index = 0;
-        loadSong(index);
-        audio.play();
+        loadSong(index, true); // auto play when Enter pressed
         playBtn.textContent = '⏸️';
         // Update active state in the list
         document.querySelectorAll('#song-list li').forEach((item, i) => {
