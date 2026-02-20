@@ -145,9 +145,9 @@ const songs = [
         category: "90s"
     },
     {
-        title: "Na Kajre Ki Dhar",
-        file: "90s music/Na Kajre Ki Dhar.mp3",
-        cover: "90s image/Na Kajre Ki Dhar.jpg",
+        title: "Jab Se Dekha Tumko Yaara Tum Mere Ho",
+        file: "90s music/Jab Se Dekha Tumko Yaara Tum Mere Ho.mp3",
+        cover: "90s image/Jab Se Dekha Tumko Yaara Tum Mere Ho.jpg",
         category: "90s"
     },
 
