@@ -762,6 +762,12 @@ const songs = [
         cover: "romantic image/Tinku Jiya Yamla Pagla Deewana.jpg",
         category: "romantic"
     },
+    {
+        title: "Tinku Jiya Yamla Pagla Deewana",
+        file: "romantic music/Tinku Jiya Yamla Pagla Deewana.mp3",
+        cover: "romantic image/Tinku Jiya Yamla Pagla Deewana.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
