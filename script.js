@@ -144,6 +144,12 @@ const songs = [
         cover: "90s image/Na Kajre Ki Dhar.jpg",
         category: "90s"
     },
+    {
+        title: "Na Kajre Ki Dhar",
+        file: "90s music/Na Kajre Ki Dhar.mp3",
+        cover: "90s image/Na Kajre Ki Dhar.jpg",
+        category: "90s"
+    },
 
     // New Songs
     {
