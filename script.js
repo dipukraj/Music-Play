@@ -758,8 +758,8 @@ const songs = [
     },
     {
         title: "Sanam Re Sanam Re Arijit Singh",
-        file: "romantic music/Tinku Jiya Yamla Pagla Deewana.mp3",
-        cover: "romantic image/Tinku Jiya Yamla Pagla Deewana.jpg",
+        file: "romantic music/Sanam Re Arijit Singh.mp3",
+        cover: "romantic image/Sanam Re Arijit Singh.jpg",
         category: "romantic"
     },
     {
