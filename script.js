@@ -763,9 +763,9 @@ const songs = [
         category: "romantic"
     },
     {
-        title: "Tinku Jiya Yamla Pagla Deewana",
-        file: "romantic music/Tinku Jiya Yamla Pagla Deewana.mp3",
-        cover: "romantic image/Tinku Jiya Yamla Pagla Deewana.jpg",
+        title: "Hua Hain Aaj Pehli Baar Sanam Re",
+        file: "romantic music/Hua Hain Aaj Pehli Baar Sanam Re.mp3",
+        cover: "romantic image/Hua Hain Aaj Pehli Baar Sanam Re.jpg",
         category: "romantic"
     },
      
