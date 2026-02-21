@@ -1085,7 +1085,7 @@ const songs = [
     },
     {
         title: "Wo Ladki Bahut Yaad Aati Hai",
-        file: "sad music/Yara O Yara.mp3",
+        file: "sad music/Wo Ladki Yaad Aati Hai.mp3",
         cover: "sad image/Yara O Yara.jpg",
         category: "sad"
     },
