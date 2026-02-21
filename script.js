@@ -1083,6 +1083,12 @@ const songs = [
         cover: "sad image/Yara O Yara.jpg",
         category: "sad"
     },
+    {
+        title: "Yara O Yara Devi",
+        file: "sad music/Yara O Yara.mp3",
+        cover: "sad image/Yara O Yara.jpg",
+        category: "sad"
+    },
 
  
 
