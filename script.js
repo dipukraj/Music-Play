@@ -834,6 +834,54 @@ const songs = [
         cover: "romantic image/Raanjhanaa.jpg",
         category: "romantic"
     },
+    {
+        title: "Aaj Ki Raat",
+        file: "romantic music/Aaj Ki Raat.mp3",
+        cover: "romantic image/Aaj Ki Raat.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Badri Ki Dulhania",
+        file: "romantic music/Badri Ki Dulhania.mp3",
+        cover: "romantic image/Badri Ki Dulhania.webp",
+        category: "romantic"
+    },
+    {
+        title: "Balma Song",
+        file: "romantic music/Balma Song.mp3",
+        cover: "romantic image/Balma Song.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Jalte Diye",
+        file: "romantic music/Jalte Diye.mp3",
+        cover: "romantic image/Jalte Diye.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Kaun Tujhe",
+        file: "romantic music/Kaun Tujhe.mp3",
+        cover: "romantic image/Kaun Tujhe.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Munni Badnaam Hui",
+        file: "romantic music/Munni Badnaam Hui.mp3",
+        cover: "romantic image/Munni Badnaam Hui.jpg",
+        category: "romantic"
+    },
+    {
+        title: "O Saki Saki",
+        file: "romantic music/O Saki Saki.mp3",
+        cover: "romantic image/O Saki Saki.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Sheila Ki Jawani",
+        file: "romantic music/Sheila Ki Jawani.mp3",
+        cover: "romantic image/Sheila Ki Jawani.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
