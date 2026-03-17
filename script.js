@@ -774,6 +774,66 @@ const songs = [
         cover: "romantic image/Hua Hain Aaj Pehli Baar Sanam Re.jpg",
         category: "romantic"
     },
+    {
+        title: "Abhi Toh Party Shuru Hui Hai",
+        file: "romantic music/Abhi Toh Party Shuru Hui Hai.mp3",
+        cover: "romantic image/Abhi Toh Party Shuru Hui Hai.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Ambarsariya",
+        file: "romantic music/Ambarsariya.mp3",
+        cover: "romantic image/Ambarsariya.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Balam Pichkari",
+        file: "romantic music/Balam Pichkari.mp3",
+        cover: "romantic image/Balam Pichkari.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Chittiyaan Kalaiyaan",
+        file: "romantic music/Chittiyaan Kalaiyaan.mp3",
+        cover: "romantic image/Chittiyaan Kalaiyaan.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Dupatta Tera Nau Rang Da",
+        file: "romantic music/Dupatta Tera Nau Rang Da.mp3",
+        cover: "romantic image/Dupatta Tera Nau Rang Da.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Jab Tak",
+        file: "romantic music/Jab Tak.mp3",
+        cover: "romantic image/Jab Tak.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Jeene Laga Hoon",
+        file: "romantic music/Jeene Laga Hoon.mp3",
+        cover: "romantic image/Jeene Laga Hoon.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Lat Lag Gayee",
+        file: "romantic music/Lat Lag Gayee.mp3",
+        cover: "romantic image/Lat Lag Gayee.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Ooh La La Song",
+        file: "romantic music/Ooh La La Song.mp3",
+        cover: "romantic image/Ooh La La Song.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Raanjhanaa",
+        file: "romantic music/Raanjhanaa.mp3",
+        cover: "romantic image/Raanjhanaa.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
