@@ -882,6 +882,60 @@ const songs = [
         cover: "romantic image/Sheila Ki Jawani.jpg",
         category: "romantic"
     },
+    {
+        title: "College Ki Ladkiyan",
+        file: "romantic music/College Ki Ladkiyan.mp3",
+        cover: "romantic image/College Ki Ladkiyan.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Daiya Daiya Daiya Re",
+        file: "romantic music/Daiya Daiya Daiya Re.mp3",
+        cover: "romantic image/Daiya Daiya Daiya Re.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Galat Baat Hai Main Tera Hero",
+        file: "romantic music/Galat Baat Hai Main Tera Hero.mp3",
+        cover: "romantic image/Main Tera Hero.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Nachange Saari Raat",
+        file: "romantic music/Nachange Saari Raat.mp3",
+        cover: "romantic image/Nachange Saari Raat.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Nashe Si Chadh Gayi",
+        file: "romantic music/Nashe Si Chadh Gayi.mp3",
+        cover: "romantic image/Nashe Si Chadh Gayi.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Piya Ke Bazaar Mein",
+        file: "romantic music/Piya Ke Bazaar Mein.mp3",
+        cover: "romantic image/Piya Ke Bazaar Mein.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Sunny Sunny Yaariyan",
+        file: "romantic music/Sunny Sunny Yaariyan.mp3",
+        cover: "romantic image/Sunny Sunny Yaariyan.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Tere Liye",
+        file: "romantic music/Tere Liye.mp3",
+        cover: "romantic image/Tere Liye.webp",
+        category: "romantic"
+    },
+    {
+        title: "Besharmi Ki Height Main Tera Hero",
+        file: "romantic music/Besharmi Ki Height Main Tera Hero.mp3",
+        cover: "romantic image/Main Tera Hero.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
