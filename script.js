@@ -1513,6 +1513,12 @@ const songs = [
         cover: "bhojpuriimage/Chapra Ke Boss.webp",
         category: "bhojpuri"
     },
+    {
+        title: "Awa Khele Rangwa Abir",
+        file: "bhojpurimusic/Lahe Lahe Rangab Salwarwa.mp3",
+        cover: "bhojpuriimage/Awa Khele Rangwa Abir.jpg",
+        category: "bhojpuri"
+    },
 
     // Bhakti Songs
     {
