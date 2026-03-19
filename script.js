@@ -189,6 +189,72 @@ const songs = [
         cover: "80s image/Yeh Sham Mastani.webp",
         category: "80s"
     },
+    {
+        title: "Aaj Phir Jeene Ki Tamanna Hai",
+        file: "80s music/Aaj Phir Jeene Ki Tamanna Hai.mp3",
+        cover: "80s image/Aaj Phir Jeene Ki Tamanna Hai.jpg",
+        category: "80s"
+    },
+    {
+        title: "Chhu Kar Mere Manko",
+        file: "80s music/Chhu Kar Mere Manko.mp3",
+        cover: "80s image/Chhu Kar Mere Manko.jpg",
+        category: "80s"
+    },
+    {
+        title: "Jab Hum Jawan Honge",
+        file: "80s music/Jab Hum Jawan Honge.mp3",
+        cover: "80s image/Jab Hum Jawan Honge.jpg",
+        category: "80s"
+    },
+    {
+        title: "Jane Woh Kaise Log The",
+        file: "80s music/Jane Woh Kaise Log The.mp3",
+        cover: "80s image/Jane Woh Kaise Log The.webp",
+        category: "80s"
+    },
+    {
+        title: "Likhe Jo Khat Tujhe",
+        file: "80s music/Likhe Jo Khat Tujhe.mp3",
+        cover: "80s image/Likhe Jo Khat Tujhe.jpg",
+        category: "80s"
+    },
+    {
+        title: "Mere Rang Mein Rangne Wali",
+        file: "80s music/Mere Rang Mein Rangne Wali.mp3",
+        cover: "80s image/Mere Rang Mein Rangne Wali.jpg",
+        category: "80s"
+    },
+    {
+        title: "Neele Neele Ambar Par",
+        file: "80s music/Neele Neele Ambar Par.mp3",
+        cover: "80s image/Neele Neele Ambar Par.jpg",
+        category: "80s"
+    },
+    {
+        title: "Tadpaoge Tadpa Lo",
+        file: "80s music/Tadpaoge Tadpa Lo.mp3",
+        cover: "80s image/Tadpaoge Tadpa Lo.webp",
+        category: "80s"
+    },
+    {
+        title: "Tu Meri Zindagi Hai",
+        file: "80s music/Tu Meri Zindagi Hai.mp3",
+        cover: "80s image/Tu Meri Zindagi Hai.jpg",
+        category: "80s"
+    },
+    {
+        title: "Yeh Parda Hata Do",
+        file: "80s music/Yeh Parda Hata Do.mp3",
+        cover: "80s image/Yeh Parda Hata Do.jpg",
+        category: "80s"
+    },
+    {
+        title: "Zindagi Pyar Ka Geet Hai",
+        file: "80s music/Zindagi Pyar Ka Geet Hai.mp3",
+        cover: "80s image/Zindagi Pyar Ka Geet Hai.jpg",
+        category: "80s"
+    },
 
 
     // 90s Dasak Songs
