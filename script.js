@@ -1425,6 +1425,12 @@ const songs = [
         cover: "sad image/Wo Ladki Yaad Aati Hai.jpg",
         category: "sad"
     },
+    {
+        title: "Sheeshe Ka Tha Dil Mera",
+        file: "sad music/Sheeshe Ka Tha Dil Mera.mp3",
+        cover: "sad image/Sheeshe Ka Tha Dil Mera.jpg",
+        category: "sad"
+    },
 
  
 
