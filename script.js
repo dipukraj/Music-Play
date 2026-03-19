@@ -81,6 +81,114 @@ const songs = [
         cover: "80s image/Tera Mera Pyar Amar.jpg",
         category: "80s"
     },
+    {
+        title: "Apni To Jaise Taise",
+        file: "80s music/Apni To Jaise Taise.mp3",
+        cover: "80s image/Apni To Jaise Taise.jpg",
+        category: "80s"
+    },
+    {
+        title: "Bachna Ae Hasinon Lo Main Aa Gaya",
+        file: "80s music/Bachna Ae Hasinon Lo Main Aa Gaya.mp3",
+        cover: "80s image/Bachna Ae Hasinon Lo Main Aa Gaya.jpg",
+        category: "80s"
+    },
+    {
+        title: "Aanewala Pal Janewala Hai",
+        file: "80s music/Aanewala Pal Janewala Hai.mp3",
+        cover: "80s image/Aanewala Pal Janewala Hai.jpg",
+        category: "80s"
+    },
+    {
+        title: "Dream Girl",
+        file: "80s music/Dream Girl.mp3",
+        cover: "80s image/Dream Girl.jpg",
+        category: "80s"
+    },
+    {
+        title: "Haal Kya Hai Dilon Ka",
+        file: "80s music/Haal Kya Hai Dilon Ka.mp3",
+        cover: "80s image/Haal Kya Hai Dilon Ka.jpg",
+        category: "80s"
+    },
+    {
+        title: "Jab Haal E Dil Tumse Kahne Ko",
+        file: "80s music/Jab Haal E Dil Tumse Kehne Ko.mp3",
+        cover: "80s image/Jab Haal E Dil Tumse Kehne Ko.webp",
+        category: "80s"
+    },
+    {
+        title: "Khaike Paan Banaras Wala",
+        file: "80s music/Khaike Paan Banaras Wala.mp3",
+        cover: "80s image/Khaike Paan Banaras Wala1.webp",
+        category: "80s"
+    },
+    {
+        title: "Khaike Paan Banaras Wala2",
+        file: "80s music/Khaike Paan Banaras Wala1.mp3",
+        cover: "80s image/Khaike Paan Banaras Wala1.webp",
+        category: "80s"
+    },
+    {
+        title: "Kya Hua Tera Wada",
+        file: "80s music/Kya Hua Tera Wada.mp3",
+        cover: "80s image/Kya Hua Tera Wada.jpg",
+        category: "80s"
+    },
+    {
+        title: "Kya Khoob Lagti Ho",
+        file: "80s music/Kya Khoob Lagti Ho.mp3",
+        cover: "80s image/Kya Khoob Lagti Ho.jpg",
+        category: "80s"
+    },
+    {
+        title: "Mere Mehboob Quayamat Hogi",
+        file: "80s music/Mere Mehboob Qayamat Hogi.mp3",
+        cover: "80s image/Mere Mehboob Qayamat Hogi.webp",
+        category: "80s"
+    },
+    {
+        title: "Mere Samnewali Khidki Mein",
+        file: "80s music/Mere Samnewali Khidki Mein.mp3",
+        cover: "80s image/Mere Samnewali Khidki Mein.jpg",
+        category: "80s"
+    },
+    {
+        title: "Mere Sapne Ki Rani Kab Aayegi",
+        file: "80s music/Mere Sapne Ki Rani Kab Aayegi.mp3",
+        cover: "80s image/Mere Sapne Ki Rani Kab Aayegi.jpg",
+        category: "80s"
+    },
+    {
+        title: "Musafir Hoon Yaron",
+        file: "80s music/Musafir Hoon Yaron.mp3",
+        cover: "80s image/Musafir Hoon Yaron.jpg",
+        category: "80s"
+    },
+    {
+        title: "O Mere Dil Ke Chain",
+        file: "80s music/O Mere Dil Ke Chain.mp3",
+        cover: "80s image/O Mere Dil Ke Chain.jpg",
+        category: "80s"
+    },
+    {
+        title: "O Saathi Re",
+        file: "80s music/O Saathi Re.mp3",
+        cover: "80s image/O Saathi Re.jpg",
+        category: "80s"
+    },
+    {
+        title: "Roop Tera Mastana",
+        file: "80s music/Roop Tera Mastana.mp3",
+        cover: "80s image/Roop Tera Mastana.jpg",
+        category: "80s"
+    },
+    {
+        title: "Yeh Sham Mastani",
+        file: "80s music/Yeh Sham Mastani.mp3",
+        cover: "80s image/Yeh Sham Mastani.webp",
+        category: "80s"
+    },
 
 
     // 90s Dasak Songs
