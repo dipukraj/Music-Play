@@ -2339,6 +2339,36 @@ songs.push(
         file: "other music/Laung Laachi.mp3",
         cover: "other image/Laung Laachi.webp",
         category: "other"
+    },
+    {
+        title: "Chalu Mithila Haat",
+        file: "other music/Chalu Mithila Haat.mp3",
+        cover: "other image/Chalu Mithila Haat.jpg",
+        category: "other"
+    },
+    {
+        title: "Darbhanga Wali",
+        file: "other music/Darbhanga Wali.mp3",
+        cover: "other image/Darbhanga Wali.jpg",
+        category: "other"
+    },
+    {
+        title: "Kani Hansiyo Ne Sajni Gulaab",
+        file: "other music/Kani Hansiyo Ne Sajni Gulaab.mp3",
+        cover: "other image/Kani Hansiyo Ne Sajni Gulaab.jpg",
+        category: "other"
+    },
+    {
+        title: "Dil Na Bikau Hamaar",
+        file: "other music/Dil Na Bikau Hamaar.mp3",
+        cover: "other image/Dil Na Bikau Hamaar.jpg",
+        category: "other"
+    },
+    {
+        title: "Solid Body",
+        file: "other music/Solid Body.mp3",
+        cover: "other image/Solid Body.jpg",
+        category: "other"
     }
 );
 
