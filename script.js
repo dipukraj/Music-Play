@@ -1140,6 +1140,12 @@ const songs = [
         cover: "romantic image/Main Tera Hero.jpg",
         category: "romantic"
     },
+    {
+        title: "Chalao Na Naino Se",
+        file: "romantic music/Chalao Na Naino Se.mp3",
+        cover: "romantic image/Chalao Na Naino Se.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
