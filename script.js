@@ -2016,6 +2016,18 @@ const songs = [
         file: "krishna music/Krishnaya Vasudevaya.mp3",
         cover: "krishna image/Krishnaya Vasudevaya.webp",
         category: "krishna"
+    },
+    {
+        title: "Mira Ke Prabhu Giridhari",
+        file: "krishna music/Mira Ke Prabhu.mp3",
+        cover: "krishna image/Mira Ke Prabhu.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Shri Krishna Govind Hare Murari",
+        file: "krishna music/Shri Krishna Govind Hare Murari.mp3",
+        cover: "krishna image/Shri Krishna Govind Hare Murari.jpg",
+        category: "krishna"
     }
 ];
 
