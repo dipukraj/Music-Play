@@ -1822,6 +1822,78 @@ const songs = [
         cover: "mahadev image/Mahakal Mahadev.webp",
         category: "mahadev"
     },
+    {
+        title: "Aisi Subah Na Aaye",
+        file: "mahadev music/Aisi Subah Na Aaye.mp3",
+        cover: "mahadev image/Aisi Subah Na Aaye.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Ajab Hai Teri Maya",
+        file: "mahadev music/Ajab Hai Teri Maya.mp3",
+        cover: "mahadev image/Ajab Hai Teri Maya.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Ashutosh Shashank Shekha",
+        file: "mahadev music/Ashutosh Shashank Shekha.mp3",
+        cover: "mahadev image/Ashutosh Shashank Shekha.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Har Har Mahadev",
+        file: "mahadev music/Har Har Mahadev.mp3",
+        cover: "mahadev image/Har Har Mahadev.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Har Har Shambhu Shiv Mahadeva",
+        file: "mahadev music/Har Har Shambhu Shiv Mahadeva.mp3",
+        cover: "mahadev image/Har Har Shambhu Shiv Mahadeva.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Hey Shambhu Baba Mere Bhole Naath",
+        file: "mahadev music/Hey Shambhu Baba Mere Bhole Naath.mp3",
+        cover: "mahadev image/Hey Shambhu Baba Mere Bhole Naath.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Mahamrityunjay Mantra",
+        file: "mahadev music/Mahamrityunjay Mantra.mp3",
+        cover: "mahadev image/Mahamrityunjay Mantra.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Man Mera Mandir Shiv Meri Puja",
+        file: "mahadev music/Man Mera Mandir Shiv Meri Puja.mp3",
+        cover: "mahadev image/Man Mera Mandir Shiv Meri Puja.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Mere Baba",
+        file: "mahadev music/Mere Baba Song.mp3",
+        cover: "mahadev image/Mere Baba Song.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Om Namah Shiva",
+        file: "mahadev music/Om Namah Shiva.mp3",
+        cover: "mahadev image/Om Namah Shiva.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Sanso Ki Mala Pe Simru Shiv Ka Naam",
+        file: "mahadev music/Sanso Ki Mala Pe Simru Shiv Ka Naam.mp3",
+        cover: "mahadev image/Sanso Ki Mala Pe Simru Shiv Ka Naam.jpg",
+        category: "mahadev"
+    },
+    {
+        title: "Shiv Shankar Ko Jisne Pooja",
+        file: "mahadev music/Shiv Shankar Ko Jisne Pooja.mp3",
+        cover: "mahadev image/Shiv Shankar Ko Jisne Pooja.jpg",
+        category: "mahadev"
+    },
      
     // Krishna Songs
     {
