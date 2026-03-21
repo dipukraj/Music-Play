@@ -488,6 +488,36 @@ const songs = [
         cover: "new image/Mera Hua Ek Deewane Ki Deewaniyat.jpg",
         category: "new"
     },
+    {
+        title: "Baatein Ye Kabhi Na",
+        file: "new music/Baatein Ye Kabhi Na.mp3",
+        cover: "new image/Baatein Ye Kabhi Na.jpg",
+        category: "new"
+    },
+    {
+        title: "Baaton Ko Teri",
+        file: "new music/Baaton Ko Teri.mp3",
+        cover: "new image/Baaton Ko Teri.jpg",
+        category: "new"
+    },
+    {
+        title: "Chal Tere Ishq Mein",
+        file: "new music/Chal Tere Ishq Mein.mp3",
+        cover: "new image/Chal Tere Ishq Mein.jpg",
+        category: "new"
+    },
+    {
+        title: "Jitni Dafa",
+        file: "new music/Jitni Dafa.mp3",
+        cover: "new image/Jitni Dafa.jpg",
+        category: "new"
+    },
+    {
+        title: "Khamoshiyan",
+        file: "new music/Khamoshiyan.mp3",
+        cover: "new image/Khamoshiyan.jpg",
+        category: "new"
+    },
 
     // Old Songs
     {
