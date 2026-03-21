@@ -2034,7 +2034,79 @@ const songs = [
         file: "krishna music/Shri Krishna Govind Hare Murari.mp3",
         cover: "krishna image/Shri Krishna Govind Hare Murari.jpg",
         category: "krishna"
-    }
+    },
+    {
+        title: "Chitra Vichitra Ji Maharaj",
+        file: "krishna music/Chitra Vichitra Ji Maharaj.mp3",
+        cover: "krishna image/Chitra Vichitra Ji Maharaj.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Krish Theme",
+        file: "krishna music/Krish Theme.mp3",
+        cover: "krishna image/Krish Theme.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Mere Shyam Aa Jata Mere Shamne",
+        file: "krishna music/Mere Shyam Aa Jata Mere Shamne.mp3",
+        cover: "krishna image/Mere Shyam Aa Jata Mere Shamne.jpg",
+        category: "krishna"
+    },
+    {
+        title: "MURLI KI DHUN",
+        file: "krishna music/MURLI KI DHUN.mp3",
+        cover: "krishna image/MURLI KI DHUN.jpg",
+        category: "krishna"
+    },
+    {
+        title: "O Kanha Ab To Murli Ki",
+        file: "krishna music/O Kanha Ab To Murli Ki.mp3",
+        cover: "krishna image/O Kanha Ab To Murli Ki.jpg",
+        category: "krishna"
+    },
+    {
+        title: "RADHA KRISHNA FLUTE",
+        file: "krishna music/RADHA KRISHNA FLUTE.mp3",
+        cover: "krishna image/RADHA KRISHNA FLUTE.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Radhe Braj Jan Man Sukhkari",
+        file: "krishna music/Radhe Braj Jan Man Sukhkari.mp3",
+        cover: "krishna image/Radhe Braj Jan Man Sukhkari.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Radhe Radhe Bol",
+        file: "krishna music/Radhe Radhe Bol.mp3",
+        cover: "krishna image/Radhe Radhe Bol.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Soja Zara",
+        file: "krishna music/Soja Zara.mp3",
+        cover: "krishna image/Soja Zara.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Tujhse Preet Lagi Hai Radhe",
+        file: "krishna music/Tujhse Preet Lagi Hai Radhe.mp3",
+        cover: "krishna image/Tujhse Preet Lagi Hai Radhe.jpg",
+        category: "krishna"
+    },
+    {
+        title: "Tum Prem Ho",
+        file: "krishna music/Tum Prem Ho.mp3",
+        cover: "krishna image/Tum Prem Ho.jpg",
+        category: "krishna"
+    },
+    {
+        title: "ye to bata do barsane wali ",
+        file: "krishna music/ye to bata do barsane wali.mp3",
+        cover: "krishna image/ye to bata do barsane wali.jpg",
+        category: "krishna"
+    },
 ];
 
 let index = 0;
