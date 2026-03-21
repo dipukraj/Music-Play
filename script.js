@@ -1467,6 +1467,12 @@ const songs = [
         cover: "sad image/Sheeshe Ka Tha Dil Mera.jpg",
         category: "sad"
     },
+    {
+        title: "Mainu Ishq Da Lagya Rog",
+        file: "sad music/Mainu Ishq Da Lagya Rog.mp3",
+        cover: "sad image/Mainu Ishq Da Lagya Rog.jpg",
+        category: "sad"
+    },
 
  
 
