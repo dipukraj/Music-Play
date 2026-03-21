@@ -1779,6 +1779,91 @@ const songs = [
         cover: "bhakti image/Achyutam Keshavam.webp",
         category: "bhakti"
     },
+    {
+        title: "Aigiri Nandini2",
+        file: "bhakti music/Aigiri Nandini2.mp3",
+        cover: "bhakti image/Aigiri Nandini2.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Barisho Ki Chham Chham Me",
+        file: "bhakti music/Barisho Ki Chham Chham Me.mp3",
+        cover: "bhakti image/Barisho Ki Chham Chham Me.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "LeKe Pooja Ki Thali",
+        file: "bhakti music/LeKe Pooja Ki Thali.mp3",
+        cover: "bhakti image/LeKe Pooja Ki Thali.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "MAIYA TERI JAI JAIKAAR",
+        file: "bhakti music/MAIYA TERI JAI JAIKAAR.mp3",
+        cover: "bhakti image/MAIYA TERI JAI JAIKAAR.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Mere Ghar Ram Aaye Hain",
+        file: "bhakti music/Mere Ghar Ram Aaye Hain.mp3",
+        cover: "bhakti image/Mere Ghar Ram Aaye Hain.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Meri Ankhiyon Ke Samne Hi Rehna",
+        file: "bhakti music/Meri Ankhiyon Ke Samne Hi Rehna.mp3",
+        cover: "bhakti image/Meri Ankhiyon Ke Samne Hi Rehna.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Meri Maa Ke Barabar Koi Nahi",
+        file: "bhakti music/Meri Maa Ke Barabar Koi Nahi.mp3",
+        cover: "bhakti image/Meri Maa Ke Barabar Koi Nahi.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Meri Mai",
+        file: "bhakti music/Meri Mai.mp3",
+        cover: "bhakti image/Meri Mai.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "My Pardeshi Hu Pahli Baar Aaya Hu",
+        file: "bhakti music/My Pardeshi Hu Pahli Baar Aaya Hu.mp3",
+        cover: "bhakti image/My Pardeshi Hu Pahli Baar Aaya Hu.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Narayan Mil Jayega",
+        file: "bhakti music/Narayan Mil Jayega.mp3",
+        cover: "bhakti image/Narayan Mil Jayega.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "O Aaye Tere Bhawan",
+        file: "bhakti music/O Aaye Tere Bhawan.mp3",
+        cover: "bhakti image/O Aaye Tere Bhawan.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Ram Aayenge",
+        file: "bhakti music/Ram Aayenge.mp3",
+        cover: "bhakti image/Ram Aayenge.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Ram Siya Ram",
+        file: "bhakti music/Ram Siya Ram.mp3",
+        cover: "bhakti image/Ram Siya Ram.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Shaban Ki Rut Hai",
+        file: "bhakti music/Shaban Ki Rut Hai.mp3",
+        cover: "bhakti image/Shaban Ki Rut Hai.jpg",
+        category: "bhakti"
+    },
+
     // Mahadev Songs
     {
         title: "Om Namah Shivaya",
