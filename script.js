@@ -2189,7 +2189,12 @@ function loadSong(i, autoPlay = false) {
             }
             
             this.isAutoPlaying = true;
-            playNextSong();
+            
+            // Move to next song
+            index = (index + 1) % currentPlaylist.length;
+            
+            // Load next song with auto-play
+            loadSong(index, true);
             
             // Reset flag after delay
             setTimeout(() => {
@@ -2197,41 +2202,34 @@ function loadSong(i, autoPlay = false) {
             }, 2000);
         };
 
-        // Auto play after song loads (for mobile compatibility)
+        // Auto play after song loads (for mobile compatibility) - ENHANCED
         if (autoPlay) {
-            // Remove any previous handlers
-            audio.oncanplay = null;
-            audio.onloadeddata = null;
-            audio.oncanplaythrough = null;
+            console.log('🎵 Auto-playing song...');
             
-            // Try multiple events for better mobile compatibility
-            const tryPlay = () => {
-                if (audio.readyState >= 2) { // HAVE_CURRENT_DATA or higher
-                    const playPromise = audio.play();
-                    if (playPromise !== undefined) {
-                        playPromise
-                            .then(() => {
-                                // Successfully started playing
-                                playBtn.textContent = "⏸️";
-                            })
-                            .catch(error => {
-                                // Auto-play was prevented (mobile restriction)
-                                // This is okay - user can manually play
-                                console.log('Auto-play prevented (mobile):', error);
-                            });
-                    }
+            // Force play immediately after setting src
+            setTimeout(() => {
+                const playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(() => {
+                            console.log('✅ Song started playing automatically');
+                            playBtn.textContent = "⏸️";
+                        })
+                        .catch(error => {
+                            console.log('❌ Auto-play failed:', error);
+                            // Try alternative method
+                            setTimeout(() => {
+                                audio.play().then(() => {
+                                    console.log('✅ Song started on retry');
+                                    playBtn.textContent = "⏸️";
+                                }).catch(e => console.log('❌ Retry failed:', e));
+                            }, 1000);
+                        });
+                } else {
+                    audio.play();
+                    playBtn.textContent = "⏸️";
                 }
-            };
-
-            // Try when enough data is loaded
-            audio.oncanplay = tryPlay;
-            audio.onloadeddata = tryPlay;
-            audio.oncanplaythrough = tryPlay;
-            
-            // Also try after delays as fallback (for slow connections)
-            setTimeout(tryPlay, 100);
-            setTimeout(tryPlay, 300);
-            setTimeout(tryPlay, 500);
+            }, 300); // Small delay to ensure audio is loaded
         }
     }, 100);
 }
@@ -2849,8 +2847,9 @@ document.addEventListener('keydown', (e) => {
 
 // Track song plays in existing functions
 const originalLoadSong = loadSong;
-loadSong = function(i) {
-    originalLoadSong(i);
+loadSong = function(i, autoPlay = false) {
+    originalLoadSong(i, autoPlay);
+    
     if (currentPlaylist.length > 0 && currentPlaylist[i]) {
         trackSongPlayInFirebase(currentPlaylist[i].title);
     }
@@ -2898,40 +2897,64 @@ function initializeFirebaseAnalytics() {
             lastSeen: firebase.database.ServerValue.TIMESTAMP
         });
         
-        // Update global stats
-        statsRef.transaction((currentStats) => {
-            console.log('📈 Current stats:', currentStats);
+        // Initialize stats if not exists
+        statsRef.once('value', (snapshot) => {
+            const existingStats = snapshot.val();
+            console.log('📈 Existing stats:', existingStats);
             
-            if (!currentStats) {
-                currentStats = {
-                    totalVisitors: 0,
-                    totalPageViews: 0,
+            if (!existingStats) {
+                // Create initial stats
+                const initialStats = {
+                    totalVisitors: 1,
+                    totalPageViews: 1,
                     totalSongsPlayed: 0,
                     lastUpdated: firebase.database.ServerValue.TIMESTAMP
                 };
+                
+                console.log('🆕 Creating initial stats:', initialStats);
+                statsRef.set(initialStats)
+                    .then(() => {
+                        console.log('✅ Initial stats created');
+                        localStorage.setItem('hasVisitedBefore', 'true');
+                    })
+                    .catch(error => console.error('❌ Error creating initial stats:', error));
+            } else {
+                // Update existing stats
+                statsRef.transaction((currentStats) => {
+                    console.log('📈 Current stats before update:', currentStats);
+                    
+                    if (!currentStats) {
+                        currentStats = {
+                            totalVisitors: 0,
+                            totalPageViews: 0,
+                            totalSongsPlayed: 0,
+                            lastUpdated: firebase.database.ServerValue.TIMESTAMP
+                        };
+                    }
+                    
+                    // Check if this is a new visitor
+                    const isNewVisitor = !localStorage.getItem('hasVisitedBefore');
+                    if (isNewVisitor) {
+                        currentStats.totalVisitors++;
+                        localStorage.setItem('hasVisitedBefore', 'true');
+                        console.log('🆕 New visitor detected! Total visitors:', currentStats.totalVisitors);
+                    }
+                    
+                    currentStats.totalPageViews++;
+                    currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
+                    
+                    console.log('📊 Updated stats:', currentStats);
+                    return currentStats;
+                })
+                .then(() => console.log('✅ Stats updated successfully'))
+                .catch(error => console.error('❌ Error updating stats:', error));
             }
-            
-            // Check if this is a new visitor
-            const isNewVisitor = !localStorage.getItem('hasVisitedBefore');
-            if (isNewVisitor) {
-                currentStats.totalVisitors++;
-                localStorage.setItem('hasVisitedBefore', 'true');
-                console.log('🆕 New visitor detected!');
-            }
-            
-            currentStats.totalPageViews++;
-            currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
-            
-            console.log('📊 Updated stats:', currentStats);
-            return currentStats;
-        })
-        .then(() => console.log('✅ Stats updated successfully'))
-        .catch(error => console.error('❌ Error updating stats:', error));
+        });
         
         // Listen for real-time updates
         statsRef.on('value', (snapshot) => {
             const stats = snapshot.val();
-            console.log('📊 Stats updated:', stats);
+            console.log('📊 Real-time stats update:', stats);
             if (stats) {
                 analyticsData.totalVisitors = stats.totalVisitors || 0;
                 analyticsData.pageViews = stats.totalPageViews || 0;
