@@ -2567,15 +2567,16 @@ function updateSongListStates() {
     });
 }
 
-// Firebase Configuration - APKO YEH VALUES APNE PROJECT SE REPL KARNE HAIN
+// Firebase Configuration - Your actual Firebase config
 const firebaseConfig = {
-    apiKey: "APNI_API_KEY_YAHAN_DALEIN",
-    authDomain: "APNI_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://APNI_PROJECT_ID-default-rtdb.firebaseio.com",
-    projectId: "APNI_PROJECT_ID",
-    storageBucket: "APNI_PROJECT_ID.appspot.com",
-    messagingSenderId: "APNI_SENDER_ID",
-    appId: "APNI_APP_ID"
+    apiKey: "AIzaSyA-ePq8d1e-OHS4Pnzzgyu7PSGUmzGOcCk",
+    authDomain: "music-player-af7df.firebaseapp.com",
+    databaseURL: "https://music-player-af7df-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "music-player-af7df",
+    storageBucket: "music-player-af7df.firebasestorage.app",
+    messagingSenderId: "809756943707",
+    appId: "1:809756943707:web:e6c07aed8e0fea95e2667e",
+    measurementId: "G-GCPWZMKGTZ"
 };
 
 // Initialize Firebase
@@ -2821,7 +2822,136 @@ loadSong = function(i) {
 };
 
 // Initialize Firebase analytics on page load
-initializeFirebaseAnalytics();
+function initializeFirebaseAnalytics() {
+    try {
+        console.log('🔥 Initializing Firebase...');
+        console.log('Database URL:', firebaseConfig.databaseURL);
+        
+        const userId = generateUserId();
+        const userRef = database.ref('users/' + userId);
+        const statsRef = database.ref('stats');
+        
+        console.log('👤 User ID:', userId);
+        
+        // Test Firebase connection
+        database.ref('.info/connected').on('value', (snapshot) => {
+            console.log('🔗 Firebase Connected:', snapshot.val());
+        });
+        
+        // User session data
+        const userData = {
+            id: userId,
+            isOnline: true,
+            lastSeen: firebase.database.ServerValue.TIMESTAMP,
+            visitTime: analyticsData.visitTime,
+            userAgent: navigator.userAgent,
+            isMobile: analyticsData.isMobile,
+            songsPlayed: 0,
+            pageViews: 1
+        };
+        
+        console.log('📊 Setting user data:', userData);
+        
+        // Set user data
+        userRef.set(userData)
+            .then(() => console.log('✅ User data set successfully'))
+            .catch(error => console.error('❌ Error setting user data:', error));
+        
+        // Remove user when they disconnect
+        userRef.onDisconnect().update({
+            isOnline: false,
+            lastSeen: firebase.database.ServerValue.TIMESTAMP
+        });
+        
+        // Update global stats
+        statsRef.transaction((currentStats) => {
+            console.log('📈 Current stats:', currentStats);
+            
+            if (!currentStats) {
+                currentStats = {
+                    totalVisitors: 0,
+                    totalPageViews: 0,
+                    totalSongsPlayed: 0,
+                    lastUpdated: firebase.database.ServerValue.TIMESTAMP
+                };
+            }
+            
+            // Check if this is a new visitor
+            const isNewVisitor = !localStorage.getItem('hasVisitedBefore');
+            if (isNewVisitor) {
+                currentStats.totalVisitors++;
+                localStorage.setItem('hasVisitedBefore', 'true');
+                console.log('🆕 New visitor detected!');
+            }
+            
+            currentStats.totalPageViews++;
+            currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
+            
+            console.log('📊 Updated stats:', currentStats);
+            return currentStats;
+        })
+        .then(() => console.log('✅ Stats updated successfully'))
+        .catch(error => console.error('❌ Error updating stats:', error));
+        
+        // Listen for real-time updates
+        statsRef.on('value', (snapshot) => {
+            const stats = snapshot.val();
+            console.log('📊 Stats updated:', stats);
+            if (stats) {
+                analyticsData.totalVisitors = stats.totalVisitors || 0;
+                analyticsData.pageViews = stats.totalPageViews || 0;
+                analyticsData.songsPlayed = stats.totalSongsPlayed || 0;
+                updateAnalyticsDisplay();
+            }
+        });
+        
+        // Listen for online users
+        database.ref('users').orderByChild('isOnline').equalTo(true).on('value', (snapshot) => {
+            const onlineCount = snapshot.numChildren();
+            console.log('👥 Online users:', onlineCount);
+            analyticsData.onlineUsers = onlineCount;
+            updateAnalyticsDisplay();
+        });
+        
+        // Listen for recent activity
+        database.ref('activity').limitToLast(10).on('child_added', (snapshot) => {
+            const activity = snapshot.val();
+            console.log('📝 New activity:', activity);
+            addActivityItem(activity.text, formatTime(activity.timestamp));
+        });
+        
+        console.log('🎉 Firebase Analytics initialized successfully!');
+        
+    } catch (error) {
+        console.error('🚨 Firebase initialization error:', error);
+        // Fallback to localStorage if Firebase fails
+        console.log('🔄 Falling back to localStorage...');
+        initializeLocalStorageAnalytics();
+    }
+}
+
+// Fallback localStorage analytics
+function initializeLocalStorageAnalytics() {
+    console.log('📦 Using localStorage analytics...');
+    
+    analyticsData.totalVisitors = parseInt(localStorage.getItem('totalVisitors') || '0');
+    analyticsData.pageViews = parseInt(localStorage.getItem('pageViews') || '0');
+    analyticsData.songsPlayed = parseInt(localStorage.getItem('songsPlayed') || '0');
+    
+    const lastVisit = localStorage.getItem('lastVisit');
+    const isNewVisitor = !lastVisit || (Date.now() - parseInt(lastVisit)) > 30 * 60 * 1000;
+    
+    if (isNewVisitor) {
+        analyticsData.totalVisitors++;
+        localStorage.setItem('totalVisitors', analyticsData.totalVisitors);
+    }
+    
+    analyticsData.pageViews++;
+    localStorage.setItem('pageViews', analyticsData.pageViews);
+    
+    localStorage.setItem('lastVisit', Date.now().toString());
+    updateAnalyticsDisplay();
+}
 
 // Add Punjabi songs to the 'other' category
 songs.push(
@@ -2914,8 +3044,8 @@ songs.push(
 // Initialize with all songs
 filterSongsByCategory('all');
 
-// Initialize Firebase analytics (replaces localStorage version)
-// initializeAnalytics();
+// Initialize Firebase analytics with debugging
+initializeFirebaseAnalytics();
 
 // Search functionality
 const searchInput = document.getElementById('search-input');
