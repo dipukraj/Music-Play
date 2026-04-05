@@ -2136,12 +2136,15 @@ function formatTime(seconds) {
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
 }
 
-// Update the time display
+// Update time display and handle auto-play when song ends
 function updateTimeDisplay() {
-    currentTimeEl.textContent = formatTime(audio.currentTime);
+    currentTimeEl.textContent = formatDuration(audio.currentTime);
     if (audio.duration) {
-        durationEl.textContent = formatTime(audio.duration);
+        durationEl.textContent = formatDuration(audio.duration);
     }
+    
+    // Remove this check - causing multiple auto-plays
+    // Auto-play should only happen via audio.onended event
 }
 
 function loadSong(i, autoPlay = false) {
@@ -2172,7 +2175,26 @@ function loadSong(i, autoPlay = false) {
 
         // When metadata is loaded, update the duration
         audio.onloadedmetadata = function () {
-            durationEl.textContent = formatTime(audio.duration);
+            durationEl.textContent = formatDuration(audio.duration);
+        };
+
+        // Auto-play next song when song ends - FIXED
+        audio.onended = function () {
+            console.log('🎵 Song ended, playing next song...');
+            
+            // Prevent multiple calls
+            if (this.isAutoPlaying) {
+                console.log('🔄 Auto-play already in progress...');
+                return;
+            }
+            
+            this.isAutoPlaying = true;
+            playNextSong();
+            
+            // Reset flag after delay
+            setTimeout(() => {
+                this.isAutoPlaying = false;
+            }, 2000);
         };
 
         // Auto play after song loads (for mobile compatibility)
@@ -2283,15 +2305,19 @@ function renderPlaylist() {
 // Function to play the next song
 function playNextSong() {
     if (currentPlaylist.length === 0) return;
+    
+    console.log('🎵 Playing next song...');
     index = (index + 1) % currentPlaylist.length;
     loadSong(index, true); // true = auto play after load
-    playBtn.textContent = "⏸️";
-    // Update song card states
+    
+    // Update song card states for grid view
     updateSongCardStates();
+    updateSongListStates();
+    playBtn.textContent = "⏸️";
 }
 
-// Play the next song when the current one ends
-audio.addEventListener('ended', playNextSong);
+// Remove duplicate event listener - already handled in loadSong
+// audio.addEventListener('ended', playNextSong);
 
 loadSong(index);
 
@@ -2732,8 +2758,8 @@ function trackSongPlayInFirebase(songTitle) {
     updateAnalyticsDisplay();
 }
 
-// Format timestamp
-function formatTime(timestamp) {
+// Format timestamp for activity feed only
+function formatTimestampForActivity(timestamp) {
     const now = Date.now();
     const diff = now - timestamp;
     
@@ -2741,6 +2767,15 @@ function formatTime(timestamp) {
     if (diff < 3600000) return Math.floor(diff / 60000) + ' min ago';
     if (diff < 86400000) return Math.floor(diff / 3600000) + ' hours ago';
     return Math.floor(diff / 86400000) + ' days ago';
+}
+
+// Format song duration properly
+function formatDuration(seconds) {
+    if (!seconds || isNaN(seconds)) return '0:00';
+    
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
 
 // Update analytics display
@@ -2917,7 +2952,7 @@ function initializeFirebaseAnalytics() {
         database.ref('activity').limitToLast(10).on('child_added', (snapshot) => {
             const activity = snapshot.val();
             console.log('📝 New activity:', activity);
-            addActivityItem(activity.text, formatTime(activity.timestamp));
+            addActivityItem(activity.text, formatTimestampForActivity(activity.timestamp));
         });
         
         console.log('🎉 Firebase Analytics initialized successfully!');
