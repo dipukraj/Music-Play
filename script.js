@@ -2607,17 +2607,39 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-// Analytics Dashboard Functionality
+// Analytics Dashboard Functionality - ENHANCED
 const analyticsToggle = document.getElementById('analytics-toggle');
 const analyticsDashboard = document.getElementById('analytics-dashboard');
 const closeAnalyticsBtn = document.getElementById('close-analytics');
 
-// Analytics elements
+// Analytics elements - Check if they exist
 const totalVisitorsEl = document.getElementById('total-visitors');
 const onlineUsersEl = document.getElementById('online-users');
 const pageViewsEl = document.getElementById('page-views');
 const songsPlayedEl = document.getElementById('songs-played');
 const lastSongEl = document.getElementById('last-song');
+
+// Debug function to check elements
+function checkAnalyticsElements() {
+    console.log('🔍 Analytics Elements Check:');
+    console.log('totalVisitorsEl:', totalVisitorsEl);
+    console.log('onlineUsersEl:', onlineUsersEl);
+    console.log('pageViewsEl:', pageViewsEl);
+    console.log('songsPlayedEl:', songsPlayedEl);
+    console.log('lastSongEl:', lastSongEl);
+    
+    // Check if elements exist in DOM
+    const dashboard = document.getElementById('analytics-dashboard');
+    console.log('Analytics Dashboard in DOM:', dashboard);
+    
+    if (dashboard) {
+        const statNumbers = dashboard.querySelectorAll('.stat-number');
+        console.log('Stat numbers found:', statNumbers.length);
+        statNumbers.forEach((el, i) => {
+            console.log(`Stat ${i}:`, el.id, el.textContent);
+        });
+    }
+}
 
 // Initialize analytics data
 let analyticsData = {
@@ -2776,8 +2798,12 @@ function formatDuration(seconds) {
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
 
-// Update analytics display
+// Update analytics display - ENHANCED
 function updateAnalyticsDisplay() {
+    console.log('🔄 Updating analytics display...');
+    console.log('📊 Current analytics data:', analyticsData);
+    
+    // Update DOM elements with animation
     totalVisitorsEl.textContent = analyticsData.totalVisitors.toLocaleString();
     onlineUsersEl.textContent = analyticsData.onlineUsers.toLocaleString();
     pageViewsEl.textContent = analyticsData.pageViews.toLocaleString();
@@ -2791,6 +2817,8 @@ function updateAnalyticsDisplay() {
             el.style.animation = 'countUp 0.5s ease';
         }, 10);
     });
+    
+    console.log('✅ Analytics display updated');
 }
 
 // Show analytics dashboard
@@ -2855,11 +2883,14 @@ loadSong = function(i, autoPlay = false) {
     }
 };
 
-// Initialize Firebase analytics on page load
+// Initialize Firebase analytics on page load - ENHANCED
 function initializeFirebaseAnalytics() {
     try {
         console.log('🔥 Initializing Firebase...');
         console.log('Database URL:', firebaseConfig.databaseURL);
+        
+        // Check analytics elements first
+        checkAnalyticsElements();
         
         const userId = generateUserId();
         const userRef = database.ref('users/' + userId);
@@ -2951,15 +2982,28 @@ function initializeFirebaseAnalytics() {
             }
         });
         
-        // Listen for real-time updates
+        // Listen for real-time updates - ENHANCED
         statsRef.on('value', (snapshot) => {
             const stats = snapshot.val();
             console.log('📊 Real-time stats update:', stats);
+            console.log('🔍 Before update - Total Visitors:', analyticsData.totalVisitors);
+            
             if (stats) {
                 analyticsData.totalVisitors = stats.totalVisitors || 0;
                 analyticsData.pageViews = stats.totalPageViews || 0;
                 analyticsData.songsPlayed = stats.totalSongsPlayed || 0;
+                
+                console.log('🔍 After update - Total Visitors:', analyticsData.totalVisitors);
+                console.log('📱 Display elements:', {
+                    totalVisitorsEl: totalVisitorsEl,
+                    onlineUsersEl: onlineUsersEl,
+                    pageViewsEl: pageViewsEl,
+                    songsPlayedEl: songsPlayedEl
+                });
+                
                 updateAnalyticsDisplay();
+            } else {
+                console.log('❌ No stats data found');
             }
         });
         
