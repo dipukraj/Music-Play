@@ -1,0 +1,21 @@
+{
+  "rules": {
+    ".read": "true",
+    ".write": "true",
+    "users": {
+      "$userId": {
+        ".read": "$userId === auth.uid || auth === null",
+        ".write": "$userId === auth.uid || auth === null"
+      }
+    },
+    "stats": {
+      ".read": "true",
+      ".write": "true"
+    },
+    "activity": {
+      ".read": "true",
+      ".write": "true",
+      ".indexOn": ["timestamp"]
+    }
+  }
+}

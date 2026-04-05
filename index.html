@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css" />
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
     <link rel="icon" type="image/jpg" href="image/Favicon logo.png">
 </head>
 <body>
@@ -80,6 +83,7 @@
                     </div>
                 </div>
             </div>
+            <button id="analytics-toggle" class="top-btn" title="Analytics">📊</button>
             <button id="theme-toggle" class="top-btn" title="Toggle Theme">🌓</button>
         </div>
     </div>
@@ -147,6 +151,62 @@
             </div>
             <div id="song-grid" class="song-grid">
                 <!-- Song cards will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Dashboard -->
+    <div id="analytics-dashboard" class="analytics-dashboard">
+        <div class="analytics-header">
+            <h3>📊 Analytics Dashboard</h3>
+            <button id="close-analytics" class="close-analytics-btn">✕</button>
+        </div>
+        <div class="analytics-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h4>Total Visitors</h4>
+                        <span id="total-visitors" class="stat-number">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🟢</div>
+                    <div class="stat-info">
+                        <h4>Online Now</h4>
+                        <span id="online-users" class="stat-number">1</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👁️</div>
+                    <div class="stat-info">
+                        <h4>Page Views</h4>
+                        <span id="page-views" class="stat-number">0</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎵</div>
+                    <div class="stat-info">
+                        <h4>Songs Played</h4>
+                        <span id="songs-played" class="stat-number">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="analytics-details">
+                <div class="detail-section">
+                    <h4>📈 Today's Activity</h4>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-time">Just now</span>
+                            <span class="activity-text">New visitor joined</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">2 min ago</span>
+                            <span class="activity-text">Song played: <strong id="last-song">Unknown</strong></span>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>
