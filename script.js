@@ -2631,6 +2631,7 @@ const adminTotalVisitorsEl = document.getElementById('admin-total-visitors');
 const adminPageViewsEl = document.getElementById('admin-page-views');
 const adminOnlineUsersEl = document.getElementById('admin-online-users');
 const adminSongsPlayedEl = document.getElementById('admin-songs-played');
+const publicRequestBannerEl = document.getElementById('public-request-banner');
 
 const ADMIN_PANEL_PASSCODE = 'musicadmin123';
 let isAdminUnlocked = false;
@@ -2903,12 +2904,61 @@ function renderAdminRequests(requestMap) {
     }).join('');
 }
 
+function updatePublicRequestBannerFromLastRequest(requestMap) {
+    if (!publicRequestBannerEl) return;
+
+    const entries = Object.entries(requestMap || {}).map(([key, value]) => ({ key, ...value }));
+    if (entries.length === 0) {
+        publicRequestBannerEl.textContent = '';
+        return;
+    }
+
+    // Latest requests (kisi bhi status), max 5
+    entries.sort((a, b) => (b.updatedAt || b.createdAt || 0) - (a.updatedAt || a.createdAt || 0));
+    const topFive = entries.slice(0, 5);
+
+    const itemsHtml = topFive.map((item, index) => {
+        const songName = (item.songName || 'Unknown song')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        const status = (item.status || 'pending').toLowerCase();
+        const timeText = formatDateTime(item.updatedAt || item.createdAt);
+
+        let statusClass = 'status-pending';
+        let statusLabel = 'Pending';
+        if (status === 'added') {
+            statusClass = 'status-added';
+            statusLabel = 'Added';
+        } else if (status === 'done') {
+            statusClass = 'status-done';
+            statusLabel = 'Done';
+        }
+
+        return `
+            <div>
+                <span style="opacity:0.8;">${index + 1}.</span>
+                <strong>${songName}</strong>
+                <span class="status-pill ${statusClass}">${statusLabel}</span>
+                <span style="opacity:0.75; margin-left:4px;">(${timeText})</span>
+            </div>
+        `;
+    }).join('');
+
+    publicRequestBannerEl.innerHTML = `
+        📢 <span style="font-weight:600;">Latest song requests (top 5):</span>
+        ${itemsHtml}
+    `;
+}
+
 function attachAdminRequestsListener() {
     if (adminRequestsListenerAttached) return;
     adminRequestsListenerAttached = true;
 
     database.ref('songRequests').limitToLast(100).on('value', (snapshot) => {
-        renderAdminRequests(snapshot.val());
+        const val = snapshot.val();
+        renderAdminRequests(val);
+        updatePublicRequestBannerFromLastRequest(val);
     });
 }
 
@@ -3158,6 +3208,11 @@ function initializeFirebaseAnalytics() {
             } else {
                 console.log('❌ No stats data found');
             }
+        });
+
+        // Public banner for latest song request (visible to all users)
+        database.ref('songRequests').limitToLast(10).on('value', (snapshot) => {
+            updatePublicRequestBannerFromLastRequest(snapshot.val());
         });
         
         // Listen for online users (realtime presence count)
