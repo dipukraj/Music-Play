@@ -2618,6 +2618,26 @@ const onlineUsersEl = document.getElementById('online-users');
 const pageViewsEl = document.getElementById('page-views');
 const songsPlayedEl = document.getElementById('songs-played');
 const lastSongEl = document.getElementById('last-song');
+const songRequestInput = document.getElementById('song-request-input');
+const sendSongRequestBtn = document.getElementById('send-song-request');
+const songRequestStatusEl = document.getElementById('song-request-status');
+const adminPasscodeInput = document.getElementById('admin-passcode');
+const adminUnlockBtn = document.getElementById('admin-unlock-btn');
+const adminPanelStatusEl = document.getElementById('admin-panel-status');
+const adminDataPanelEl = document.getElementById('admin-data-panel');
+const adminRequestListEl = document.getElementById('admin-request-list');
+const adminActivityListEl = document.getElementById('admin-activity-list');
+const adminTotalVisitorsEl = document.getElementById('admin-total-visitors');
+const adminPageViewsEl = document.getElementById('admin-page-views');
+const adminOnlineUsersEl = document.getElementById('admin-online-users');
+const adminSongsPlayedEl = document.getElementById('admin-songs-played');
+
+const ADMIN_PANEL_PASSCODE = 'musicadmin123';
+let isAdminUnlocked = false;
+let adminRequestsListenerAttached = false;
+
+// Footer visitor counter element
+const footerVisitorsEl = document.getElementById('footer-visitors');
 
 // Debug function to check elements
 function checkAnalyticsElements() {
@@ -2627,6 +2647,7 @@ function checkAnalyticsElements() {
     console.log('pageViewsEl:', pageViewsEl);
     console.log('songsPlayedEl:', songsPlayedEl);
     console.log('lastSongEl:', lastSongEl);
+    console.log('footerVisitorsEl:', footerVisitorsEl);
     
     // Check if elements exist in DOM
     const dashboard = document.getElementById('analytics-dashboard');
@@ -2664,80 +2685,9 @@ function generateUserId() {
     return userId;
 }
 
-// Initialize Firebase analytics
-function initializeFirebaseAnalytics() {
-    const userId = generateUserId();
-    const userRef = database.ref('users/' + userId);
-    const statsRef = database.ref('stats');
-    
-    // User session data
-    const userData = {
-        id: userId,
-        isOnline: true,
-        lastSeen: firebase.database.ServerValue.TIMESTAMP,
-        visitTime: analyticsData.visitTime,
-        userAgent: analyticsData.userAgent,
-        isMobile: analyticsData.isMobile,
-        songsPlayed: 0,
-        pageViews: 1
-    };
-    
-    // Set user data
-    userRef.set(userData);
-    
-    // Remove user when they disconnect
-    userRef.onDisconnect().update({
-        isOnline: false,
-        lastSeen: firebase.database.ServerValue.TIMESTAMP
-    });
-    
-    // Update global stats
-    statsRef.transaction((currentStats) => {
-        if (!currentStats) {
-            currentStats = {
-                totalVisitors: 0,
-                totalPageViews: 0,
-                totalSongsPlayed: 0,
-                lastUpdated: firebase.database.ServerValue.TIMESTAMP
-            };
-        }
-        
-        // Check if this is a new visitor
-        const isNewVisitor = !localStorage.getItem('hasVisitedBefore');
-        if (isNewVisitor) {
-            currentStats.totalVisitors++;
-            localStorage.setItem('hasVisitedBefore', 'true');
-        }
-        
-        currentStats.totalPageViews++;
-        currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
-        
-        return currentStats;
-    });
-    
-    // Listen for real-time updates
-    statsRef.on('value', (snapshot) => {
-        const stats = snapshot.val();
-        if (stats) {
-            analyticsData.totalVisitors = stats.totalVisitors || 0;
-            analyticsData.pageViews = stats.totalPageViews || 0;
-            analyticsData.songsPlayed = stats.totalSongsPlayed || 0;
-            updateAnalyticsDisplay();
-        }
-    });
-    
-    // Listen for online users
-    database.ref('users').orderByChild('isOnline').equalTo(true).on('value', (snapshot) => {
-        analyticsData.onlineUsers = snapshot.numChildren();
-        updateAnalyticsDisplay();
-    });
-    
-    // Listen for recent activity
-    database.ref('activity').limitToLast(10).on('child_added', (snapshot) => {
-        const activity = snapshot.val();
-        addActivityItem(activity.text, formatTime(activity.timestamp));
-    });
-}
+// NOTE:
+// A duplicate initializeFirebaseAnalytics existed earlier. We keep one
+// canonical implementation below to avoid conflicting listeners/writes.
 
 // Track song play in Firebase
 function trackSongPlayInFirebase(songTitle) {
@@ -2758,10 +2708,16 @@ function trackSongPlayInFirebase(songTitle) {
     
     // Update global stats
     statsRef.transaction((stats) => {
-        if (stats) {
-            stats.totalSongsPlayed = (stats.totalSongsPlayed || 0) + 1;
-            stats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
+        if (!stats) {
+            stats = {
+                totalVisitors: 0,
+                totalPageViews: 0,
+                totalSongsPlayed: 0,
+                lastUpdated: firebase.database.ServerValue.TIMESTAMP
+            };
         }
+        stats.totalSongsPlayed = (stats.totalSongsPlayed || 0) + 1;
+        stats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
         return stats;
     });
     
@@ -2804,18 +2760,48 @@ function updateAnalyticsDisplay() {
     console.log('📊 Current analytics data:', analyticsData);
     
     // Update DOM elements with animation
-    totalVisitorsEl.textContent = analyticsData.totalVisitors.toLocaleString();
-    onlineUsersEl.textContent = analyticsData.onlineUsers.toLocaleString();
-    pageViewsEl.textContent = analyticsData.pageViews.toLocaleString();
-    songsPlayedEl.textContent = analyticsData.songsPlayed.toLocaleString();
-    lastSongEl.textContent = analyticsData.lastPlayedSong;
+    if (totalVisitorsEl) {
+        totalVisitorsEl.textContent = analyticsData.totalVisitors.toLocaleString();
+    }
+    if (onlineUsersEl) {
+        onlineUsersEl.textContent = analyticsData.onlineUsers.toLocaleString();
+    }
+    if (pageViewsEl) {
+        pageViewsEl.textContent = analyticsData.pageViews.toLocaleString();
+    }
+    if (songsPlayedEl) {
+        songsPlayedEl.textContent = analyticsData.songsPlayed.toLocaleString();
+    }
+    if (lastSongEl) {
+        lastSongEl.textContent = analyticsData.lastPlayedSong;
+    }
+    if (adminTotalVisitorsEl) {
+        adminTotalVisitorsEl.textContent = analyticsData.totalVisitors.toLocaleString();
+    }
+    if (adminPageViewsEl) {
+        adminPageViewsEl.textContent = analyticsData.pageViews.toLocaleString();
+    }
+    if (adminOnlineUsersEl) {
+        adminOnlineUsersEl.textContent = analyticsData.onlineUsers.toLocaleString();
+    }
+    if (adminSongsPlayedEl) {
+        adminSongsPlayedEl.textContent = analyticsData.songsPlayed.toLocaleString();
+    }
+    
+    // Update footer visitor counter
+    if (footerVisitorsEl) {
+        footerVisitorsEl.textContent = analyticsData.totalVisitors.toLocaleString();
+        console.log('✅ Footer visitors updated:', analyticsData.totalVisitors);
+    }
     
     // Add animation to numbers
-    [totalVisitorsEl, onlineUsersEl, pageViewsEl, songsPlayedEl].forEach(el => {
-        el.style.animation = 'none';
-        setTimeout(() => {
-            el.style.animation = 'countUp 0.5s ease';
-        }, 10);
+    [totalVisitorsEl, onlineUsersEl, pageViewsEl, songsPlayedEl, footerVisitorsEl].forEach(el => {
+        if (el) {
+            el.style.animation = 'none';
+            setTimeout(() => {
+                el.style.animation = 'countUp 0.5s ease';
+            }, 10);
+        }
     });
     
     console.log('✅ Analytics display updated');
@@ -2855,9 +2841,190 @@ function addActivityItem(text, time) {
     }
 }
 
+function addAdminActivityItem(text, time) {
+    if (!adminActivityListEl) return;
+    const newItem = document.createElement('div');
+    newItem.className = 'activity-item';
+    newItem.innerHTML = `
+        <span class="activity-time">${time}</span>
+        <span class="activity-text">${text}</span>
+    `;
+    adminActivityListEl.insertBefore(newItem, adminActivityListEl.firstChild);
+    while (adminActivityListEl.children.length > 10) {
+        adminActivityListEl.removeChild(adminActivityListEl.lastChild);
+    }
+}
+
+function setSongRequestStatus(message, isError = false) {
+    if (!songRequestStatusEl) return;
+    songRequestStatusEl.textContent = message;
+    songRequestStatusEl.style.color = isError ? '#ffb4b4' : '';
+}
+
+function setAdminPanelStatus(message, isError = false) {
+    if (!adminPanelStatusEl) return;
+    adminPanelStatusEl.textContent = message;
+    adminPanelStatusEl.style.color = isError ? '#ffb4b4' : '';
+}
+
+function formatDateTime(ts) {
+    if (!ts || typeof ts !== 'number') return 'unknown time';
+    return new Date(ts).toLocaleString();
+}
+
+function renderAdminRequests(requestMap) {
+    if (!adminRequestListEl) return;
+
+    const entries = Object.entries(requestMap || {}).map(([key, value]) => ({ key, ...value }));
+    entries.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+    if (entries.length === 0) {
+        adminRequestListEl.innerHTML = '<div class="admin-request-item"><div class="admin-request-song">No requests yet.</div></div>';
+        return;
+    }
+
+    adminRequestListEl.innerHTML = entries.map((item) => {
+        const safeSong = (item.songName || 'Untitled request')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        const status = item.status || 'pending';
+        return `
+            <div class="admin-request-item">
+                <div class="admin-request-song">${safeSong}</div>
+                <div class="admin-request-meta">Status: <strong>${status}</strong> | ${formatDateTime(item.createdAt)}</div>
+                <div class="admin-request-actions">
+                    <button class="request-action-btn pending" data-key="${item.key}" data-status="pending">Pending</button>
+                    <button class="request-action-btn added" data-key="${item.key}" data-status="added">Added</button>
+                    <button class="request-action-btn done" data-key="${item.key}" data-status="done">Done</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function attachAdminRequestsListener() {
+    if (adminRequestsListenerAttached) return;
+    adminRequestsListenerAttached = true;
+
+    database.ref('songRequests').limitToLast(100).on('value', (snapshot) => {
+        renderAdminRequests(snapshot.val());
+    });
+}
+
+function unlockAdminPanel() {
+    if (!adminPasscodeInput || !adminRequestListEl || !adminDataPanelEl) return;
+    const pass = adminPasscodeInput.value.trim();
+    if (pass !== ADMIN_PANEL_PASSCODE) {
+        setAdminPanelStatus('Wrong passcode.', true);
+        return;
+    }
+
+    isAdminUnlocked = true;
+    if (adminUnlockBtn) {
+        adminUnlockBtn.disabled = true;
+        adminUnlockBtn.textContent = 'Unlocked';
+    }
+    adminPasscodeInput.disabled = true;
+    adminDataPanelEl.style.display = 'block';
+    setAdminPanelStatus('Admin panel unlocked.');
+    updateAnalyticsDisplay();
+    attachAdminRequestsListener();
+}
+
+function updateSongRequestStatus(requestKey, newStatus) {
+    if (!requestKey || !newStatus) return;
+    database.ref('songRequests/' + requestKey).update({
+        status: newStatus,
+        updatedAt: firebase.database.ServerValue.TIMESTAMP
+    }).catch((error) => {
+        console.error('❌ Request status update error:', error);
+        setAdminPanelStatus('Status update failed.', true);
+    });
+}
+
+function submitSongRequest() {
+    if (!songRequestInput || !sendSongRequestBtn) return;
+
+    const requestText = songRequestInput.value.trim();
+    if (!requestText) {
+        setSongRequestStatus('Please song name likhiye, phir send kariye.', true);
+        return;
+    }
+
+    const userId = generateUserId();
+    const songRequestRef = database.ref('songRequests');
+    const activityRef = database.ref('activity');
+
+    sendSongRequestBtn.disabled = true;
+    sendSongRequestBtn.textContent = 'Sending...';
+    setSongRequestStatus('Request bheja ja raha hai...');
+
+    const payload = {
+        songName: requestText,
+        userId,
+        createdAt: firebase.database.ServerValue.TIMESTAMP,
+        userAgent: navigator.userAgent,
+        status: 'pending'
+    };
+
+    songRequestRef.push(payload)
+        .then(() => {
+            setSongRequestStatus('Request bhej diya gaya. Thank you!');
+            songRequestInput.value = '';
+
+            activityRef.push({
+                text: `Song request received: <strong>${requestText}</strong>`,
+                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                userId,
+                type: 'song_request'
+            });
+        })
+        .catch((error) => {
+            console.error('❌ Song request save error:', error);
+            setSongRequestStatus('Request send nahi hua. Please phir try kariye.', true);
+        })
+        .finally(() => {
+            sendSongRequestBtn.disabled = false;
+            sendSongRequestBtn.textContent = 'Send Request';
+        });
+}
+
 // Event listeners
 analyticsToggle.addEventListener('click', showAnalyticsDashboard);
 closeAnalyticsBtn.addEventListener('click', closeAnalyticsDashboard);
+if (sendSongRequestBtn) {
+    sendSongRequestBtn.addEventListener('click', submitSongRequest);
+}
+if (songRequestInput) {
+    songRequestInput.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            submitSongRequest();
+        }
+    });
+}
+if (adminUnlockBtn) {
+    adminUnlockBtn.addEventListener('click', unlockAdminPanel);
+}
+if (adminPasscodeInput) {
+    adminPasscodeInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            unlockAdminPanel();
+        }
+    });
+}
+if (adminRequestListEl) {
+    adminRequestListEl.addEventListener('click', (e) => {
+        const target = e.target;
+        if (!(target instanceof HTMLElement)) return;
+        if (!target.classList.contains('request-action-btn')) return;
+        if (!isAdminUnlocked) return;
+
+        const reqKey = target.getAttribute('data-key');
+        const status = target.getAttribute('data-status');
+        updateSongRequestStatus(reqKey, status);
+    });
+}
 
 // Close analytics when clicking outside
 analyticsDashboard.addEventListener('click', (e) => {
@@ -2895,6 +3062,8 @@ function initializeFirebaseAnalytics() {
         const userId = generateUserId();
         const userRef = database.ref('users/' + userId);
         const statsRef = database.ref('stats');
+        const presenceRef = database.ref('presence/' + userId);
+        const isFirstVisit = !localStorage.getItem('musicPlayerVisitorCounted');
         
         console.log('👤 User ID:', userId);
         
@@ -2903,7 +3072,7 @@ function initializeFirebaseAnalytics() {
             console.log('🔗 Firebase Connected:', snapshot.val());
         });
         
-        // User session data
+        // Keep user profile data
         const userData = {
             id: userId,
             isOnline: true,
@@ -2912,75 +3081,59 @@ function initializeFirebaseAnalytics() {
             userAgent: navigator.userAgent,
             isMobile: analyticsData.isMobile,
             songsPlayed: 0,
-            pageViews: 1
+            pageViews: (analyticsData.pageViews || 0) + 1
         };
-        
+
         console.log('📊 Setting user data:', userData);
-        
-        // Set user data
-        userRef.set(userData)
-            .then(() => console.log('✅ User data set successfully'))
+        userRef.update(userData)
+            .then(() => console.log('✅ User data updated'))
             .catch(error => console.error('❌ Error setting user data:', error));
-        
-        // Remove user when they disconnect
-        userRef.onDisconnect().update({
-            isOnline: false,
-            lastSeen: firebase.database.ServerValue.TIMESTAMP
+
+        // Presence tracking: true while connected, remove on disconnect.
+        database.ref('.info/connected').on('value', (snapshot) => {
+            const connected = snapshot.val() === true;
+            console.log('🔗 Firebase Connected:', connected);
+            if (!connected) {
+                return;
+            }
+
+            presenceRef.set({
+                userId,
+                connectedAt: firebase.database.ServerValue.TIMESTAMP
+            });
+
+            presenceRef.onDisconnect().remove();
+            userRef.onDisconnect().update({
+                isOnline: false,
+                lastSeen: firebase.database.ServerValue.TIMESTAMP
+            });
         });
-        
-        // Initialize stats if not exists
-        statsRef.once('value', (snapshot) => {
-            const existingStats = snapshot.val();
-            console.log('📈 Existing stats:', existingStats);
-            
-            if (!existingStats) {
-                // Create initial stats
-                const initialStats = {
-                    totalVisitors: 1,
-                    totalPageViews: 1,
+
+        // Stats: page view always increments, visitor increments once per browser profile.
+        statsRef.transaction((currentStats) => {
+            if (!currentStats) {
+                currentStats = {
+                    totalVisitors: 0,
+                    totalPageViews: 0,
                     totalSongsPlayed: 0,
                     lastUpdated: firebase.database.ServerValue.TIMESTAMP
                 };
-                
-                console.log('🆕 Creating initial stats:', initialStats);
-                statsRef.set(initialStats)
-                    .then(() => {
-                        console.log('✅ Initial stats created');
-                        localStorage.setItem('hasVisitedBefore', 'true');
-                    })
-                    .catch(error => console.error('❌ Error creating initial stats:', error));
-            } else {
-                // Update existing stats
-                statsRef.transaction((currentStats) => {
-                    console.log('📈 Current stats before update:', currentStats);
-                    
-                    if (!currentStats) {
-                        currentStats = {
-                            totalVisitors: 0,
-                            totalPageViews: 0,
-                            totalSongsPlayed: 0,
-                            lastUpdated: firebase.database.ServerValue.TIMESTAMP
-                        };
-                    }
-                    
-                    // Check if this is a new visitor
-                    const isNewVisitor = !localStorage.getItem('hasVisitedBefore');
-                    if (isNewVisitor) {
-                        currentStats.totalVisitors++;
-                        localStorage.setItem('hasVisitedBefore', 'true');
-                        console.log('🆕 New visitor detected! Total visitors:', currentStats.totalVisitors);
-                    }
-                    
-                    currentStats.totalPageViews++;
-                    currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
-                    
-                    console.log('📊 Updated stats:', currentStats);
-                    return currentStats;
-                })
-                .then(() => console.log('✅ Stats updated successfully'))
-                .catch(error => console.error('❌ Error updating stats:', error));
             }
-        });
+
+            if (isFirstVisit) {
+                currentStats.totalVisitors = (currentStats.totalVisitors || 0) + 1;
+            }
+            currentStats.totalPageViews = (currentStats.totalPageViews || 0) + 1;
+            currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
+            return currentStats;
+        })
+        .then((result) => {
+            if (result.committed && isFirstVisit) {
+                localStorage.setItem('musicPlayerVisitorCounted', 'true');
+            }
+            console.log('✅ Stats updated successfully');
+        })
+        .catch(error => console.error('❌ Error updating stats:', error));
         
         // Listen for real-time updates - ENHANCED
         statsRef.on('value', (snapshot) => {
@@ -3007,8 +3160,8 @@ function initializeFirebaseAnalytics() {
             }
         });
         
-        // Listen for online users
-        database.ref('users').orderByChild('isOnline').equalTo(true).on('value', (snapshot) => {
+        // Listen for online users (realtime presence count)
+        database.ref('presence').on('value', (snapshot) => {
             const onlineCount = snapshot.numChildren();
             console.log('👥 Online users:', onlineCount);
             analyticsData.onlineUsers = onlineCount;
@@ -3020,6 +3173,7 @@ function initializeFirebaseAnalytics() {
             const activity = snapshot.val();
             console.log('📝 New activity:', activity);
             addActivityItem(activity.text, formatTimestampForActivity(activity.timestamp));
+            addAdminActivityItem(activity.text, formatTimestampForActivity(activity.timestamp));
         });
         
         console.log('🎉 Firebase Analytics initialized successfully!');
@@ -3152,7 +3306,77 @@ initializeFirebaseAnalytics();
 // Search functionality
 const searchInput = document.getElementById('search-input');
 
-// Function to filter songs based on search input
+function normalizeSearchText(text) {
+    return (text || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+function getEditDistance(a, b) {
+    const m = a.length;
+    const n = b.length;
+    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    for (let i = 0; i <= m; i++) dp[i][0] = i;
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+            dp[i][j] = Math.min(
+                dp[i - 1][j] + 1,
+                dp[i][j - 1] + 1,
+                dp[i - 1][j - 1] + cost
+            );
+        }
+    }
+    return dp[m][n];
+}
+
+function getSongSearchScore(songTitle, query) {
+    const normalizedTitle = normalizeSearchText(songTitle);
+    const normalizedQuery = normalizeSearchText(query);
+
+    if (!normalizedQuery) return 0;
+    if (normalizedTitle === normalizedQuery) return 100;
+    if (normalizedTitle.includes(normalizedQuery)) return 80;
+
+    const titleWords = normalizedTitle.split(' ').filter(Boolean);
+    const queryWords = normalizedQuery.split(' ').filter(Boolean);
+
+    let score = 0;
+    queryWords.forEach((queryWord) => {
+        let bestWordScore = 0;
+
+        titleWords.forEach((titleWord) => {
+            if (titleWord === queryWord) {
+                bestWordScore = Math.max(bestWordScore, 25);
+            } else if (titleWord.startsWith(queryWord) || queryWord.startsWith(titleWord)) {
+                bestWordScore = Math.max(bestWordScore, 20);
+            } else if (titleWord.includes(queryWord) || queryWord.includes(titleWord)) {
+                bestWordScore = Math.max(bestWordScore, 15);
+            } else {
+                const minLen = Math.min(titleWord.length, queryWord.length);
+                if (minLen >= 4) {
+                    const distance = getEditDistance(titleWord, queryWord);
+                    if (distance <= 1) {
+                        bestWordScore = Math.max(bestWordScore, 12);
+                    } else if (distance === 2 && minLen >= 6) {
+                        bestWordScore = Math.max(bestWordScore, 8);
+                    }
+                }
+            }
+        });
+
+        score += bestWordScore;
+    });
+
+    return score;
+}
+
+// Function to filter songs based on search input (smart fuzzy search)
 function filterSongsBySearch(query) {
     if (!query.trim()) {
         // If search is empty, show all songs in current category
@@ -3160,15 +3384,16 @@ function filterSongsBySearch(query) {
         renderPlaylist();
         return;
     }
-    
-    const searchTerm = query.toLowerCase().trim();
-    const searchTerms = searchTerm.split(/\s+/).filter(t => t.length > 0);
-    
-    const filteredSongs = songs.filter(song => {
-        const title = song.title.toLowerCase();
-        // Koi bhi word match ho to song aa jaye (OR logic) - 2,4 word ya partial bhi chalega
-        return searchTerms.some(term => title.includes(term));
-    });
+
+    const rankedSongs = songs
+        .map(song => ({
+            song,
+            score: getSongSearchScore(song.title, query)
+        }))
+        .filter(item => item.score > 0)
+        .sort((a, b) => b.score - a.score);
+
+    const filteredSongs = rankedSongs.map(item => item.song);
     
     // Update the current playlist with search results
     currentPlaylist = filteredSongs;

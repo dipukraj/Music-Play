@@ -206,6 +206,34 @@
                         </div>
                     </div>
                 </div>
+                <div class="detail-section song-request-section">
+                    <h4>📝 Song Request Box</h4>
+                    <p class="request-help-text">Aap apna favorite song yahan likh ke bhejiye.</p>
+                    <textarea id="song-request-input" class="song-request-input" placeholder="Example: Tum Hi Ho - Arijit Singh"></textarea>
+                    <button id="send-song-request" class="send-song-request-btn">Send Request</button>
+                    <p id="song-request-status" class="song-request-status"></p>
+                </div>
+                <div class="detail-section admin-request-section">
+                    <h4>🛠️ Admin Request Panel</h4>
+                    <p class="request-help-text">Yahan pending song requests dekhkar Added/Done mark karein.</p>
+                    <div id="admin-login-box" class="admin-login-box">
+                        <input id="admin-passcode" class="admin-passcode-input" type="password" placeholder="Admin passcode" />
+                        <button id="admin-unlock-btn" class="admin-unlock-btn">Unlock</button>
+                    </div>
+                    <p id="admin-panel-status" class="song-request-status"></p>
+                    <div id="admin-data-panel" class="admin-data-panel">
+                        <div class="admin-stats-grid">
+                            <div class="admin-mini-card"><span>Total Visitors</span><strong id="admin-total-visitors">0</strong></div>
+                            <div class="admin-mini-card"><span>Page Views</span><strong id="admin-page-views">0</strong></div>
+                            <div class="admin-mini-card"><span>Online Now</span><strong id="admin-online-users">0</strong></div>
+                            <div class="admin-mini-card"><span>Songs Played</span><strong id="admin-songs-played">0</strong></div>
+                        </div>
+                        <h5 class="admin-subtitle">Song Requests</h5>
+                        <div id="admin-request-list" class="admin-request-list"></div>
+                        <h5 class="admin-subtitle">Recent Activity</h5>
+                        <div id="admin-activity-list" class="admin-activity-list"></div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -234,6 +262,12 @@
                 <a href="https://www.instagram.com/r.p.dipu" title="Instagram" class="social-icon" id="instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
+            </div>
+            <div class="visitor-counter">
+                <p class="visitor-text">
+                    <i class="fas fa-users"></i>
+                    Total Visitors: <span id="footer-visitors" class="visitor-count">0</span>
+                </p>
             </div>
         </div>
     </footer>
