@@ -3113,7 +3113,6 @@ function initializeFirebaseAnalytics() {
         const userRef = database.ref('users/' + userId);
         const statsRef = database.ref('stats');
         const presenceRef = database.ref('presence/' + userId);
-        const isFirstVisit = !localStorage.getItem('musicPlayerVisitorCounted');
         
         console.log('👤 User ID:', userId);
         
@@ -3159,7 +3158,7 @@ function initializeFirebaseAnalytics() {
             });
         });
 
-        // Stats: page view always increments, visitor increments once per browser profile.
+        // Stats: har page open/refresh par visitor + page view dono increment.
         statsRef.transaction((currentStats) => {
             if (!currentStats) {
                 currentStats = {
@@ -3170,17 +3169,12 @@ function initializeFirebaseAnalytics() {
                 };
             }
 
-            if (isFirstVisit) {
-                currentStats.totalVisitors = (currentStats.totalVisitors || 0) + 1;
-            }
+            currentStats.totalVisitors = (currentStats.totalVisitors || 0) + 1;
             currentStats.totalPageViews = (currentStats.totalPageViews || 0) + 1;
             currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
             return currentStats;
         })
-        .then((result) => {
-            if (result.committed && isFirstVisit) {
-                localStorage.setItem('musicPlayerVisitorCounted', 'true');
-            }
+        .then(() => {
             console.log('✅ Stats updated successfully');
         })
         .catch(error => console.error('❌ Error updating stats:', error));
