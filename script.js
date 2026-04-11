@@ -1158,6 +1158,18 @@ const songs = [
         cover: "romantic image/Chalao Na Naino Se.jpg",
         category: "romantic"
     },
+    {
+        title: "Dilbar Dilbar",
+        file: "romantic music/Dilbar Dilbar.mp3",
+        cover: "romantic image/Dilbar Dilbar.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Mausam Ne Mujhpe Aisa Jadu Kar Diya",
+        file: "romantic music/Mausam Ne Mujhpe Aisa Jadu Kar Diya.mp3",
+        cover: "romantic image/Mausam Ne Mujhpe Aisa Jadu Kar Diya.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
