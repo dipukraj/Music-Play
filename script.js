@@ -652,6 +652,18 @@ const songs = [
         cover: "old image/Likhe Jo Khat Tujhe.jpg",
         category: "old"
     },
+    {
+        title: "Choli Ke Peeche Kya Hai",
+        file: "old music/Choli Ke Peeche Kya Hai.mp3",
+        cover: "old image/Choli Ke Peeche Kya Hai.jpg",
+        category: "old"
+    },
+    {
+        title: "Wadiye Ishq Se Aaya Hai Mera Shahzada",
+        file: "old music/Wadiye Ishq Se Aaya Hai Mera Shahzada.mp3",
+        cover: "old image/Wadiye Ishq Se Aaya Hai Mera Shahzada.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
