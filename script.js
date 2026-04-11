@@ -1473,6 +1473,54 @@ const songs = [
         cover: "sad image/Mainu Ishq Da Lagya Rog.jpg",
         category: "sad"
     },
+    {
+        title: "Asi Ishq Da Dard",
+        file: "sad music/Asi Ishq Da Dard.mp3",
+        cover: "sad image/Asi Ishq Da Dard.jpg",
+        category: "sad"
+    },
+    {
+        title: "Bahut Jatate Ho Chah Humse",
+        file: "sad music/Bahut Jatate Ho Chah Humse.mp3",
+        cover: "sad image/Bahut Jatate Ho Chah Humse.jpg",
+        category: "sad"
+    },
+    {
+        title: "Chhor Ke Mujhko Jana Tha To Yaad Bhi Apni Le Jate",
+        file: "sad music/Chhor Ke Mujhko Jana Tha To Yaad Bhi Apni Le Jate.mp3",
+        cover: "sad image/Chhor Ke Mujhko Jana Tha To Yaad Bhi Apni Le Jate.jpg",
+        category: "sad"
+    },
+    {
+        title: "Hamsafar Ke Liye",
+        file: "sad music/Hamsafar Ke Liye.mp3",
+        cover: "sad image/Hamsafar Ke Liye.jpg",
+        category: "sad"
+    },
+    {
+        title: "Hum Pyar Karne Wale",
+        file: "sad music/Hum Pyar Karne Wale.mp3",
+        cover: "sad image/Hum Pyar Karne Wale.jpg",
+        category: "sad"
+    },
+    {
+        title: "Pehli Nazar Mein",
+        file: "sad music/Pehli Nazar Mein.mp3",
+        cover: "sad image/Pehli Nazar Mein.jpg",
+        category: "sad"
+    },
+    {
+        title: "Saare Shikwe Gile Bhoola Ke",
+        file: "sad music/Saare Shikwe Gile Bhoola Ke.mp3",
+        cover: "sad image/Saare Shikwe Gile Bhoola Ke.jpg",
+        category: "sad"
+    },
+    {
+        title: "Tu Neendon Ki Rani",
+        file: "sad music/Tu Neendon Ki Rani.mp3",
+        cover: "sad image/Tu Neendon Ki Rani.jpg",
+        category: "sad"
+    },
 
  
 
