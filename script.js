@@ -664,6 +664,12 @@ const songs = [
         cover: "old image/Wadiye Ishq Se Aaya Hai Mera Shahzada.jpg",
         category: "old"
     },
+    {
+        title: "Janam Janam Jo Saath",
+        file: "old music/Janam Janam Jo Saath.mp3",
+        cover: "old image/Janam Janam Jo Saath.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
@@ -1170,6 +1176,18 @@ const songs = [
         cover: "romantic image/Mausam Ne Mujhpe Aisa Jadu Kar Diya.jpg",
         category: "romantic"
     },
+    {
+        title: "Hai Dil Dil Ka Rishta",
+        file: "romantic music/Hai Dil Dil Ka Rishta.mp3",
+        cover: "romantic image/Hai Dil Dil Ka Rishta.webp",
+        category: "romantic"
+    },
+    {
+        title: "Tumko Dekha To Kya Yeh Hogaya",
+        file: "romantic music/Tumko Dekha To Kya Yeh Hogaya.mp3",
+        cover: "romantic image/Tumko Dekha To Kya Yeh Hogaya.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
@@ -1543,6 +1561,18 @@ const songs = [
         title: "Tu Neendon Ki Rani",
         file: "sad music/Tu Neendon Ki Rani.mp3",
         cover: "sad image/Tu Neendon Ki Rani.jpg",
+        category: "sad"
+    },
+    {
+        title: "Beshak Tum Meri Mohabbat Ho",
+        file: "sad music/Beshak Tum Meri Mohabbat Ho.mp3",
+        cover: "sad image/Beshak Tum Meri Mohabbat Ho.jpg",
+        category: "sad"
+    },
+    {
+        title: "Wo Dil Bhi Kya Jo Manane se Mane",
+        file: "sad music/Wo Dil bhi Kya Jo manane se mane.mp3",
+        cover: "sad image/Wo Dil bhi Kya Jo manane se mane.jpg",
         category: "sad"
     },
 
