@@ -1743,6 +1743,12 @@ const songs = [
         cover: "sad image/Yeh Mehndi Ke Boote.jpg",
         category: "sad"
     },
+    {
+        title: "Aaj Pahli Baar Dil Ki Baat Ki Hai",
+        file: "sad music/Aaj Pahli Baar Dil Ki Baat Ki Hai.mp3",
+        cover: "sad image/Aaj Pahli Baar Dil Ki Baat Ki Hai.jpg",
+        category: "sad"
+    },
 
  
 
