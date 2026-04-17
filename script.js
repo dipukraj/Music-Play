@@ -1188,6 +1188,42 @@ const songs = [
         cover: "romantic image/Tumko Dekha To Kya Yeh Hogaya.jpg",
         category: "romantic"
     },
+    {
+        title: "Aa Jaana Aa Jaana",
+        file: "romantic music/Aa Jaana Aa Jaana.mp3",
+        cover: "romantic image/Aa Jaana Aa Jaana.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Aap Ke Aa Jane Se",
+        file: "romantic music/Aap Ke Aa Jane Se.mp3",
+        cover: "romantic image/Aap Ke Aa Jane Se.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Ghoonghat Mein Chand Hoga",
+        file: "romantic music/Ghoonghat Mein Chand Hoga.mp3",
+        cover: "romantic image/Ghoonghat Mein Chand Hoga.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Panchhi Bole",
+        file: "romantic music/Panchhi Bole.mp3",
+        cover: "romantic image/Panchhi Bole.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Pyar Ke Kagaz Pe",
+        file: "romantic music/Pyar Ke Kagaz Pe.mp3",
+        cover: "romantic image/Pyar Ke Kagaz Pe.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Saawan Ka Mahina Aaya Hai",
+        file: "romantic music/Saawan Ka Mahina Aaya Hai.mp3",
+        cover: "romantic image/Saawan Ka Mahina Aaya Hai.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
