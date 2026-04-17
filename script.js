@@ -670,6 +670,24 @@ const songs = [
         cover: "old image/Janam Janam Jo Saath.jpg",
         category: "old"
     },
+    {
+        title: "Dil Ka Kya Kare Saheb",
+        file: "old music/Dil Ka Kya Kare Saheb.mp3",
+        cover: "old image/Dil Ka Kya Kare Saheb.jpg",
+        category: "old"
+    },
+    {
+        title: "Kagaj Kalam Dawat La",
+        file: "old music/Kagaj Kalam Dawat La.mp3",
+        cover: "old image/Kagaj Kalam Dawat La.jpg",
+        category: "old"
+    },
+    {
+        title: "Yeh Dharti Chand Sitare",
+        file: "old music/Yeh Dharti Chand Sitare.mp3",
+        cover: "old image/Yeh Dharti Chand Sitare.jpg",
+        category: "old"
+    },
 
     // Romantic Songs
     {
