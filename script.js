@@ -1575,6 +1575,108 @@ const songs = [
         cover: "sad image/Wo Dil bhi Kya Jo manane se mane.jpg",
         category: "sad"
     },
+    {
+        title: "Chod Ke Na Jaa O Piya",
+        file: "sad music/Chod Ke Na Jaa O Piya.mp3",
+        cover: "sad image/Chod Ke Na Jaa O Piya.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Ki Tanhai Ko",
+        file: "sad music/Dil Ki Tanhai Ko.mp3",
+        cover: "sad image/Dil Ki Tanhai Ko.jpg",
+        category: "sad"
+    },
+    {
+        title: "Dil Mein Hai Pyar Tera Hoton Pe Gitwa",
+        file: "sad music/Dil Mein Hai Pyar Tera Hoton Pe Gitwa.mp3",
+        cover: "sad image/Dil Mein Hai Pyar Tera Hoton Pe Gitwa.jpg",
+        category: "sad"
+    },
+    {
+        title: "Ek Muskurahat Muskan Nahi Hoti",
+        file: "sad music/Ek Muskurahat Muskan Nahi Hoti.mp3",
+        cover: "sad image/Ek Muskurahat Muskan Nahi Hoti.jpg",
+        category: "sad"
+    },
+    {
+        title: "Hum Apni Taraf Se Tumhe Chahte Hai",
+        file: "sad music/Hum Apni Taraf Se Tumhe Chahte Hai.mp3",
+        cover: "sad image/Hum Apni Taraf Se Tumhe Chahte Hai.jpg",
+        category: "sad"
+    },
+    {
+        title: "Hum Tumhe Itna Pyar Karenge",
+        file: "sad music/Hum Tumhe Itna Pyar Karenge.mp3",
+        cover: "sad image/Hum Tumhe Itna Pyar Karenge.jpg",
+        category: "sad"
+    },
+    {
+        title: "Kab Aayega Mere Banjare",
+        file: "sad music/Kab Aayega Mere Banjare.mp3",
+        cover: "sad image/Kab Aayega Mere Banjare.jpg",
+        category: "sad"
+    },
+    {
+        title: "Kya Karthe The Saajna",
+        file: "sad music/Kya Karthe The Saajna.mp3",
+        cover: "sad image/Kya Karthe The Saajna.jpg",
+        category: "sad"
+    },
+    {
+        title: "Main Kya Thi Kya Se Kya Ho Gayi",
+        file: "sad music/Main Kya Thi Kya Se Kya Ho Gayi.mp3",
+        cover: "sad image/Main Kya Thi Kya Se Kya Ho Gayi.jpg",
+        category: "sad"
+    },
+    {
+        title: "Mehandi Mehandi",
+        file: "sad music/Mehandi Mehandi.mp3",
+        cover: "sad image/Mehandi Mehandi.jpg",
+        category: "sad"
+    },
+    {
+        title: "Mere Pyar Ko Tum Bhula To Na doge",
+        file: "sad music/Mere Pyar Ko Tum Bhula To Na doge.mp3",
+        cover: "sad image/Mere Pyar Ko Tum Bhula To Na doge.jpg",
+        category: "sad"
+    },
+    {
+        title: "Mitwa Re O Mitwa",
+        file: "sad music/Mitwa Re O Mitwa.mp3",
+        cover: "sad image/Mitwa Re O Mitwa.jpg",
+        category: "sad"
+    },
+    {
+        title: "O Sanam O Sanam",
+        file: "sad music/O Sanam O Sanam.mp3",
+        cover: "sad image/O Sanam O Sanam.jpg",
+        category: "sad"
+    },
+    {
+        title: "Ram Jaane",
+        file: "sad music/Ram Jaane.mp3",
+        cover: "sad image/Ram Jaane.jpg",
+        category: "sad"
+    },
+    {
+        title: "Tune Pyar Ki Been Bajai",
+        file: "sad music/Tune Pyar Ki Been Bajai.mp3",
+        cover: "sad image/Tune Pyar Ki Been Bajai.jpg",
+        category: "sad"
+    },
+    {
+        title: "Yeh Galiyan Yeh Chaubara",
+        file: "sad music/Yeh Galiyan Yeh Chaubara.mp3",
+        cover: "sad image/Yeh Galiyan Yeh Chaubara.jpg",
+        category: "sad"
+    },
+    {
+        title: "Yeh Mehndi Ke Boote",
+        file: "sad music/Yeh Mehndi Ke Boote.mp3",
+        cover: "sad image/Yeh Mehndi Ke Boote.jpg",
+        category: "sad"
+    },
 
  
 
