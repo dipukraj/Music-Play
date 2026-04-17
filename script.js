@@ -1242,6 +1242,18 @@ const songs = [
         cover: "romantic image/Saawan Ka Mahina Aaya Hai.jpg",
         category: "romantic"
     },
+    {
+        title: "Tu Dharti Pe Chahe Jahan Bhi Rahegi",
+        file: "romantic music/Tu Dharti Pe Chahe Jahan Bhi Rahegi.mp3",
+        cover: "romantic image/Tu Dharti Pe Chahe Jahan Bhi Rahegi.jpg",
+        category: "romantic"
+    },
+    {
+        title: "Zindagi Main Tujhi Pe Lutaunga",
+        file: "romantic music/Zindagi Main Tujhi Pe Lutaunga.mp3",
+        cover: "romantic image/Zindagi Main Tujhi Pe Lutaunga.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
