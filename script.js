@@ -518,6 +518,60 @@ const songs = [
         cover: "new image/Khamoshiyan.jpg",
         category: "new"
     },
+    {
+        title: "Ik Mulaqaat-Dream Girl",
+        file: "new music/Ik Mulaqaat - Dream Girl.mp3",
+        cover: "new image/Ik Mulaqaat - Dream Girl.jpg",
+        category: "new"
+    },
+    {
+        title: "Lut Gaye",
+        file: "new music/Lut Gaye.mp3",
+        cover: "new image/Lut Gaye.jpg",
+        category: "new"
+    },
+    {
+        title: "Pallo Latke",
+        file: "new music/Pallo Latke.mp3",
+        cover: "new image/Pallo Latke.jpg",
+        category: "new"
+    },
+    {
+        title: "Pardesiya Yeh Sach Hai Piya",
+        file: "new music/Pardesiya Yeh Sach Hai Piya.mp3",
+        cover: "new image/Pardesiya Yeh Sach Hai Piya.jpg",
+        category: "new"
+    },
+    {
+        title: "Samandar Main Kinara Tu",
+        file: "new music/Samandar Main Kinara Tu.mp3",
+        cover: "new image/Samandar Main Kinara Tu.jpg",
+        category: "new"
+    },
+    {
+        title: "Thoda Thoda Pyaar",
+        file: "new music/Thoda Thoda Pyaar.mp3",
+        cover: "new image/Thoda Thoda Pyaar.jpg",
+        category: "new"
+    },
+    {
+        title: "Tu Hi Hai",
+        file: "new music/Tu Hi Hai.mp3",
+        cover: "new image/Tu Hi Hai.jpg",
+        category: "new"
+    },
+    {
+        title: "Uska Hi Banana",
+        file: "new music/Uska Hi Banana.mp3",
+        cover: "new image/Uska Hi Banana.jpg",
+        category: "new"
+    },
+    {
+        title: "Zihaal e Miskin",
+        file: "new music/Zihaal e Miskin.mp3",
+        cover: "new image/Zihaal e Miskin.jpg",
+        category: "new"
+    },
 
     // Old Songs
     {
