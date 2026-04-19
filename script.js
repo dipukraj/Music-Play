@@ -2071,6 +2071,24 @@ const songs = [
         cover: "bhojpuriimage/Awa Khele Rangwa Abir.jpg",
         category: "bhojpuri"
     },
+    {
+        title: "Raja ji Ke Tural",
+        file: "bhojpurimusic/Raja ji Ke Tural.mp3",
+        cover: "bhojpuriimage/Raja ji Ke Tural.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "Rangdar Se Sikh Rangdari",
+        file: "bhojpurimusic/Rangdar Se Sikh Rangdari.mp3",
+        cover: "bhojpuriimage/Rangdar Se Sikh Rangdari.jpg",
+        category: "bhojpuri"
+    },
+    {
+        title: "system se mouse pe click kariye raja ji",
+        file: "bhojpurimusic/system se mouse pe click kariye raja ji.mp3",
+        cover: "bhojpuriimage/system se mouse pe click kariye raja ji.jpg",
+        category: "bhojpuri"
+    },
 
     // Bhakti Songs
     {
@@ -3672,6 +3690,12 @@ songs.push(
         title: "Solid Body",
         file: "other music/Solid Body.mp3",
         cover: "other image/Solid Body.jpg",
+        category: "other"
+    },
+    {
+        title: "52 GAJ KA DAMAN",
+        file: "other music/52 GAJ KA DAMAN.mp3",
+        cover: "other image/52 GAJ KA DAMAN.jpg",
         category: "other"
     }
 );
