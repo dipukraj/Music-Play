@@ -1308,6 +1308,12 @@ const songs = [
         cover: "romantic image/Zindagi Main Tujhi Pe Lutaunga.jpg",
         category: "romantic"
     },
+    {
+        title: "Ice Cream Khaungi",
+        file: "romantic music/ice cream khaungi.mp3",
+        cover: "romantic image/ice cream khaungi.jpg",
+        category: "romantic"
+    },
      
 
     // Sad Songs
