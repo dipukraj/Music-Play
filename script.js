@@ -572,6 +572,24 @@ const songs = [
         cover: "new image/Zihaal e Miskin.jpg",
         category: "new"
     },
+    {
+        title: "Jaiye Sajana Dhurandhar The Revenge",
+        file: "new music/Jaiye Sajana Dhurandhar The Revenge.mp3",
+        cover: "new image/Jaiye Sajana Dhurandhar The Revenge.jpg",
+        category: "new"
+    },
+    {
+        title: "Paas Aa Zara",
+        file: "new music/Paas Aa Zara.mp3",
+        cover: "new image/Paas Aa Zara.jpg",
+        category: "new"
+    },
+    {
+        title: "Sitaare Ikkis",
+        file: "new music/Sitaare Ikkis.mp3",
+        cover: "new image/Sitaare Ikkis.jpg",
+        category: "new"
+    },
 
     // Old Songs
     {
