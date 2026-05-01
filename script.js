@@ -1827,6 +1827,12 @@ const songs = [
         cover: "sad image/Aaj Pahli Baar Dil Ki Baat Ki Hai.jpg",
         category: "sad"
     },
+    {
+        title: "Thahre Huye Paani Mein",
+        file: "sad music/Thahre Huye Paani Mein.mp3",
+        cover: "sad image/Thahre Huye Paani Mein.jpg",
+        category: "sad"
+    },
 
  
 
@@ -2737,7 +2743,7 @@ progress.oninput = () => {
 
 // Social Media Links
 const socialLinks = {
-    website: 'https://dipukraj.me',
+    website: 'https://dipukraj.tech',
     linkedin: 'https://www.linkedin.com/in/dipukraj',
     github: 'https://github.com/dipukraj',
     twitter: 'https://www.twitter.com/@DipuKRaj',
