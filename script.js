@@ -1,6 +1,12 @@
 const songs = [
     {
         title: "Humko Humise Chura Lo Mohabbatein",
+        file: "music/Chand Taron Main Nazar Aaye.mp3",
+        cover: "image/Chand Taron Main Nazar Aaye.jpg",
+        category: "90s"
+    },
+    {
+        title: "Humko Humise Chura Lo Mohabbatein",
         file: "music/Humko Humise Chura Lo Mohabbatein.mp3",
         cover: "image/Humko Humise Chura Lo Mohabbatein.jpg",
         category: "90s"
