@@ -1261,6 +1261,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    .public-request-banner,
+    .hero-banner {
+        display: none !important;
+    }
+
     .mobile-header-elements {
         display: flex;
         align-items: center;
