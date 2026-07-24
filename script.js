@@ -2659,9 +2659,22 @@ function filterSongsByCategory(category) {
         currentPlaylist = songs.filter(song => song.category === category);
     }
 
-    // Reset index and load first song of filtered playlist
-    index = 0;
-    if (currentPlaylist.length > 0) {
+    // Update index to the currently loaded/playing song if it exists in the new playlist,
+    // otherwise default to the first song (index 0).
+    const currentSongFile = currentPlaylist.length > 0 && audio.src ? audio.src.split('/').pop() : null;
+    let foundIndex = -1;
+    if (currentSongFile) {
+        foundIndex = currentPlaylist.findIndex(song => song.file.split('/').pop() === decodeURIComponent(currentSongFile));
+    }
+
+    if (foundIndex !== -1) {
+        index = foundIndex;
+    } else {
+        index = 0;
+    }
+
+    // Only load the song if there is no music currently loaded or playing
+    if (currentPlaylist.length > 0 && (!audio.src || audio.src === "")) {
         loadSong(index);
     }
 
@@ -3773,6 +3786,7 @@ songs.push(
 
 // Initialize with all songs
 filterSongsByCategory('all');
+showSongGrid('all');
 
 // Initialize Firebase analytics with debugging
 initializeFirebaseAnalytics();
@@ -4596,3 +4610,34 @@ if (prevBtn) {
         }
     };
 }
+
+// Disable browser's scroll restoration to prevent opening scrolled down (e.g. at request section)
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Reset page view to Home and scroll container to top when page is loaded or reloaded
+window.addEventListener('load', () => {
+    // Reset scroll position of the main scroll container
+    const contentScrollContainer = document.querySelector('.content-scroll-container');
+    if (contentScrollContainer) {
+        contentScrollContainer.scrollTop = 0;
+    }
+
+    // Reset desktop sidebar navigation active state to Home
+    if (typeof updateNavActiveState === 'function') {
+        updateNavActiveState('nav-home');
+    }
+
+    // Reset mobile bottom navigation active state to Home
+    const mobNavHome = document.getElementById('mob-nav-home');
+    if (mobNavHome && typeof updateMobNavActiveState === 'function') {
+        updateMobNavActiveState(mobNavHome);
+    }
+
+    // Ensure search box is closed on load
+    const searchBox = document.querySelector('.search-box');
+    if (searchBox) {
+        searchBox.classList.remove('active');
+    }
+});

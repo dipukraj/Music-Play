@@ -782,6 +782,7 @@ body {
     flex-direction: column;
     gap: 4px;
     max-width: 180px;
+    overflow: hidden;
 }
 
 .track-title {
@@ -789,8 +790,14 @@ body {
     font-weight: 600;
     color: var(--text-primary);
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: inline-block;
+    width: max-content;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 .track-artist {
@@ -1415,6 +1422,15 @@ body {
     .playbar-left {
         width: 70%;
         min-width: 0;
+    }
+    
+    .playbar-left .album-art-container {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .playbar-left .heart-btn {
+        margin-left: auto;
     }
     
     /* Absolute thin progress seekbar at top edge of playbar */
