@@ -3458,7 +3458,9 @@ function submitSongRequest() {
 }
 
 // Event listeners
-analyticsToggle.addEventListener('click', showAnalyticsDashboard);
+if (analyticsToggle) {
+    analyticsToggle.addEventListener('click', showAnalyticsDashboard);
+}
 closeAnalyticsBtn.addEventListener('click', closeAnalyticsDashboard);
 if (sendSongRequestBtn) {
     sendSongRequestBtn.addEventListener('click', submitSongRequest);
@@ -4135,7 +4137,7 @@ if (mobNavSearch) {
         if (searchBox) {
             searchBox.classList.toggle('active');
             if (searchBox.classList.contains('active')) {
-                searchInput.focus();
+                searchInput.focus({ preventScroll: true });
             }
         }
     });
@@ -4166,14 +4168,35 @@ if (mobNavRequest) {
     mobNavRequest.addEventListener('click', () => {
         updateMobNavActiveState(mobNavRequest);
         if (searchBox) searchBox.classList.remove('active');
-        // Scroll to Song Request Box
+        
+        // Scroll to Song Request Box smoothly inside container only (prevents window scrolling)
         const requestSection = document.querySelector('.song-request-section');
-        if (requestSection) {
-            requestSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            if (songRequestInput) songRequestInput.focus();
+        const contentScrollContainer = document.querySelector('.content-scroll-container');
+        if (requestSection && contentScrollContainer) {
+            const containerRect = contentScrollContainer.getBoundingClientRect();
+            const elemRect = requestSection.getBoundingClientRect();
+            const relativeTop = elemRect.top - containerRect.top + contentScrollContainer.scrollTop;
+            const targetScrollTop = relativeTop - (containerRect.height / 2) + (elemRect.height / 2);
+            
+            contentScrollContainer.scrollTo({
+                top: targetScrollTop,
+                behavior: 'smooth'
+            });
+            
+            // Focus textarea without triggering browser scroll
+            if (songRequestInput) {
+                songRequestInput.focus({ preventScroll: true });
+            }
         }
     });
 }
+
+// Prevent outer window scroll to keep layout fixed and top navbar visible
+window.addEventListener('scroll', () => {
+    if (window.scrollY !== 0 || window.scrollX !== 0) {
+        window.scrollTo(0, 0);
+    }
+}, { passive: true });
 
 // Top Pills Logic
 function updatePillActiveState(activePill) {
