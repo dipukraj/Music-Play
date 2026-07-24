@@ -1,39 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Player</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome for social icons -->
+    <title>✨ Music❤️ - Premium Music Player</title>
+    <!-- Google Fonts: Inter and Poppins -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
     <link rel="icon" type="image/jpg" href="image/Favicon logo.png">
+    <script>
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = 'style.css?cb=' + Date.now();
+        document.head.appendChild(cssLink);
+    </script>
 </head>
+
 <body>
-    <!-- Top Bar with Logo and Theme Toggle -->
-    <div class="top-bar">
-        <div class="logo-container">
-            <div class="logo-circle">
-                <img src="image/music logo.png" alt="Logo" class="logo-img" id="logo-img">
+    <!-- Main App Layout Container -->
+    <div class="app-container">
+
+        <!-- Left Sidebar (Navigation & Playlists) -->
+        <aside class="sidebar">
+            <button id="close-sidebar-btn" class="close-sidebar-btn" title="Close Menu">✕</button>
+            <!-- Logo Section -->
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <img src="image/music logo.png" alt="Logo" class="logo-img" id="logo-img">
+                </div>
+                <span class="logo-text">✨Music❤️</span>
             </div>
-            <span class="logo-text">✨Music❤️</span>
-        </div>
-        <div class="top-controls">
-            <div class="playlist-dropdown-container">
-                <button id="playlist-toggle" class="top-btn pulse" title="Playlist">
-                    <span class="playlist-icon">
-                        <svg viewBox="0 0 24 24" width="22" height="22">
-                            <path fill="currentColor" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z" />
-                            <path fill="currentColor" d="M12 9.5v9l6-4.5z" opacity="0.8" />
-                        </svg>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" id="nav-home">
+                    <i class="fas fa-home"></i> <span>Home</span>
+                </a>
+                <a href="#" class="nav-link" id="nav-search">
+                    <i class="fas fa-search"></i> <span>Search</span>
+                </a>
+                <a href="#" class="nav-link" id="nav-liked">
+                    <i class="fas fa-heart"></i> <span>Liked Songs</span>
+                </a>
+            </nav>
+
+            <hr class="sidebar-divider">
+
+            <!-- Categories / Playlists Section -->
+            <div class="sidebar-playlists">
+                <div class="playlist-header">
+                    <h3><i class="fas fa-music"></i> Categories</h3>
+                    <!-- playlist-toggle kept for script.js compatibility, styled invisibly or minimally -->
+                    <button id="playlist-toggle" class="playlist-toggle-btn pulse" title="Playlist List"
+                        style="display: none;">
                         <span class="pulse-dot"></span>
-                    </span>
-                </button>
-                <div id="playlist-dropdown" class="playlist-dropdown">
-                    <div class="dropdown-item" data-category="all">
+                    </button>
+                </div>
+                <!-- playlist-dropdown kept for script.js category selector binding -->
+                <div id="playlist-dropdown" class="playlist-dropdown show">
+                    <div class="dropdown-item active" data-category="all">
                         <span class="category-icon">🎵</span>
                         <span>All Songs</span>
                     </div>
@@ -83,82 +115,181 @@
                     </div>
                 </div>
             </div>
-            <button id="analytics-toggle" class="top-btn" title="Analytics">📊</button>
-            <button id="theme-toggle" class="top-btn" title="Toggle Theme">🌓</button>
-        </div>
-    </div>
 
-    <!-- Search Box -->
-    <div class="search-box">
-        <input type="text" id="search-input" placeholder="Search songs...">
-    </div>
-
-    <div class="player">
-        <h2 class="title">Music Player</h2>
-
-        <div class="main-content">
-            <div class="now-playing">
-                <img src="image/image cover.jpg" class="cover" id="cover">
-
-                <div class="song-info">
-                    <h3 id="song-title">Song Name</h3>
-                    <div class="visualizer" id="visualizer"></div>
-                </div>
-
-                <!-- Song time and progress just below the cover & title -->
-                <div class="time-display">
-                    <span id="current-time">0:00</span>
-                    <input type="range" id="progress" value="0">
-                    <span id="duration">0:00</span>
-                </div>
-
-                <!-- Play / previous / next controls below time -->
-                <div class="controls">
-                    <!-- <button id="shuffle" title="Shuffle">🔀</button> -->
-                    <button id="prev">⏮️</button>
-                    <button id="play">▶️</button>
-                    <button id="next">⏭️</button>
-                    <!-- <button id="repeat" title="Repeat">🔁</button> -->
+            <!-- Visitor Badge in Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="visitor-counter-sidebar">
+                    <p class="visitor-text">
+                        <i class="fas fa-users"></i>
+                        <span>Visitors:</span>
+                        <span id="footer-visitors" class="visitor-count">0</span>
+                    </p>
                 </div>
             </div>
+        </aside>
 
-            <div class="lyrics-container">
-                <!-- <h3>Lyrics</h3> -->
-                <div class="song-counter" id="song-counter">1 / 0</div>
-                <div id="lyrics">Enjoy the song 🎶🎧</div>
+        <!-- Right Main Content Panel -->
+        <main class="main-content">
+            <!-- Top Navigation & Controls Bar -->
+            <header class="top-nav-bar">
+                <div class="nav-bar-left">
+                    <button id="menu-btn" class="menu-btn" title="Open Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <!-- Dynamic Search Box Integrated Natively -->
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon-inside"></i>
+                        <input type="text" id="search-input" placeholder="Search songs, artists, genres...">
+                    </div>
+                </div>
+                <div class="top-controls">
+                    <button id="analytics-toggle" class="top-btn" title="Analytics Dashboard">
+                        <i class="fas fa-chart-bar"></i>
+                    </button>
+                    <button id="theme-toggle" class="top-btn" title="Toggle Theme">
+                        <i class="fas fa-adjust"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Scrollable Content Container -->
+            <div class="content-scroll-container">
+
+                <!-- Public Message/Request Banner -->
+                <p id="public-request-banner" class="public-request-banner"></p>
+
+                <!-- Dynamic Greeting Hero Card -->
+                <section class="hero-banner">
+                    <div class="hero-bg-overlay"></div>
+                    <div class="hero-info">
+                        <span class="hero-tag">WELCOME TO ✨MUSIC❤️</span>
+                        <h1 class="hero-title" id="greeting-title">Hello! Enjoy your music...</h1>
+                        <p class="hero-description">Browse categories, find your favorite tracks, and enjoy
+                            high-fidelity audio playback. Send requests if your song is missing!</p>
+                    </div>
+                </section>
+
+                <!-- Grid view for Category Songs (Styled natively like Spotify playlist views) -->
+                <!-- kept id for JS compatibility -->
+                <section id="song-grid-container" class="song-grid-container show">
+                    <div class="grid-header">
+                        <h2 id="grid-title">All Songs</h2>
+                        <button id="close-grid" class="close-grid-btn" style="display:none;">✕</button>
+                    </div>
+                    <!-- The active category tracks list/cards -->
+                    <div id="song-grid" class="song-grid">
+                        <!-- Javascript will dynamically inject song cards here -->
+                    </div>
+                </section>
+
+                <!-- Row for Lyrics & Request Panel -->
+                <div class="middle-layout-row">
+                    <!-- Lyrics Display Card -->
+                    <div class="lyrics-container card-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-microphone-alt"></i> Lyrics</h3>
+                            <div class="song-counter" id="song-counter">1 / 0</div>
+                        </div>
+                        <div id="lyrics">Enjoy the song 🎶🎧</div>
+                    </div>
+
+                    <!-- Song Request & Admin Control Cards -->
+                    <div class="forms-container">
+                        <!-- Request Box -->
+                        <div class="detail-section song-request-section card-panel">
+                            <div class="panel-header">
+                                <h3><i class="fas fa-pencil-alt"></i> Song Request Box</h3>
+                            </div>
+                            <p class="request-help-text">Apna favorite song yahan likhein aur humare server pe request
+                                bhejein.</p>
+                            <textarea id="song-request-input" class="song-request-input"
+                                placeholder="Example: Tum Hi Ho - Arijit Singh"></textarea>
+                            <button id="send-song-request" class="send-song-request-btn">
+                                <i class="fas fa-paper-plane"></i> Send Request
+                            </button>
+                            <p id="song-request-status" class="song-request-status"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playlist Queue (Collapsible or hidden by default, styled beautifully) -->
+                <div class="playlist-container card-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-list-ul"></i> Play Queue <span id="song-count">(0 songs)</span></h3>
+                    </div>
+                    <ul id="song-list">
+                        <!-- Songs list generated dynamically by Javascript -->
+                    </ul>
+                </div>
+
             </div>
-        </div>
+        </main>
 
-        <audio id="audio"></audio>
-
-        <!-- <div class="volume-control">
-            <span>🔊</span>
-            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
-        </div> -->
-
-        <div class="playlist-container">
-            <h3>Playlist <span id="song-count">(0 songs)</span></h3> 
-            <ul id="song-list">
-                <!-- Songs will be added here by JavaScript -->
-            </ul>
-        </div>
-
-        <!-- Song Grid Display -->
-        <div id="song-grid-container" class="song-grid-container">
-            <div class="grid-header">
-                <h3 id="grid-title">All Songs</h3>
-                <button id="close-grid" class="close-grid-btn">✕</button>
+        <!-- Persistent Bottom Playback Bar (Spotify style) -->
+        <footer class="bottom-playbar">
+            <!-- Left Panel: Current Track Cover & Details -->
+            <div class="playbar-left">
+                <div class="album-art-container">
+                    <img src="image/image cover.jpg" class="cover" id="cover" alt="Album Cover">
+                </div>
+                <div class="track-details">
+                    <h4 id="song-title" class="track-title">Song Name</h4>
+                    <span class="track-artist">✨5ukoon...</span>
+                </div>
+                <!-- Liked / Heart button -->
+                <button class="heart-btn" id="like-toggle" title="Save to Liked Songs">
+                    <i class="far fa-heart"></i>
+                </button>
             </div>
-            <div id="song-grid" class="song-grid">
-                <!-- Song cards will be added here by JavaScript -->
-            </div>
-        </div>
-    </div>
 
-    <!-- Analytics Dashboard -->
+            <!-- Middle Panel: Playback Controls & Progress Bar -->
+            <div class="playbar-middle">
+                <div class="playback-controls">
+                    <!-- Placeholder buttons styled to look nice -->
+                    <button class="control-btn" id="shuffle-btn" title="Shuffle"><i class="fas fa-random"></i></button>
+                    <button class="control-btn-main" id="prev" title="Previous"><i
+                            class="fas fa-step-backward"></i></button>
+                    <button class="control-btn-play" id="play" title="Play/Pause">▶️</button>
+                    <button class="control-btn-main" id="next" title="Next"><i class="fas fa-step-forward"></i></button>
+                    <button class="control-btn" id="repeat-btn" title="Repeat"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <div class="progress-bar-container">
+                    <span id="current-time" class="time-stamp">0:00</span>
+                    <div class="progress-slider-wrapper">
+                        <input type="range" id="progress" value="0">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                    <span id="duration" class="time-stamp">0:00</span>
+                </div>
+            </div>
+
+            <!-- Right Panel: Volume, Visualizer & Panels Shortcut -->
+            <div class="playbar-right">
+                <!-- Mini Visualizer element -->
+                <div class="mini-visualizer-bar" id="visualizer" title="Visualizer">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+
+                <div class="volume-container">
+                    <button class="volume-icon-btn" id="mute-btn"><i class="fas fa-volume-up"></i></button>
+                    <input type="range" id="volume" min="0" max="1" step="0.05" value="1" title="Volume">
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- End App Container -->
+
+    <!-- Hidden audio element -->
+    <audio id="audio"></audio>
+
+    <!-- Analytics Dashboard Modal (Styled as drawer overlay) -->
     <div id="analytics-dashboard" class="analytics-dashboard">
         <div class="analytics-header">
-            <h3>📊 Analytics Dashboard</h3>
+            <h3>📊 Analytics & Admin Dashboard</h3>
             <button id="close-analytics" class="close-analytics-btn">✕</button>
         </div>
         <div class="analytics-content">
@@ -192,6 +323,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="analytics-details">
                 <div class="detail-section">
                     <h4>📈 Today's Activity</h4>
@@ -206,28 +338,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="detail-section song-request-section">
-                    <h4>📝 Song Request Box</h4>
-                    <p class="request-help-text">Aap apna favorite song yahan likh ke bhejiye.</p>
-                    <textarea id="song-request-input" class="song-request-input" placeholder="Example: Tum Hi Ho - Arijit Singh"></textarea>
-                    <button id="send-song-request" class="send-song-request-btn">Send Request</button>
-                    <p id="song-request-status" class="song-request-status"></p>
-                </div>
+
                 <div class="detail-section admin-request-section">
-                    <p id="public-request-banner" class="public-request-banner"></p>
                     <h4>🛠️ Admin Request Panel</h4>
-                    <p class="request-help-text">Yahan pending song requests dekhkar Added/Done mark karein.</p>
+                    <p class="request-help-text">Pending song requests dekhkar Added/Done mark karein.</p>
                     <div id="admin-login-box" class="admin-login-box">
-                        <input id="admin-passcode" class="admin-passcode-input" type="password" placeholder="Admin passcode" />
+                        <input id="admin-passcode" class="admin-passcode-input" type="password"
+                            placeholder="Admin passcode" />
                         <button id="admin-unlock-btn" class="admin-unlock-btn">Unlock</button>
                     </div>
                     <p id="admin-panel-status" class="song-request-status"></p>
+
                     <div id="admin-data-panel" class="admin-data-panel">
                         <div class="admin-stats-grid">
-                            <div class="admin-mini-card"><span>Total Visitors</span><strong id="admin-total-visitors">0</strong></div>
-                            <div class="admin-mini-card"><span>Page Views</span><strong id="admin-page-views">0</strong></div>
-                            <div class="admin-mini-card"><span>Online Now</span><strong id="admin-online-users">0</strong></div>
-                            <div class="admin-mini-card"><span>Songs Played</span><strong id="admin-songs-played">0</strong></div>
+                            <div class="admin-mini-card">
+                                <span>Total Visitors</span>
+                                <strong id="admin-total-visitors">0</strong>
+                            </div>
+                            <div class="admin-mini-card">
+                                <span>Page Views</span>
+                                <strong id="admin-page-views">0</strong>
+                            </div>
+                            <div class="admin-mini-card">
+                                <span>Online Now</span>
+                                <strong id="admin-online-users">0</strong>
+                            </div>
+                            <div class="admin-mini-card">
+                                <span>Songs Played</span>
+                                <strong id="admin-songs-played">0</strong>
+                            </div>
                         </div>
                         <h5 class="admin-subtitle">Song Requests</h5>
                         <div id="admin-request-list" class="admin-request-list"></div>
@@ -235,44 +374,23 @@
                         <div id="admin-activity-list" class="admin-activity-list"></div>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer with Social Media Links -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="developer-info">
-                <p>Developed with ❤️ and ☕ by ✨5ukoon...</p>
-                <p class="copyright">©2025 | All Rights Reserved.</p>
-            </div>
-            <div class="social-links">
-                <a href="https://dipukraj.tech" title="Website" class="social-icon" id="website">
-                    <i class="fas fa-globe"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/dipukraj" title="LinkedIn" class="social-icon" id="linkedin">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/dipukraj" title="GitHub" class="social-icon" id="github">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://x.com/DipuKRaj" title="Twitter" class="social-icon" id="twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/r.p.dipu" title="Instagram" class="social-icon" id="instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            <div class="visitor-counter">
-                <p class="visitor-text">
-                    <i class="fas fa-users"></i>
-                    Total Visitors: <span id="footer-visitors" class="visitor-count">0</span>
-                </p>
-            </div>
-        </div>
-    </footer>
-    
-    <script src="script.js"></script>
+    <!-- Hidden Developer copyright details for verification/credits -->
+    <div style="display:none;">
+        <span id="footer-visitors">0</span>
+    </div>
+
+    <!-- Sidebar Overlay Backdrop for Mobile -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <script>
+        const scriptEl = document.createElement('script');
+        scriptEl.src = 'script.js?cb=' + Date.now();
+        document.body.appendChild(scriptEl);
+    </script>
 </body>
+
 </html>

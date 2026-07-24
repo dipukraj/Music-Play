@@ -53,7 +53,7 @@ const songs = [
         cover: "image/saanso ki zid.jpg",
         category: "new"
     },
-     
+
     // 80s Dasak Songs
 
 
@@ -1338,7 +1338,7 @@ const songs = [
         cover: "romantic image/ice cream khaungi.jpg",
         category: "romantic"
     },
-     
+
 
     // Sad Songs
     {
@@ -1840,7 +1840,7 @@ const songs = [
         category: "sad"
     },
 
- 
+
 
     // Bhojpuri Songs
     {
@@ -2369,7 +2369,7 @@ const songs = [
         cover: "mahadev image/Shiv Shankar Ko Jisne Pooja.jpg",
         category: "mahadev"
     },
-     
+
     // Krishna Songs
     {
         title: "Radhe Radhe Barsane Wali Radhe",
@@ -2496,6 +2496,7 @@ const songs = [
 let index = 0;
 let currentPlaylist = songs; // Current filtered playlist
 let currentCategory = 'all';
+let likedSongs = JSON.parse(localStorage.getItem('likedSongs')) || [];
 
 const audio = document.getElementById("audio");
 const title = document.getElementById("song-title");
@@ -2513,6 +2514,18 @@ const playlistToggle = document.getElementById("playlist-toggle");
 const playlistDropdown = document.getElementById("playlist-dropdown");
 const dropdownItems = document.querySelectorAll(".dropdown-item");
 
+// Volume slider and Liked toggle elements
+const volumeSlider = document.getElementById("volume");
+const muteBtn = document.getElementById("mute-btn");
+const likeToggleBtn = document.getElementById("like-toggle");
+const visualizerEl = document.getElementById("visualizer");
+
+// Navigation elements
+const navHome = document.getElementById('nav-home');
+const navSearch = document.getElementById('nav-search');
+const navLiked = document.getElementById('nav-liked');
+const searchInput = document.getElementById('search-input');
+
 // Format time in seconds to MM:SS format
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -2526,7 +2539,7 @@ function updateTimeDisplay() {
     if (audio.duration) {
         durationEl.textContent = formatDuration(audio.duration);
     }
-    
+
     // Remove this check - causing multiple auto-plays
     // Auto-play should only happen via audio.onended event
 }
@@ -2556,6 +2569,7 @@ function loadSong(i, autoPlay = false) {
 
         // Update song counter
         updateSongCounter();
+        updateLikeButtonUI();
 
         // When metadata is loaded, update the duration
         audio.onloadedmetadata = function () {
@@ -2565,21 +2579,21 @@ function loadSong(i, autoPlay = false) {
         // Auto-play next song when song ends - FIXED
         audio.onended = function () {
             console.log('🎵 Song ended, playing next song...');
-            
+
             // Prevent multiple calls
             if (this.isAutoPlaying) {
                 console.log('🔄 Auto-play already in progress...');
                 return;
             }
-            
+
             this.isAutoPlaying = true;
-            
+
             // Move to next song
             index = (index + 1) % currentPlaylist.length;
-            
+
             // Load next song with auto-play
             loadSong(index, true);
-            
+
             // Reset flag after delay
             setTimeout(() => {
                 this.isAutoPlaying = false;
@@ -2589,7 +2603,7 @@ function loadSong(i, autoPlay = false) {
         // Auto play after song loads (for mobile compatibility) - ENHANCED
         if (autoPlay) {
             console.log('🎵 Auto-playing song...');
-            
+
             // Force play immediately after setting src
             setTimeout(() => {
                 const playPromise = audio.play();
@@ -2625,7 +2639,7 @@ function updateSongCounter() {
     if (songCountEl && currentPlaylist.length > 0) {
         songCountEl.textContent = `(${index + 1}/${currentPlaylist.length})`;
     }
-    
+
     // Update visible counter in now-playing section
     const songCounter = document.getElementById('song-counter');
     if (songCounter && currentPlaylist.length > 0) {
@@ -2639,6 +2653,8 @@ function updateSongCounter() {
 function filterSongsByCategory(category) {
     if (category === 'all') {
         currentPlaylist = songs;
+    } else if (category === 'liked') {
+        currentPlaylist = songs.filter(song => likedSongs.includes(song.file));
     } else {
         currentPlaylist = songs.filter(song => song.category === category);
     }
@@ -2687,11 +2703,11 @@ function renderPlaylist() {
 // Function to play the next song
 function playNextSong() {
     if (currentPlaylist.length === 0) return;
-    
+
     console.log('🎵 Playing next song...');
     index = (index + 1) % currentPlaylist.length;
     loadSong(index, true); // true = auto play after load
-    
+
     // Update song card states for grid view
     updateSongCardStates();
     updateSongListStates();
@@ -2737,6 +2753,10 @@ audio.ontimeupdate = () => {
     if (audio.duration) {
         progress.value = (audio.currentTime / audio.duration) * 100;
         updateTimeDisplay();
+        const fill = document.getElementById('progress-fill');
+        if (fill) {
+            fill.style.width = progress.value + '%';
+        }
     }
 };
 
@@ -2744,6 +2764,10 @@ progress.oninput = () => {
     if (audio.duration) {
         audio.currentTime = (progress.value * audio.duration) / 100;
         updateTimeDisplay();
+        const fill = document.getElementById('progress-fill');
+        if (fill) {
+            fill.style.width = progress.value + '%';
+        }
     }
 };
 
@@ -2820,13 +2844,13 @@ dropdownItems.forEach(item => {
     item.addEventListener('click', (e) => {
         e.stopPropagation();
         const category = item.dataset.category;
-        
+
         // Show song grid instead of filtering
         showSongGrid(category);
-        
+
         // Also update the current playlist for normal playback
         filterSongsByCategory(category);
-        
+
         playlistDropdown.classList.remove('show');
 
         // Show notification
@@ -2848,7 +2872,8 @@ function showCategoryNotification(category) {
         'bhakti': 'Bhakti Songs',
         'mahadev': 'Mahadev Songs',
         'krishna': 'Krishna Songs',
-        'other': 'Other Songs'
+        'other': 'Other Songs',
+        'liked': 'Liked Songs'
     };
 
     // You can add a toast notification here if needed
@@ -2875,13 +2900,16 @@ function showSongGrid(category) {
         'bhakti': 'Bhakti Songs',
         'mahadev': 'Mahadev Songs',
         'krishna': 'Krishna Songs',
-        'other': 'Other Songs'
+        'other': 'Other Songs',
+        'liked': 'Liked Songs'
     };
 
     // Filter songs for the selected category
     let filteredSongs;
     if (category === 'all') {
         filteredSongs = songs;
+    } else if (category === 'liked') {
+        filteredSongs = songs.filter(song => likedSongs.includes(song.file));
     } else {
         filteredSongs = songs.filter(song => song.category === category);
     }
@@ -3033,11 +3061,11 @@ function checkAnalyticsElements() {
     console.log('songsPlayedEl:', songsPlayedEl);
     console.log('lastSongEl:', lastSongEl);
     console.log('footerVisitorsEl:', footerVisitorsEl);
-    
+
     // Check if elements exist in DOM
     const dashboard = document.getElementById('analytics-dashboard');
     console.log('Analytics Dashboard in DOM:', dashboard);
-    
+
     if (dashboard) {
         const statNumbers = dashboard.querySelectorAll('.stat-number');
         console.log('Stat numbers found:', statNumbers.length);
@@ -3080,7 +3108,7 @@ function trackSongPlayInFirebase(songTitle) {
     const userRef = database.ref('users/' + userId);
     const statsRef = database.ref('stats');
     const activityRef = database.ref('activity');
-    
+
     // Update user's song count
     userRef.transaction((userData) => {
         if (userData) {
@@ -3090,7 +3118,7 @@ function trackSongPlayInFirebase(songTitle) {
         }
         return userData;
     });
-    
+
     // Update global stats
     statsRef.transaction((stats) => {
         if (!stats) {
@@ -3105,7 +3133,7 @@ function trackSongPlayInFirebase(songTitle) {
         stats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
         return stats;
     });
-    
+
     // Add activity
     const activity = {
         text: `Song played: <strong>${songTitle}</strong>`,
@@ -3114,7 +3142,7 @@ function trackSongPlayInFirebase(songTitle) {
         type: 'song_play'
     };
     activityRef.push(activity);
-    
+
     analyticsData.lastPlayedSong = songTitle;
     updateAnalyticsDisplay();
 }
@@ -3123,7 +3151,7 @@ function trackSongPlayInFirebase(songTitle) {
 function formatTimestampForActivity(timestamp) {
     const now = Date.now();
     const diff = now - timestamp;
-    
+
     if (diff < 60000) return 'Just now';
     if (diff < 3600000) return Math.floor(diff / 60000) + ' min ago';
     if (diff < 86400000) return Math.floor(diff / 3600000) + ' hours ago';
@@ -3133,7 +3161,7 @@ function formatTimestampForActivity(timestamp) {
 // Format song duration properly
 function formatDuration(seconds) {
     if (!seconds || isNaN(seconds)) return '0:00';
-    
+
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
@@ -3143,7 +3171,7 @@ function formatDuration(seconds) {
 function updateAnalyticsDisplay() {
     console.log('🔄 Updating analytics display...');
     console.log('📊 Current analytics data:', analyticsData);
-    
+
     // Update DOM elements with animation
     if (totalVisitorsEl) {
         totalVisitorsEl.textContent = analyticsData.totalVisitors.toLocaleString();
@@ -3172,13 +3200,13 @@ function updateAnalyticsDisplay() {
     if (adminSongsPlayedEl) {
         adminSongsPlayedEl.textContent = analyticsData.songsPlayed.toLocaleString();
     }
-    
+
     // Update footer visitor counter
     if (footerVisitorsEl) {
         footerVisitorsEl.textContent = analyticsData.totalVisitors.toLocaleString();
         console.log('✅ Footer visitors updated:', analyticsData.totalVisitors);
     }
-    
+
     // Add animation to numbers
     [totalVisitorsEl, onlineUsersEl, pageViewsEl, songsPlayedEl, footerVisitorsEl].forEach(el => {
         if (el) {
@@ -3188,7 +3216,7 @@ function updateAnalyticsDisplay() {
             }, 10);
         }
     });
-    
+
     console.log('✅ Analytics display updated');
 }
 
@@ -3215,10 +3243,10 @@ function addActivityItem(text, time) {
             <span class="activity-time">${time}</span>
             <span class="activity-text">${text}</span>
         `;
-        
+
         // Add to top of list
         activityList.insertBefore(newItem, activityList.firstChild);
-        
+
         // Keep only last 5 activities
         while (activityList.children.length > 5) {
             activityList.removeChild(activityList.lastChild);
@@ -3270,6 +3298,7 @@ function renderAdminRequests(requestMap) {
 
     adminRequestListEl.innerHTML = entries.map((item) => {
         const safeSong = (item.songName || 'Untitled request')
+            .replace(/<[^>]*>?/gm, '') // Strip HTML tags
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
@@ -3303,6 +3332,7 @@ function updatePublicRequestBannerFromLastRequest(requestMap) {
 
     const itemsHtml = topFive.map((item, index) => {
         const songName = (item.songName || 'Unknown song')
+            .replace(/<[^>]*>?/gm, '') // Strip HTML tags
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
@@ -3380,9 +3410,12 @@ function updateSongRequestStatus(requestKey, newStatus) {
 function submitSongRequest() {
     if (!songRequestInput || !sendSongRequestBtn) return;
 
-    const requestText = songRequestInput.value.trim();
+    let requestText = songRequestInput.value.trim();
+    // Strip HTML tags to prevent XSS and markup defacement
+    requestText = requestText.replace(/<[^>]*>?/gm, '').trim();
+
     if (!requestText) {
-        setSongRequestStatus('Please song name likhiye, phir send kariye.', true);
+        setSongRequestStatus('Please song name likhiye (no HTML tags allowed), phir send kariye.', true);
         return;
     }
 
@@ -3476,9 +3509,9 @@ document.addEventListener('keydown', (e) => {
 
 // Track song plays in existing functions
 const originalLoadSong = loadSong;
-loadSong = function(i, autoPlay = false) {
+loadSong = function (i, autoPlay = false) {
     originalLoadSong(i, autoPlay);
-    
+
     if (currentPlaylist.length > 0 && currentPlaylist[i]) {
         trackSongPlayInFirebase(currentPlaylist[i].title);
     }
@@ -3489,22 +3522,22 @@ function initializeFirebaseAnalytics() {
     try {
         console.log('🔥 Initializing Firebase...');
         console.log('Database URL:', firebaseConfig.databaseURL);
-        
+
         // Check analytics elements first
         checkAnalyticsElements();
-        
+
         const userId = generateUserId();
         const userRef = database.ref('users/' + userId);
         const statsRef = database.ref('stats');
         const presenceRef = database.ref('presence/' + userId);
-        
+
         console.log('👤 User ID:', userId);
-        
+
         // Test Firebase connection
         database.ref('.info/connected').on('value', (snapshot) => {
             console.log('🔗 Firebase Connected:', snapshot.val());
         });
-        
+
         // Keep user profile data
         const userData = {
             id: userId,
@@ -3558,22 +3591,22 @@ function initializeFirebaseAnalytics() {
             currentStats.lastUpdated = firebase.database.ServerValue.TIMESTAMP;
             return currentStats;
         })
-        .then(() => {
-            console.log('✅ Stats updated successfully');
-        })
-        .catch(error => console.error('❌ Error updating stats:', error));
-        
+            .then(() => {
+                console.log('✅ Stats updated successfully');
+            })
+            .catch(error => console.error('❌ Error updating stats:', error));
+
         // Listen for real-time updates - ENHANCED
         statsRef.on('value', (snapshot) => {
             const stats = snapshot.val();
             console.log('📊 Real-time stats update:', stats);
             console.log('🔍 Before update - Total Visitors:', analyticsData.totalVisitors);
-            
+
             if (stats) {
                 analyticsData.totalVisitors = stats.totalVisitors || 0;
                 analyticsData.pageViews = stats.totalPageViews || 0;
                 analyticsData.songsPlayed = stats.totalSongsPlayed || 0;
-                
+
                 console.log('🔍 After update - Total Visitors:', analyticsData.totalVisitors);
                 console.log('📱 Display elements:', {
                     totalVisitorsEl: totalVisitorsEl,
@@ -3581,7 +3614,7 @@ function initializeFirebaseAnalytics() {
                     pageViewsEl: pageViewsEl,
                     songsPlayedEl: songsPlayedEl
                 });
-                
+
                 updateAnalyticsDisplay();
             } else {
                 console.log('❌ No stats data found');
@@ -3592,7 +3625,7 @@ function initializeFirebaseAnalytics() {
         database.ref('songRequests').limitToLast(10).on('value', (snapshot) => {
             updatePublicRequestBannerFromLastRequest(snapshot.val());
         });
-        
+
         // Listen for online users (realtime presence count)
         database.ref('presence').on('value', (snapshot) => {
             const onlineCount = snapshot.numChildren();
@@ -3600,7 +3633,7 @@ function initializeFirebaseAnalytics() {
             analyticsData.onlineUsers = onlineCount;
             updateAnalyticsDisplay();
         });
-        
+
         // Listen for recent activity
         database.ref('activity').limitToLast(10).on('child_added', (snapshot) => {
             const activity = snapshot.val();
@@ -3608,9 +3641,9 @@ function initializeFirebaseAnalytics() {
             addActivityItem(activity.text, formatTimestampForActivity(activity.timestamp));
             addAdminActivityItem(activity.text, formatTimestampForActivity(activity.timestamp));
         });
-        
+
         console.log('🎉 Firebase Analytics initialized successfully!');
-        
+
     } catch (error) {
         console.error('🚨 Firebase initialization error:', error);
         // Fallback to localStorage if Firebase fails
@@ -3622,22 +3655,22 @@ function initializeFirebaseAnalytics() {
 // Fallback localStorage analytics
 function initializeLocalStorageAnalytics() {
     console.log('📦 Using localStorage analytics...');
-    
+
     analyticsData.totalVisitors = parseInt(localStorage.getItem('totalVisitors') || '0');
     analyticsData.pageViews = parseInt(localStorage.getItem('pageViews') || '0');
     analyticsData.songsPlayed = parseInt(localStorage.getItem('songsPlayed') || '0');
-    
+
     const lastVisit = localStorage.getItem('lastVisit');
     const isNewVisitor = !lastVisit || (Date.now() - parseInt(lastVisit)) > 30 * 60 * 1000;
-    
+
     if (isNewVisitor) {
         analyticsData.totalVisitors++;
         localStorage.setItem('totalVisitors', analyticsData.totalVisitors);
     }
-    
+
     analyticsData.pageViews++;
     localStorage.setItem('pageViews', analyticsData.pageViews);
-    
+
     localStorage.setItem('lastVisit', Date.now().toString());
     updateAnalyticsDisplay();
 }
@@ -3743,7 +3776,7 @@ filterSongsByCategory('all');
 initializeFirebaseAnalytics();
 
 // Search functionality
-const searchInput = document.getElementById('search-input');
+// searchInput is declared at the top of the file
 
 function normalizeSearchText(text) {
     return (text || '')
@@ -3833,17 +3866,17 @@ function filterSongsBySearch(query) {
         .sort((a, b) => b.score - a.score);
 
     const filteredSongs = rankedSongs.map(item => item.song);
-    
+
     // Update the current playlist with search results
     currentPlaylist = filteredSongs;
-    
+
     // If no songs match the search, show a message
     if (filteredSongs.length === 0) {
         songList.innerHTML = '<li class="no-results">No songs found. Try a different search term.</li>';
         updateSongCounter();
         return;
     }
-    
+
     // Update the song list
     songList.innerHTML = '';
     filteredSongs.forEach((song, i) => {
@@ -3861,7 +3894,7 @@ function filterSongsBySearch(query) {
         });
         songList.appendChild(li);
     });
-    
+
     updateSongCounter();
 }
 
@@ -3885,4 +3918,179 @@ searchInput.addEventListener('keypress', (e) => {
             }
         });
     }
+});
+
+// ==========================================
+// Spotify UI Enhancements & Integrations
+// ==========================================
+
+// Update Liked Heart UI state
+function updateLikeButtonUI() {
+    if (!likeToggleBtn) return;
+    const currentSong = currentPlaylist[index];
+    if (!currentSong) return;
+
+    const heartIcon = likeToggleBtn.querySelector('i');
+    if (!heartIcon) return;
+
+    if (likedSongs.includes(currentSong.file)) {
+        likeToggleBtn.classList.add('liked');
+        heartIcon.className = 'fas fa-heart';
+    } else {
+        likeToggleBtn.classList.remove('liked');
+        heartIcon.className = 'far fa-heart';
+    }
+}
+
+// Heart Button Click Event
+if (likeToggleBtn) {
+    likeToggleBtn.addEventListener('click', () => {
+        const currentSong = currentPlaylist[index];
+        if (!currentSong) return;
+
+        const songIndex = likedSongs.indexOf(currentSong.file);
+        if (songIndex > -1) {
+            likedSongs.splice(songIndex, 1);
+        } else {
+            likedSongs.push(currentSong.file);
+        }
+
+        localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
+        updateLikeButtonUI();
+        
+        // Refresh active list if Liked view is open
+        if (currentCategory === 'liked') {
+            filterSongsByCategory('liked');
+            showSongGrid('liked');
+        }
+    });
+}
+
+// Navigation active toggle helper
+function updateNavActiveState(activeId) {
+    [navHome, navSearch, navLiked].forEach(nav => {
+        if (nav) nav.classList.remove('active');
+    });
+    const activeNav = document.getElementById(activeId);
+    if (activeNav) activeNav.classList.add('active');
+}
+
+// Sidebar Nav click handlers
+if (navHome) {
+    navHome.addEventListener('click', (e) => {
+        e.preventDefault();
+        updateNavActiveState('nav-home');
+        filterSongsByCategory('all');
+        showSongGrid('all');
+    });
+}
+
+if (navSearch) {
+    navSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        updateNavActiveState('nav-search');
+        searchInput.focus();
+    });
+}
+
+if (navLiked) {
+    navLiked.addEventListener('click', (e) => {
+        e.preventDefault();
+        updateNavActiveState('nav-liked');
+        filterSongsByCategory('liked');
+        showSongGrid('liked');
+    });
+}
+
+// Volume Controls Logic
+if (volumeSlider) {
+    audio.volume = volumeSlider.value;
+    volumeSlider.addEventListener('input', (e) => {
+        audio.volume = e.target.value;
+        updateVolumeIcon(audio.volume);
+    });
+}
+
+function updateVolumeIcon(volume) {
+    if (!muteBtn) return;
+    const icon = muteBtn.querySelector('i');
+    if (!icon) return;
+    
+    icon.className = 'fas ';
+    if (volume === 0) {
+        icon.className += 'fa-volume-mute';
+    } else if (volume < 0.5) {
+        icon.className += 'fa-volume-down';
+    } else {
+        icon.className += 'fa-volume-up';
+    }
+}
+
+if (muteBtn) {
+    let lastVolume = 1;
+    muteBtn.addEventListener('click', () => {
+        if (audio.volume > 0) {
+            lastVolume = audio.volume;
+            audio.volume = 0;
+            if (volumeSlider) volumeSlider.value = 0;
+        } else {
+            audio.volume = lastVolume || 1;
+            if (volumeSlider) volumeSlider.value = audio.volume;
+        }
+        updateVolumeIcon(audio.volume);
+    });
+}
+
+// Visualizer Syncing with Audio Playback States
+function updateVisualizerState() {
+    if (!visualizerEl) return;
+    if (!audio.paused && !audio.ended) {
+        visualizerEl.classList.add('playing');
+    } else {
+        visualizerEl.classList.remove('playing');
+    }
+}
+
+audio.addEventListener('play', updateVisualizerState);
+audio.addEventListener('pause', updateVisualizerState);
+audio.addEventListener('playing', updateVisualizerState);
+audio.addEventListener('ended', updateVisualizerState);
+
+// Initial triggers
+updateLikeButtonUI();
+
+// ==========================================
+// Mobile Sidebar Drawer Toggle Logic
+// ==========================================
+const menuBtn = document.getElementById('menu-btn');
+const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+const sidebar = document.querySelector('.sidebar');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+if (menuBtn && sidebar && sidebarOverlay) {
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.add('open');
+        sidebarOverlay.classList.add('show');
+    });
+}
+
+function closeMobileSidebar() {
+    if (sidebar) sidebar.classList.remove('open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+}
+
+if (closeSidebarBtn) {
+    closeSidebarBtn.addEventListener('click', closeMobileSidebar);
+}
+if (sidebarOverlay) {
+    sidebarOverlay.addEventListener('click', closeMobileSidebar);
+}
+
+// Automatically close sidebar drawer on navigation clicks
+if (navHome) navHome.addEventListener('click', closeMobileSidebar);
+if (navSearch) navSearch.addEventListener('click', closeMobileSidebar);
+if (navLiked) navLiked.addEventListener('click', closeMobileSidebar);
+
+dropdownItems.forEach(item => {
+    item.addEventListener('click', closeMobileSidebar);
 });
