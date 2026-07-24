@@ -1222,6 +1222,9 @@ body {
 .mobile-bottom-nav {
     display: none;
 }
+.mobile-fullscreen-player {
+    display: none;
+}
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
@@ -1452,6 +1455,322 @@ body {
     
     .analytics-dashboard {
         width: 100%;
+    }
+
+    /* Mobile Full Screen Player Style */
+    .mobile-fullscreen-player {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100vw;
+        background: linear-gradient(to bottom, #181528 0%, #09090b 100%);
+        z-index: 1100;
+        padding: 24px 24px 34px 24px; /* bottom padding for safe area */
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(100%);
+    }
+
+    [data-theme="light"] .mobile-fullscreen-player {
+        background: linear-gradient(to bottom, #f0eef6 0%, #f4f5f8 100%);
+    }
+
+    .mobile-fullscreen-player.open {
+        transform: translateY(0);
+    }
+
+    /* Header styling */
+    .fs-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-shrink: 0;
+    }
+
+    .fs-close-btn, .fs-option-btn {
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.25rem;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+    }
+
+    .fs-close-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .fs-header-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .fs-playing-from {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+        color: var(--text-secondary);
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+
+    .fs-playlist-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    /* Album Art */
+    .fs-cover-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        min-height: 200px;
+    }
+
+    .fs-cover {
+        width: 85%;
+        max-width: 300px;
+        aspect-ratio: 1;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+        transition: transform 0.3s ease;
+    }
+
+    /* Track details */
+    .fs-track-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        flex-shrink: 0;
+    }
+
+    .fs-track-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        max-width: 80%;
+    }
+
+    .fs-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .fs-artist {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+    }
+
+    .fs-heart-btn {
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1.35rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .fs-heart-btn.liked {
+        color: var(--primary-color);
+    }
+
+    /* Progress seek bar */
+    .fs-progress-container {
+        margin-bottom: 20px;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex-shrink: 0;
+    }
+
+    .fs-progress-slider-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .fs-progress-slider-wrapper input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--slider-track);
+        outline: none;
+        cursor: pointer;
+    }
+
+    .fs-progress-slider-wrapper input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--slider-thumb);
+        cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .fs-progress-bar-fill {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 4px;
+        background: var(--primary-color);
+        transform: translateY(-50%);
+        pointer-events: none;
+        border-radius: 2px;
+        width: 0%;
+    }
+
+    .fs-time-stamps {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+    }
+
+    /* Playback Controls */
+    .fs-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 0 15px;
+        flex-shrink: 0;
+    }
+
+    .fs-control-btn, .fs-control-btn-main {
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+
+    .fs-control-btn {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+    }
+
+    .fs-control-btn.active {
+        color: #1db954;
+    }
+
+    .fs-control-btn-main {
+        font-size: 1.45rem;
+    }
+
+    .fs-control-btn-play {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--text-primary);
+        color: var(--bg-app);
+        border: none;
+        cursor: pointer;
+        font-size: 1.35rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.2s;
+    }
+
+    .fs-control-btn-play:hover {
+        transform: scale(1.05);
+    }
+
+    /* Volume container */
+    .fs-volume-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        color: var(--text-secondary);
+        flex-shrink: 0;
+    }
+
+    .fs-volume-container input[type="range"] {
+        flex: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 4px;
+        background: var(--slider-track);
+        border-radius: 2px;
+        outline: none;
+    }
+
+    .fs-volume-container input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--slider-thumb);
+        cursor: pointer;
+    }
+
+    /* Lyrics Preview Panel */
+    .fs-lyrics-panel {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 14px;
+        flex: 0.75;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow: hidden;
+        min-height: 100px;
+    }
+
+    .fs-lyrics-header h3 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-secondary);
+        font-weight: 700;
+    }
+
+    .fs-lyrics-content {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: var(--text-primary);
+        overflow-y: auto;
+        white-space: pre-line;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    /* Pointer cursor on bottom playbar to indicate expandability */
+    .bottom-playbar {
+        cursor: pointer;
     }
 }
 

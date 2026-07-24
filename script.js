@@ -4232,3 +4232,344 @@ if (mobPillPodcasts) {
         }
     });
 }
+
+// ==========================================
+// Spotify Full Screen Player Logic
+// ==========================================
+
+const fsPlayer = document.getElementById('mobile-fullscreen-player');
+const fsCloseBtn = document.getElementById('fs-close-btn');
+const fsCover = document.getElementById('fs-cover');
+const fsTitle = document.getElementById('fs-song-title');
+const fsArtist = document.getElementById('fs-song-artist');
+const fsPlaylistTitle = document.getElementById('fs-playlist-title');
+const fsLikeToggle = document.getElementById('fs-like-toggle');
+const fsProgress = document.getElementById('fs-progress');
+const fsProgressFill = document.getElementById('fs-progress-fill');
+const fsCurrentTime = document.getElementById('fs-current-time');
+const fsDuration = document.getElementById('fs-duration');
+const fsPlay = document.getElementById('fs-play');
+const fsPrev = document.getElementById('fs-prev');
+const fsNext = document.getElementById('fs-next');
+const fsVolume = document.getElementById('fs-volume');
+const fsLyricsContent = document.getElementById('fs-lyrics-content');
+const fsShuffleBtn = document.getElementById('fs-shuffle-btn');
+const fsRepeatBtn = document.getElementById('fs-repeat-btn');
+
+// Selector elements for main/desktop buttons we need to control
+const mainShuffleBtn = document.getElementById('shuffle-btn');
+const mainRepeatBtn = document.getElementById('repeat-btn');
+
+let isFSShuffle = false;
+let isFSRepeat = false;
+
+// Tapping bottom playbar to open full screen player on mobile
+const bottomPlaybar = document.querySelector('.bottom-playbar');
+if (bottomPlaybar) {
+    bottomPlaybar.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            const target = e.target;
+            // Prevent opening if user clicked play/pause, volume, seekbar, or heart icons
+            if (!target.closest('.playback-controls') && 
+                !target.closest('.volume-container') && 
+                !target.closest('.heart-btn') &&
+                !target.closest('.progress-bar-container') &&
+                !target.closest('#like-toggle')) {
+                
+                fsPlayer.classList.add('open');
+                // Force sync on open
+                syncFSPlayerWithLoadedSong(index);
+                if (audio.duration) {
+                    fsDuration.textContent = formatDurationFS(audio.duration);
+                }
+            }
+        }
+    });
+}
+
+// Click listener to minimize full screen player
+if (fsCloseBtn) {
+    fsCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fsPlayer.classList.remove('open');
+    });
+}
+
+// Helper to format duration safely
+function formatDurationFS(seconds) {
+    if (!seconds || isNaN(seconds)) return '0:00';
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+// Function to synchronize all elements of full-screen player with current song
+function syncFSPlayerWithLoadedSong(i) {
+    if (currentPlaylist.length === 0 || !currentPlaylist[i]) return;
+    const currentSong = currentPlaylist[i];
+    
+    if (fsCover) fsCover.src = currentSong.cover;
+    if (fsTitle) fsTitle.textContent = currentSong.title;
+    if (fsArtist) fsArtist.textContent = currentSong.artist || '✨5ukoon...';
+    
+    // Sync Playlist/Category Name
+    if (fsPlaylistTitle) {
+        const categoryNames = {
+            'all': 'All Songs',
+            '80s': '80s Dasak',
+            '90s': '90s Dasak',
+            'new': 'New Songs',
+            'old': 'Old Songs',
+            'romantic': 'Romantic Songs',
+            'sad': 'Sad Songs',
+            'bhojpuri': 'Bhojpuri Songs',
+            'bhakti': 'Bhakti Songs',
+            'mahadev': 'Mahadev Songs',
+            'krishna': 'Krishna Songs',
+            'other': 'Other Songs',
+            'liked': 'Liked Songs'
+        };
+        fsPlaylistTitle.textContent = categoryNames[currentCategory] || 'Music Playlist';
+    }
+    
+    // Sync Like Status
+    syncFSLikeUI();
+    
+    // Sync Lyrics Preview
+    syncFSLyrics();
+}
+
+// Synchronize Like button UI inside full-screen player
+function syncFSLikeUI() {
+    if (!fsLikeToggle) return;
+    const currentSong = currentPlaylist[index];
+    if (!currentSong) return;
+    const heartIcon = fsLikeToggle.querySelector('i');
+    if (!heartIcon) return;
+    
+    if (likedSongs.includes(currentSong.file)) {
+        fsLikeToggle.classList.add('liked');
+        heartIcon.className = 'fas fa-heart';
+    } else {
+        fsLikeToggle.classList.remove('liked');
+        heartIcon.className = 'far fa-heart';
+    }
+}
+
+// Synchronize lyrics text inside full-screen player
+function syncFSLyrics() {
+    const mainLyricsEl = document.getElementById('lyrics');
+    if (mainLyricsEl && fsLyricsContent) {
+        fsLyricsContent.textContent = mainLyricsEl.textContent;
+    }
+}
+
+// Wrapper for loadSong to automatically sync values when a song is loaded
+const originalFSLoadSong = loadSong;
+loadSong = function (i, autoPlay = false) {
+    originalFSLoadSong(i, autoPlay);
+    syncFSPlayerWithLoadedSong(i);
+    
+    // Override the dynamic audio.onended handler set inside original loadSong
+    const originalOnEnded = audio.onended;
+    audio.onended = function () {
+        if (this.isAutoPlaying) return;
+        this.isAutoPlaying = true;
+        
+        if (isFSRepeat) {
+            loadSong(index, true);
+        } else if (isFSShuffle) {
+            index = Math.floor(Math.random() * currentPlaylist.length);
+            loadSong(index, true);
+        } else {
+            // Default next behavior
+            index = (index + 1) % currentPlaylist.length;
+            loadSong(index, true);
+        }
+        
+        setTimeout(() => {
+            this.isAutoPlaying = false;
+        }, 2000);
+    };
+};
+
+// Play/Pause sync logic
+if (fsPlay) {
+    fsPlay.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            fsPlay.textContent = "⏸️";
+            if (playBtn) playBtn.textContent = "⏸️";
+        } else {
+            audio.pause();
+            fsPlay.textContent = "▶️";
+            if (playBtn) playBtn.textContent = "▶️";
+        }
+        updateSongCardStates();
+    });
+}
+
+// Listen to audio play state to sync play/pause button state
+audio.addEventListener('play', () => {
+    if (fsPlay) fsPlay.textContent = "⏸️";
+});
+audio.addEventListener('pause', () => {
+    if (fsPlay) fsPlay.textContent = "▶️";
+});
+
+// Next and Previous trigger syncs
+if (fsNext) {
+    fsNext.addEventListener('click', () => {
+        if (nextBtn) nextBtn.click();
+        syncFSPlayerWithLoadedSong(index);
+    });
+}
+
+if (fsPrev) {
+    fsPrev.addEventListener('click', () => {
+        if (prevBtn) prevBtn.click();
+        syncFSPlayerWithLoadedSong(index);
+    });
+}
+
+// Like Button click inside full screen
+if (fsLikeToggle) {
+    fsLikeToggle.addEventListener('click', () => {
+        if (likeToggleBtn) likeToggleBtn.click();
+        syncFSLikeUI();
+    });
+}
+
+// Update Timeline Seekbar on audio timeupdate
+audio.addEventListener('timeupdate', () => {
+    if (audio.duration && fsProgress) {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        fsProgress.value = percent;
+        if (fsProgressFill) fsProgressFill.style.width = percent + '%';
+        if (fsCurrentTime) {
+            fsCurrentTime.textContent = formatDurationFS(audio.currentTime);
+        }
+    }
+});
+
+// Sync total duration on loadedmetadata
+audio.addEventListener('loadedmetadata', () => {
+    if (audio.duration && fsDuration) {
+        fsDuration.textContent = formatDurationFS(audio.duration);
+    }
+});
+
+// Seek audio when timeline slider changes inside full screen
+if (fsProgress) {
+    fsProgress.addEventListener('input', () => {
+        if (audio.duration) {
+            const newTime = (fsProgress.value * audio.duration) / 100;
+            audio.currentTime = newTime;
+            if (fsCurrentTime) {
+                fsCurrentTime.textContent = formatDurationFS(newTime);
+            }
+            if (fsProgressFill) {
+                fsProgressFill.style.width = fsProgress.value + '%';
+            }
+        }
+    });
+}
+
+// Volume controller logic inside full screen
+if (fsVolume) {
+    fsVolume.value = audio.volume;
+    fsVolume.addEventListener('input', (e) => {
+        const vol = e.target.value;
+        audio.volume = vol;
+        if (volumeSlider) volumeSlider.value = vol;
+        updateVolumeIcon(vol);
+    });
+}
+
+// Update full-screen volume slider if volume changes elsewhere (e.g. mute)
+audio.addEventListener('volumechange', () => {
+    if (fsVolume) {
+        fsVolume.value = audio.volume;
+    }
+});
+
+// Active Shuffle and Repeat functionality logic
+if (mainShuffleBtn) {
+    mainShuffleBtn.addEventListener('click', () => {
+        isFSShuffle = !isFSShuffle;
+        mainShuffleBtn.classList.toggle('active', isFSShuffle);
+        if (fsShuffleBtn) fsShuffleBtn.classList.toggle('active', isFSShuffle);
+    });
+}
+
+if (fsShuffleBtn) {
+    fsShuffleBtn.addEventListener('click', () => {
+        isFSShuffle = !isFSShuffle;
+        if (mainShuffleBtn) mainShuffleBtn.classList.toggle('active', isFSShuffle);
+        fsShuffleBtn.classList.toggle('active', isFSShuffle);
+    });
+}
+
+if (mainRepeatBtn) {
+    mainRepeatBtn.addEventListener('click', () => {
+        isFSRepeat = !isFSRepeat;
+        mainRepeatBtn.classList.toggle('active', isFSRepeat);
+        if (fsRepeatBtn) fsRepeatBtn.classList.toggle('active', isFSRepeat);
+    });
+}
+
+if (fsRepeatBtn) {
+    fsRepeatBtn.addEventListener('click', () => {
+        isFSRepeat = !isFSRepeat;
+        if (mainRepeatBtn) mainRepeatBtn.classList.toggle('active', isFSRepeat);
+        fsRepeatBtn.classList.toggle('active', isFSRepeat);
+    });
+}
+
+// Custom next song calculation logic considering shuffle and repeat state
+const originalPlayNextSong = playNextSong;
+playNextSong = function () {
+    if (currentPlaylist.length === 0) return;
+    
+    if (isFSRepeat) {
+        loadSong(index, true);
+    } else if (isFSShuffle) {
+        index = Math.floor(Math.random() * currentPlaylist.length);
+        loadSong(index, true);
+    } else {
+        originalPlayNextSong();
+    }
+};
+
+// Also wrap play next click and play prev click logic to handle shuffle/repeat
+if (nextBtn) {
+    const originalNextClick = nextBtn.onclick;
+    nextBtn.onclick = () => {
+        if (currentPlaylist.length === 0) return;
+        if (isFSShuffle) {
+            index = Math.floor(Math.random() * currentPlaylist.length);
+            loadSong(index, true);
+            playBtn.textContent = "⏸️";
+            updateSongCardStates();
+            syncFSPlayerWithLoadedSong(index);
+        } else {
+            originalNextClick();
+        }
+    };
+}
+
+if (prevBtn) {
+    const originalPrevClick = prevBtn.onclick;
+    prevBtn.onclick = () => {
+        if (currentPlaylist.length === 0) return;
+        if (isFSShuffle) {
+            index = Math.floor(Math.random() * currentPlaylist.length);
+            loadSong(index, true);
+            playBtn.textContent = "⏸️";
+            updateSongCardStates();
+            syncFSPlayerWithLoadedSong(index);
+        } else {
+            originalPrevClick();
+        }
+    };
+}

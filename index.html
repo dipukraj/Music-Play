@@ -421,6 +421,78 @@
         </button>
     </nav>
 
+    <!-- Mobile Full Screen Player Overlay (Visible only on mobile) -->
+    <div id="mobile-fullscreen-player" class="mobile-fullscreen-player">
+        <!-- Close/Chevron and Playlist Info header -->
+        <header class="fs-header">
+            <button id="fs-close-btn" class="fs-close-btn" title="Minimize">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="fs-header-center">
+                <span class="fs-playing-from">PLAYING FROM CATEGORY</span>
+                <span id="fs-playlist-title" class="fs-playlist-title">All Songs</span>
+            </div>
+            <button class="fs-option-btn" title="Options">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+        </header>
+
+        <!-- Album Cover Art -->
+        <div class="fs-cover-container">
+            <img src="image/image cover.jpg" id="fs-cover" class="fs-cover" alt="Album Cover">
+        </div>
+
+        <!-- Song Info and Like toggle -->
+        <div class="fs-track-details">
+            <div class="fs-track-info">
+                <h2 id="fs-song-title" class="fs-title">Song Name</h2>
+                <span id="fs-song-artist" class="fs-artist">✨5ukoon...</span>
+            </div>
+            <button class="fs-heart-btn" id="fs-like-toggle" title="Save to Liked Songs">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <!-- Progress Seek bar with timestamps -->
+        <div class="fs-progress-container">
+            <div class="fs-progress-slider-wrapper">
+                <input type="range" id="fs-progress" value="0">
+                <div class="fs-progress-bar-fill" id="fs-progress-fill"></div>
+            </div>
+            <div class="fs-time-stamps">
+                <span id="fs-current-time">0:00</span>
+                <span id="fs-duration">0:00</span>
+            </div>
+        </div>
+
+        <!-- Playback Controls -->
+        <div class="fs-controls">
+            <button class="fs-control-btn" id="fs-shuffle-btn" title="Shuffle"><i class="fas fa-random"></i></button>
+            <button class="fs-control-btn-main" id="fs-prev" title="Previous"><i
+                    class="fas fa-step-backward"></i></button>
+            <button class="fs-control-btn-play" id="fs-play" title="Play/Pause">▶️</button>
+            <button class="fs-control-btn-main" id="fs-next" title="Next"><i class="fas fa-step-forward"></i></button>
+            <button class="fs-control-btn" id="fs-repeat-btn" title="Repeat"><i class="fas fa-redo"></i></button>
+        </div>
+
+        <!-- Volume controller ("kam/jaida") -->
+        <div class="fs-volume-container">
+            <i class="fas fa-volume-down fs-volume-icon"></i>
+            <input type="range" id="fs-volume" min="0" max="1" step="0.05" value="1" title="Volume">
+            <i class="fas fa-volume-up fs-volume-icon"></i>
+        </div>
+
+        <!-- Lyrics Preview Panel at bottom -->
+        <div class="fs-lyrics-panel">
+            <div class="fs-lyrics-header">
+                <h3>Lyrics Preview</h3>
+            </div>
+            <div id="fs-lyrics-content" class="fs-lyrics-content">
+                Enjoy the song 🎶🎧
+            </div>
+        </div>
+    </div>
+
     <script>
         const scriptEl = document.createElement('script');
         scriptEl.src = 'script.js?cb=' + Date.now();
