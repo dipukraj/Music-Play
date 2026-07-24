@@ -1215,6 +1215,14 @@ body {
 .request-action-btn.added { background: #2563eb; }
 .request-action-btn.done { background: #16a34a; }
 
+/* Mobile Navigation & Header defaults (Hidden on desktop) */
+.mobile-header-elements {
+    display: none;
+}
+.mobile-bottom-nav {
+    display: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
     .app-container {
@@ -1253,8 +1261,110 @@ body {
 }
 
 @media (max-width: 768px) {
+    .mobile-header-elements {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .mobile-pills {
+        display: flex;
+        gap: 8px;
+    }
+    
+    .mobile-pill {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .mobile-pill.active {
+        background: #1db954; /* Spotify green */
+        color: #000;
+        border-color: #1db954;
+        font-weight: 700;
+    }
+    
+    .mobile-pill:not(.active):hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--text-primary);
+    }
+    
+    .menu-btn {
+        display: none !important; /* Hide hamburger, bottom nav library button takes its place */
+    }
+    
+    .search-box {
+        display: none; /* Hidden by default, toggled via search nav click */
+    }
+    
+    .search-box.active {
+        display: block;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+        z-index: 10;
+        top: 15px;
+    }
+    
+    .mobile-bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        background: rgba(18, 18, 20, 0.95);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid var(--border-color);
+        z-index: 1000;
+        padding: 5px 0 10px 0;
+    }
+
+    [data-theme="light"] .mobile-bottom-nav {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .mob-nav-item {
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-size: 0.65rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        flex: 1;
+        outline: none;
+    }
+
+    .mob-nav-item i {
+        font-size: 1.15rem;
+    }
+
+    .mob-nav-item.active {
+        color: #1db954; /* Spotify green active item */
+    }
+
+    .mob-nav-item:hover {
+        color: var(--text-primary);
+    }
+
     .content-scroll-container {
-        padding: 20px 15px;
+        padding: 20px 15px 140px 15px; /* Added bottom padding to clear player and bottom nav */
         gap: 20px;
     }
     
@@ -1276,11 +1386,23 @@ body {
     }
     
     .playbar-middle {
-        width: 60%;
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .playback-controls {
+        gap: 12px;
+    }
+
+    .playback-controls .control-btn,
+    .playback-controls .control-btn-main {
+        display: none !important; /* Hide shuffle, repeat, etc. from mini playbar */
     }
     
     .playbar-left {
-        width: 40%;
+        width: 70%;
         min-width: 0;
     }
     
@@ -1304,8 +1426,28 @@ body {
     }
     
     .bottom-playbar {
-        position: relative;
+        position: fixed;
+        bottom: 72px; /* Floats above bottom nav bar (64px + 8px gap) */
+        left: 8px;
+        right: 8px;
+        width: auto;
+        height: 60px;
+        border-radius: 8px;
+        background: rgba(20, 20, 24, 0.9);
+        backdrop-filter: blur(15px);
+        z-index: 999;
+        padding: 0 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         padding-top: 12px; /* Extra spacing at top to clear the seekbar */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    [data-theme="light"] .bottom-playbar {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
     
     .analytics-dashboard {

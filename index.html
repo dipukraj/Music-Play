@@ -136,6 +136,17 @@
                     <button id="menu-btn" class="menu-btn" title="Open Menu">
                         <i class="fas fa-bars"></i>
                     </button>
+                    <!-- Mobile Logo and Pills (Visible only on mobile via CSS) -->
+                    <div class="mobile-header-elements">
+                        <div class="logo-circle mobile-logo">
+                            <img src="image/music logo.png" alt="Logo" class="logo-img">
+                        </div>
+                        <div class="mobile-pills">
+                            <button class="mobile-pill active" id="pill-all">All</button>
+                            <button class="mobile-pill" id="pill-music">Music</button>
+                            <button class="mobile-pill" id="pill-podcasts">Podcasts</button>
+                        </div>
+                    </div>
                     <!-- Dynamic Search Box Integrated Natively -->
                     <div class="search-box">
                         <i class="fas fa-search search-icon-inside"></i>
@@ -385,6 +396,30 @@
 
     <!-- Sidebar Overlay Backdrop for Mobile -->
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Mobile Bottom Navigation Bar (Visible only on mobile via CSS) -->
+    <nav class="mobile-bottom-nav">
+        <button class="mob-nav-item active" id="mob-nav-home" title="Home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </button>
+        <button class="mob-nav-item" id="mob-nav-search" title="Search">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+        </button>
+        <button class="mob-nav-item" id="mob-nav-library" title="Your Library">
+            <i class="fas fa-book-open"></i>
+            <span>Your Library</span>
+        </button>
+        <button class="mob-nav-item" id="mob-nav-premium" title="Premium">
+            <i class="fas fa-crown"></i>
+            <span>Premium</span>
+        </button>
+        <button class="mob-nav-item" id="mob-nav-request" title="Request Song">
+            <i class="fas fa-plus-circle"></i>
+            <span>Request</span>
+        </button>
+    </nav>
 
     <script>
         const scriptEl = document.createElement('script');

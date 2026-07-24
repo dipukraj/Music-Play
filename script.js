@@ -4094,3 +4094,141 @@ if (navLiked) navLiked.addEventListener('click', closeMobileSidebar);
 dropdownItems.forEach(item => {
     item.addEventListener('click', closeMobileSidebar);
 });
+
+// ==========================================
+// Spotify Mobile Navigation & Pill Logic
+// ==========================================
+
+const mobNavHome = document.getElementById('mob-nav-home');
+const mobNavSearch = document.getElementById('mob-nav-search');
+const mobNavLibrary = document.getElementById('mob-nav-library');
+const mobNavPremium = document.getElementById('mob-nav-premium');
+const mobNavRequest = document.getElementById('mob-nav-request');
+
+const mobPillAll = document.getElementById('pill-all');
+const mobPillMusic = document.getElementById('pill-music');
+const mobPillPodcasts = document.getElementById('pill-podcasts');
+
+const searchBox = document.querySelector('.search-box');
+
+// Helper to update bottom nav active state
+function updateMobNavActiveState(activeBtn) {
+    const navItems = document.querySelectorAll('.mob-nav-item');
+    navItems.forEach(item => item.classList.remove('active'));
+    if (activeBtn) activeBtn.classList.add('active');
+}
+
+// Mobile Home Button
+if (mobNavHome) {
+    mobNavHome.addEventListener('click', () => {
+        updateMobNavActiveState(mobNavHome);
+        if (searchBox) searchBox.classList.remove('active');
+        // Trigger Home View
+        if (navHome) navHome.click();
+    });
+}
+
+// Mobile Search Button
+if (mobNavSearch) {
+    mobNavSearch.addEventListener('click', () => {
+        updateMobNavActiveState(mobNavSearch);
+        if (searchBox) {
+            searchBox.classList.toggle('active');
+            if (searchBox.classList.contains('active')) {
+                searchInput.focus();
+            }
+        }
+    });
+}
+
+// Mobile Library Button
+if (mobNavLibrary) {
+    mobNavLibrary.addEventListener('click', () => {
+        updateMobNavActiveState(mobNavLibrary);
+        if (searchBox) searchBox.classList.remove('active');
+        // Open the sidebar categories drawer
+        if (menuBtn) menuBtn.click();
+    });
+}
+
+// Mobile Premium (Analytics) Button
+if (mobNavPremium) {
+    mobNavPremium.addEventListener('click', () => {
+        updateMobNavActiveState(mobNavPremium);
+        if (searchBox) searchBox.classList.remove('active');
+        // Toggle/Show analytics dashboard
+        showAnalyticsDashboard();
+    });
+}
+
+// Mobile Request Song Button
+if (mobNavRequest) {
+    mobNavRequest.addEventListener('click', () => {
+        updateMobNavActiveState(mobNavRequest);
+        if (searchBox) searchBox.classList.remove('active');
+        // Scroll to Song Request Box
+        const requestSection = document.querySelector('.song-request-section');
+        if (requestSection) {
+            requestSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (songRequestInput) songRequestInput.focus();
+        }
+    });
+}
+
+// Top Pills Logic
+function updatePillActiveState(activePill) {
+    const pills = [mobPillAll, mobPillMusic, mobPillPodcasts];
+    pills.forEach(pill => {
+        if (pill) pill.classList.remove('active');
+    });
+    if (activePill) activePill.classList.add('active');
+}
+
+if (mobPillAll) {
+    mobPillAll.addEventListener('click', () => {
+        updatePillActiveState(mobPillAll);
+        // Show all songs
+        filterSongsByCategory('all');
+        showSongGrid('all');
+    });
+}
+
+if (mobPillMusic) {
+    mobPillMusic.addEventListener('click', () => {
+        updatePillActiveState(mobPillMusic);
+        // Open library sidebar to let them choose music category
+        if (menuBtn) menuBtn.click();
+        
+        // Show a brief status or category helper
+        const banner = document.getElementById('public-request-banner');
+        if (banner) {
+            const originalHtml = banner.innerHTML;
+            banner.innerHTML = '📢 <strong>Select a Category/Playlist</strong> from the sidebar drawer!';
+            banner.style.background = 'rgba(29, 185, 84, 0.1)';
+            banner.style.borderColor = 'rgba(29, 185, 84, 0.3)';
+            setTimeout(() => {
+                banner.innerHTML = originalHtml;
+                banner.style.background = '';
+                banner.style.borderColor = '';
+            }, 4000);
+        }
+    });
+}
+
+if (mobPillPodcasts) {
+    mobPillPodcasts.addEventListener('click', () => {
+        // Show temporary alert/banner
+        const banner = document.getElementById('public-request-banner');
+        if (banner) {
+            const originalHtml = banner.innerHTML;
+            banner.innerHTML = '📻 <strong>Podcasts feature is coming soon!</strong> Stay tuned! ✨';
+            banner.style.background = 'rgba(255, 77, 141, 0.1)';
+            banner.style.borderColor = 'rgba(255, 77, 141, 0.3)';
+            setTimeout(() => {
+                banner.innerHTML = originalHtml;
+                banner.style.background = '';
+                banner.style.borderColor = '';
+            }, 4000);
+        }
+    });
+}
