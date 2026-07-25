@@ -3973,7 +3973,7 @@ if (likeToggleBtn) {
 
         localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
         updateLikeButtonUI();
-        
+
         // Refresh active list if Liked view is open
         if (currentCategory === 'liked') {
             filterSongsByCategory('liked');
@@ -4031,7 +4031,7 @@ function updateVolumeIcon(volume) {
     if (!muteBtn) return;
     const icon = muteBtn.querySelector('i');
     if (!icon) return;
-    
+
     icon.className = 'fas ';
     if (volume === 0) {
         icon.className += 'fa-volume-mute';
@@ -4182,7 +4182,7 @@ if (mobNavRequest) {
     mobNavRequest.addEventListener('click', () => {
         updateMobNavActiveState(mobNavRequest);
         if (searchBox) searchBox.classList.remove('active');
-        
+
         // Scroll to Song Request Box smoothly inside container only (prevents window scrolling)
         const requestSection = document.querySelector('.song-request-section');
         const contentScrollContainer = document.querySelector('.content-scroll-container');
@@ -4191,12 +4191,12 @@ if (mobNavRequest) {
             const elemRect = requestSection.getBoundingClientRect();
             const relativeTop = elemRect.top - containerRect.top + contentScrollContainer.scrollTop;
             const targetScrollTop = relativeTop - (containerRect.height / 2) + (elemRect.height / 2);
-            
+
             contentScrollContainer.scrollTo({
                 top: targetScrollTop,
                 behavior: 'smooth'
             });
-            
+
             // Focus textarea without triggering browser scroll
             if (songRequestInput) {
                 songRequestInput.focus({ preventScroll: true });
@@ -4235,7 +4235,7 @@ if (mobPillMusic) {
         updatePillActiveState(mobPillMusic);
         // Open library sidebar to let them choose music category
         if (menuBtn) menuBtn.click();
-        
+
         // Show a brief status or category helper
         const banner = document.getElementById('public-request-banner');
         if (banner) {
@@ -4307,12 +4307,12 @@ if (bottomPlaybar) {
         if (window.innerWidth <= 768) {
             const target = e.target;
             // Prevent opening if user clicked play/pause, volume, seekbar, or heart icons
-            if (!target.closest('.playback-controls') && 
-                !target.closest('.volume-container') && 
+            if (!target.closest('.playback-controls') &&
+                !target.closest('.volume-container') &&
                 !target.closest('.heart-btn') &&
                 !target.closest('.progress-bar-container') &&
                 !target.closest('#like-toggle')) {
-                
+
                 fsPlayer.classList.add('open');
                 // Force sync on open
                 syncFSPlayerWithLoadedSong(index);
@@ -4344,11 +4344,11 @@ function formatDurationFS(seconds) {
 function syncFSPlayerWithLoadedSong(i) {
     if (currentPlaylist.length === 0 || !currentPlaylist[i]) return;
     const currentSong = currentPlaylist[i];
-    
+
     if (fsCover) fsCover.src = currentSong.cover;
     if (fsTitle) fsTitle.textContent = currentSong.title;
     if (fsArtist) fsArtist.textContent = currentSong.artist || '✨5ukoon...';
-    
+
     // Sync Playlist/Category Name
     if (fsPlaylistTitle) {
         const categoryNames = {
@@ -4368,10 +4368,10 @@ function syncFSPlayerWithLoadedSong(i) {
         };
         fsPlaylistTitle.textContent = categoryNames[currentCategory] || 'Music Playlist';
     }
-    
+
     // Sync Like Status
     syncFSLikeUI();
-    
+
     // Sync Lyrics Preview
     syncFSLyrics();
 }
@@ -4383,7 +4383,7 @@ function syncFSLikeUI() {
     if (!currentSong) return;
     const heartIcon = fsLikeToggle.querySelector('i');
     if (!heartIcon) return;
-    
+
     if (likedSongs.includes(currentSong.file)) {
         fsLikeToggle.classList.add('liked');
         heartIcon.className = 'fas fa-heart';
@@ -4406,13 +4406,13 @@ const originalFSLoadSong = loadSong;
 loadSong = function (i, autoPlay = false) {
     originalFSLoadSong(i, autoPlay);
     syncFSPlayerWithLoadedSong(i);
-    
+
     // Override the dynamic audio.onended handler set inside original loadSong
     const originalOnEnded = audio.onended;
     audio.onended = function () {
         if (this.isAutoPlaying) return;
         this.isAutoPlaying = true;
-        
+
         if (isFSRepeat) {
             loadSong(index, true);
         } else if (isFSShuffle) {
@@ -4423,7 +4423,7 @@ loadSong = function (i, autoPlay = false) {
             index = (index + 1) % currentPlaylist.length;
             loadSong(index, true);
         }
-        
+
         setTimeout(() => {
             this.isAutoPlaying = false;
         }, 2000);
@@ -4567,7 +4567,7 @@ if (fsRepeatBtn) {
 const originalPlayNextSong = playNextSong;
 playNextSong = function () {
     if (currentPlaylist.length === 0) return;
-    
+
     if (isFSRepeat) {
         loadSong(index, true);
     } else if (isFSShuffle) {
@@ -4647,3 +4647,37 @@ resetToHomeView();
 
 // Also run on window load to ensure it resets after assets are fully loaded and layout stabilizes
 window.addEventListener('load', resetToHomeView);
+
+// Tagline Cycler for Hero Description
+const taglines = [
+    `<strong>Music एक एहसास है, जो बिना शब्दों के हर दिल तक पहुँच जाता है।</strong><br>यह हमारी खुशियों में मुस्कान बनकर, दुखों में सुकून बनकर और ज़िंदगी के हर सफ़र में एक सच्चे हमसफ़र की तरह साथ चलता है।<br>ज़िंदगी चाहे जैसी भी हो, अपनी पसंद का एक <strong>Song</strong> सुनते ही मन हल्का हो जाता है, क्योंकि कुछ एहसास ऐसे होते हैं जिन्हें सिर्फ़ <strong>Music</strong> ही बयां कर सकता है।`,
+    `<strong>Music सिर्फ़ सुनने की चीज़ नहीं, जीने का एक तरीका है।</strong><br>जब दुनिया की आवाज़ें थका देती हैं, तब एक पसंदीदा धुन दिल को फिर से सुकून दे जाती है।<br>हर Playlist अपने साथ कुछ यादें, कुछ मुस्कानें और कुछ अधूरी कहानियाँ लेकर चलती है।`,
+    `<strong>हर Song के पीछे एक कहानी छुपी होती है।</strong><br>कुछ गीत हमें बीते हुए लम्हों से मिला देते हैं, तो कुछ आने वाले सपनों की उम्मीद बन जाते हैं।<br>यही वजह है कि Music सिर्फ़ कानों तक नहीं, सीधे दिल तक पहुँचता है।`,
+    `<strong>कभी-कभी जो बात हम कह नहीं पाते, उसे Music बड़ी आसानी से कह देता है।</strong><br>एक छोटी-सी धुन भी हज़ारों जज़्बात जगा सकती है।<br>शायद इसलिए हर इंसान का कोई न कोई पसंदीदा गीत ज़रूर होता है, जिसमें उसे अपना एक हिस्सा नज़र आता है।`,
+    `<strong>ज़िंदगी बदलती रहती है, लेकिन Music हमेशा साथ रहता है।</strong><br>खुशियों में यह हमारी मुस्कान बन जाता है और मुश्किल वक़्त में हिम्मत देता है।<br>हर पल, हर एहसास और हर याद को ख़ास बनाने की ताकत सिर्फ़ <strong>Music</strong> में होती है।`
+];
+
+function initTaglineCycler() {
+    const descEl = document.querySelector('.hero-description');
+    if (!descEl) return;
+
+    let currentIndex = 0;
+
+    // Set the first tagline initially (with correct styling)
+    descEl.innerHTML = taglines[currentIndex];
+
+    setInterval(() => {
+        // Fade out
+        descEl.style.opacity = '0';
+
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % taglines.length;
+            descEl.innerHTML = taglines[currentIndex];
+            // Fade in
+            descEl.style.opacity = '1';
+        }, 500); // 500ms fade transition time matching CSS
+    }, 30000); // 30 seconds interval
+}
+
+// Initialize cycler
+initTaglineCycler();

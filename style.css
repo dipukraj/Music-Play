@@ -470,6 +470,7 @@ body {
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    transition: opacity 0.5s ease;
 }
 
 /* Public Banner alert */
