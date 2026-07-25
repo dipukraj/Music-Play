@@ -4616,8 +4616,8 @@ if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
-// Reset page view to Home and scroll container to top when page is loaded or reloaded
-window.addEventListener('load', () => {
+// Reset page view to Home and scroll container to top
+function resetToHomeView() {
     // Reset scroll position of the main scroll container
     const contentScrollContainer = document.querySelector('.content-scroll-container');
     if (contentScrollContainer) {
@@ -4640,4 +4640,10 @@ window.addEventListener('load', () => {
     if (searchBox) {
         searchBox.classList.remove('active');
     }
-});
+}
+
+// Run immediately as soon as the DOM is parsed and script is loaded
+resetToHomeView();
+
+// Also run on window load to ensure it resets after assets are fully loaded and layout stabilizes
+window.addEventListener('load', resetToHomeView);
