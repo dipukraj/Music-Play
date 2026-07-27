@@ -147,12 +147,6 @@
 
         <!-- Right Main Content Panel -->
         <main class="main-content">
-            <!-- Fluid Ambient Glow Background -->
-            <div class="ambient-glow-container">
-                <div class="ambient-blob blob-1" id="blob-1"></div>
-                <div class="ambient-blob blob-2" id="blob-2"></div>
-                <div class="ambient-blob blob-3" id="blob-3"></div>
-            </div>
             <!-- Top Navigation & Controls Bar -->
             <header class="top-nav-bar">
                 <div class="nav-bar-left">
@@ -187,8 +181,7 @@
             <div class="content-scroll-container">
 
                 <!-- Dynamic Greeting Hero Card -->
-                <section class="hero-banner" id="hero-banner">
-                    <button id="close-hero-btn" class="close-hero-btn" title="Dismiss Greeting">✕</button>
+                <section class="hero-banner">
                     <div class="hero-bg-overlay"></div>
                     <div class="hero-info">
                         <span class="hero-tag">WELCOME TO ✨MUSIC❤️</span>
@@ -483,7 +476,8 @@
             style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color);">
             <h3
                 style="font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 8px; color: var(--text-primary);">
-                <i class="fas fa-plus-circle" style="color: var(--primary-color);"></i> Add to Playlist</h3>
+                <i class="fas fa-plus-circle" style="color: var(--primary-color);"></i> Add to Playlist
+            </h3>
             <button id="close-playlist-selector"
                 style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; line-height: 1;">✕</button>
         </div>
@@ -510,17 +504,21 @@
             style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color);">
             <h3
                 style="font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 8px; color: var(--text-primary); font-weight: 700;">
-                <i class="fas fa-folder-plus" style="color: var(--primary-color);"></i> Create Playlist</h3>
+                <i class="fas fa-folder-plus" style="color: var(--primary-color);"></i> Create Playlist
+            </h3>
             <button id="close-create-playlist"
                 style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; line-height: 1;">✕</button>
         </div>
         <div style="padding: 15px 20px;">
             <input type="text" id="new-playlist-name-input" placeholder="Playlist Name (e.g. Gym Workout)"
                 style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-hover); color: var(--text-primary); font-size: 0.85rem; margin-bottom: 15px; outline: none;">
-            
-            <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Quick Suggestions</span>
-            
-            <div class="playlist-tags-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px;">
+
+            <span
+                style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Quick
+                Suggestions</span>
+
+            <div class="playlist-tags-grid"
+                style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px;">
                 <button class="playlist-tag-pill" data-name="🏃 Walking">🏃 Walking</button>
                 <button class="playlist-tag-pill" data-name="🏋️ Gym Workout">🏋️ Gym Workout</button>
                 <button class="playlist-tag-pill" data-name="🚗 Driving">🚗 Driving</button>
@@ -530,9 +528,10 @@
                 <button class="playlist-tag-pill" data-name="⚡ Energy Boost">⚡ Energy Boost</button>
                 <button class="playlist-tag-pill" data-name="💖 Romantic">💖 Romantic</button>
             </div>
-            
+
             <button id="submit-create-playlist-btn"
-                style="width: 100%; background: var(--accent-gradient); border: none; color: white; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: transform 0.2s ease;">Create Playlist</button>
+                style="width: 100%; background: var(--accent-gradient); border: none; color: white; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: transform 0.2s ease;">Create
+                Playlist</button>
         </div>
     </div>
 
@@ -543,7 +542,8 @@
             style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color);">
             <h3
                 style="font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 8px; color: var(--text-primary);">
-                <i class="fas fa-microphone-alt" style="color: var(--primary-color);"></i> Add Song Lyrics</h3>
+                <i class="fas fa-microphone-alt" style="color: var(--primary-color);"></i> Add Song Lyrics
+            </h3>
             <button id="close-lyrics-modal"
                 style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; line-height: 1;">✕</button>
         </div>
@@ -587,12 +587,6 @@
 
     <!-- Mobile Full Screen Player Overlay (Visible only on mobile) -->
     <div id="mobile-fullscreen-player" class="mobile-fullscreen-player">
-        <!-- Fluid Ambient Glow Background for Mobile Player -->
-        <div class="ambient-glow-container">
-            <div class="ambient-blob fs-blob-1" id="fs-blob-1"></div>
-            <div class="ambient-blob fs-blob-2" id="fs-blob-2"></div>
-            <div class="ambient-blob fs-blob-3" id="fs-blob-3"></div>
-        </div>
         <!-- Close/Chevron and Playlist Info header -->
         <header class="fs-header">
             <button id="fs-close-btn" class="fs-close-btn" title="Minimize">

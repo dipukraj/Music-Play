@@ -5283,21 +5283,6 @@ function updateDynamicBackground(coverSrc) {
                 const fsBaseBg = document.documentElement.getAttribute('data-theme') === 'light' ? '#f4f5f8' : '#09090b';
                 fsPlayer.style.backgroundImage = `${gradientString}, linear-gradient(to bottom, ${fsBaseBg}, ${fsBaseBg})`;
             }
-
-            // Apply dynamic colors to background blur blobs for Apple Music style glow
-            const blob1 = document.getElementById('blob-1');
-            const blob2 = document.getElementById('blob-2');
-            const blob3 = document.getElementById('blob-3');
-            const fsBlob1 = document.getElementById('fs-blob-1');
-            const fsBlob2 = document.getElementById('fs-blob-2');
-            const fsBlob3 = document.getElementById('fs-blob-3');
-
-            if (blob1) blob1.style.backgroundColor = c1;
-            if (blob2) blob2.style.backgroundColor = c2;
-            if (blob3) blob3.style.backgroundColor = c3;
-            if (fsBlob1) fsBlob1.style.backgroundColor = c1;
-            if (fsBlob2) fsBlob2.style.backgroundColor = c2;
-            if (fsBlob3) fsBlob3.style.backgroundColor = c3;
         } catch (e) {
             console.warn("Could not extract album art colors (likely CORS restrict):", e);
         }
@@ -5570,8 +5555,8 @@ if (saveLyricsBtn && lyricsInputTextarea) {
     });
 }
 
-// --- FEATURE: Sidebar Collapsible Accordion & Dismissible Greeting Banner ---
-function initAccordionAndHero() {
+// --- FEATURE: Sidebar Collapsible Accordion ---
+function initAccordion() {
     // 1. Collapsible Sidebar Sections
     document.querySelectorAll('.sidebar-playlists').forEach(el => {
         const header = el.querySelector('.playlist-header');
@@ -5583,25 +5568,7 @@ function initAccordionAndHero() {
             });
         }
     });
-
-    // 2. Dismissible Hero Banner
-    const heroBanner = document.getElementById('hero-banner');
-    const closeHeroBtn = document.getElementById('close-hero-btn');
-    if (heroBanner && closeHeroBtn) {
-        if (localStorage.getItem('hero_dismissed') === 'true') {
-            heroBanner.style.display = 'none';
-        }
-        closeHeroBtn.addEventListener('click', () => {
-            heroBanner.style.transition = 'all 0.5s ease';
-            heroBanner.style.opacity = '0';
-            heroBanner.style.transform = 'translateY(-10px)';
-            setTimeout(() => {
-                heroBanner.style.display = 'none';
-            }, 500);
-            localStorage.setItem('hero_dismissed', 'true');
-        });
-    }
 }
 
 // Initialize on load
-window.addEventListener('load', initAccordionAndHero);
+window.addEventListener('load', initAccordion);
