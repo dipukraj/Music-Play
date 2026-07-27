@@ -116,6 +116,23 @@
                 </div>
             </div>
 
+            <hr class="sidebar-divider">
+
+            <!-- Custom Playlists Section -->
+            <div class="sidebar-playlists" id="custom-playlists-section">
+                <div class="playlist-header">
+                    <h3><i class="fas fa-list-ul"></i> Playlists</h3>
+                    <button id="create-playlist-btn" class="playlist-toggle-btn" title="Create Playlist"
+                        style="display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--bg-hover); color: var(--text-primary); cursor: pointer; transition: all 0.2s; border: none;">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div id="custom-playlists-list" class="playlist-dropdown show"
+                    style="display: flex; flex-direction: column; gap: 4px; padding-top: 5px;">
+                    <!-- Custom playlists will be loaded here -->
+                </div>
+            </div>
+
             <!-- Visitor Badge in Sidebar Footer -->
             <div class="sidebar-footer">
                 <div class="visitor-counter-sidebar">
@@ -130,6 +147,12 @@
 
         <!-- Right Main Content Panel -->
         <main class="main-content">
+            <!-- Fluid Ambient Glow Background -->
+            <div class="ambient-glow-container">
+                <div class="ambient-blob blob-1" id="blob-1"></div>
+                <div class="ambient-blob blob-2" id="blob-2"></div>
+                <div class="ambient-blob blob-3" id="blob-3"></div>
+            </div>
             <!-- Top Navigation & Controls Bar -->
             <header class="top-nav-bar">
                 <div class="nav-bar-left">
@@ -164,7 +187,8 @@
             <div class="content-scroll-container">
 
                 <!-- Dynamic Greeting Hero Card -->
-                <section class="hero-banner">
+                <section class="hero-banner" id="hero-banner">
+                    <button id="close-hero-btn" class="close-hero-btn" title="Dismiss Greeting">✕</button>
                     <div class="hero-bg-overlay"></div>
                     <div class="hero-info">
                         <span class="hero-tag">WELCOME TO ✨MUSIC❤️</span>
@@ -280,6 +304,10 @@
                 <button class="heart-btn" id="like-toggle" title="Save to Liked Songs">
                     <i class="far fa-heart"></i>
                 </button>
+                <!-- Share button -->
+                <button class="share-btn" id="share-btn" title="Share Song">
+                    <i class="fas fa-share-alt"></i>
+                </button>
             </div>
 
             <!-- Middle Panel: Playback Controls & Progress Bar -->
@@ -312,6 +340,25 @@
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
+                </div>
+
+                <!-- Sleep Timer Container -->
+                <div class="sleep-timer-container">
+                    <button class="sleep-timer-btn" id="sleep-timer-btn" title="Sleep Timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="sleep-badge"
+                            style="position: absolute; top: -6px; right: -8px; background: var(--primary-color); color: white; font-size: 0.65rem; padding: 2px 5px; border-radius: 10px; display: none; font-weight: 700;"></span>
+                    </button>
+                    <!-- Sleep Options Dropup -->
+                    <div class="sleep-options" id="sleep-options">
+                        <button class="sleep-option-item" data-time="0">Off</button>
+                        <button class="sleep-option-item" data-time="1">1 Minute</button>
+                        <button class="sleep-option-item" data-time="5">5 Minutes</button>
+                        <button class="sleep-option-item" data-time="15">15 Minutes</button>
+                        <button class="sleep-option-item" data-time="30">30 Minutes</button>
+                        <button class="sleep-option-item" data-time="45">45 Minutes</button>
+                        <button class="sleep-option-item" data-time="60">60 Minutes</button>
+                    </div>
                 </div>
 
                 <div class="volume-container">
@@ -426,6 +473,94 @@
     <!-- Sidebar Overlay Backdrop for Mobile -->
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
+    <!-- Playlist Selector Modal (Add song to playlist) -->
+    <div id="modal-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 1199; display: none;">
+    </div>
+    <div id="playlist-selector-modal"
+        style="position: fixed; z-index: 1200; height: auto; max-height: 400px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 320px; border-radius: 16px; display: none; transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.5); background: var(--bg-card); border: 1px solid var(--border-color); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color);">
+            <h3
+                style="font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 8px; color: var(--text-primary);">
+                <i class="fas fa-plus-circle" style="color: var(--primary-color);"></i> Add to Playlist</h3>
+            <button id="close-playlist-selector"
+                style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; line-height: 1;">✕</button>
+        </div>
+        <div style="padding: 15px 20px;">
+            <div id="selector-playlist-list"
+                style="display: flex; flex-direction: column; gap: 8px; max-height: 200px; overflow-y: auto; padding-right: 5px;">
+                <!-- List of playlists dynamically loaded -->
+            </div>
+            <!-- Create playlist quick form inside selector -->
+            <div style="margin-top: 15px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <input type="text" id="new-playlist-name-selector" placeholder="New Playlist Name"
+                    style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-hover); color: var(--text-primary); font-size: 0.85rem; margin-bottom: 8px; outline: none;">
+                <button id="create-playlist-btn-selector"
+                    style="width: 100%; background: var(--accent-gradient); border: none; color: white; padding: 8px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">+
+                    Create & Add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Playlist Modal -->
+    <div id="create-playlist-modal"
+        style="position: fixed; z-index: 1200; height: auto; max-height: 480px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 360px; border-radius: 16px; display: none; transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.5); background: var(--bg-card); border: 1px solid var(--border-color); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color);">
+            <h3
+                style="font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 8px; color: var(--text-primary); font-weight: 700;">
+                <i class="fas fa-folder-plus" style="color: var(--primary-color);"></i> Create Playlist</h3>
+            <button id="close-create-playlist"
+                style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; line-height: 1;">✕</button>
+        </div>
+        <div style="padding: 15px 20px;">
+            <input type="text" id="new-playlist-name-input" placeholder="Playlist Name (e.g. Gym Workout)"
+                style="width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-hover); color: var(--text-primary); font-size: 0.85rem; margin-bottom: 15px; outline: none;">
+            
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">Quick Suggestions</span>
+            
+            <div class="playlist-tags-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 20px;">
+                <button class="playlist-tag-pill" data-name="🏃 Walking">🏃 Walking</button>
+                <button class="playlist-tag-pill" data-name="🏋️ Gym Workout">🏋️ Gym Workout</button>
+                <button class="playlist-tag-pill" data-name="🚗 Driving">🚗 Driving</button>
+                <button class="playlist-tag-pill" data-name="🧘 Meditation">🧘 Meditation</button>
+                <button class="playlist-tag-pill" data-name="☕ Study Focus">☕ Study Focus</button>
+                <button class="playlist-tag-pill" data-name="🌙 Sleep/Night">🌙 Sleep/Night</button>
+                <button class="playlist-tag-pill" data-name="⚡ Energy Boost">⚡ Energy Boost</button>
+                <button class="playlist-tag-pill" data-name="💖 Romantic">💖 Romantic</button>
+            </div>
+            
+            <button id="submit-create-playlist-btn"
+                style="width: 100%; background: var(--accent-gradient); border: none; color: white; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: transform 0.2s ease;">Create Playlist</button>
+        </div>
+    </div>
+
+    <!-- Add Lyrics Modal -->
+    <div id="lyrics-modal"
+        style="position: fixed; z-index: 1200; height: auto; max-height: 550px; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 420px; border-radius: 16px; display: none; transition: all 0.3s ease; box-shadow: 0 10px 40px rgba(0,0,0,0.5); background: var(--bg-card); border: 1px solid var(--border-color); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+        <div
+            style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border-color);">
+            <h3
+                style="font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 8px; color: var(--text-primary);">
+                <i class="fas fa-microphone-alt" style="color: var(--primary-color);"></i> Add Song Lyrics</h3>
+            <button id="close-lyrics-modal"
+                style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; line-height: 1;">✕</button>
+        </div>
+        <div style="padding: 15px 20px;">
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.4;">Copy
+                paste lyrics for <strong id="lyrics-modal-song-title" style="color: var(--text-primary);">Song
+                    Name</strong>. You can use standard LRC format (e.g. <code>[00:15.50] Line text</code>) or just
+                plain text lines.</p>
+            <textarea id="lyrics-input-textarea"
+                placeholder="Paste lyrics here...&#10;&#10;[00:00.00] Line 1&#10;[00:05.50] Line 2"
+                style="width: 100%; height: 230px; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-hover); color: var(--text-primary); font-size: 0.85rem; outline: none; resize: none; font-family: monospace; line-height: 1.5; margin-bottom: 15px;"></textarea>
+            <button id="save-lyrics-btn"
+                style="width: 100%; background: var(--accent-gradient); border: none; color: white; padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem;">Save
+                Lyrics</button>
+        </div>
+    </div>
+
     <!-- Mobile Bottom Navigation Bar (Visible only on mobile via CSS) -->
     <nav class="mobile-bottom-nav">
         <button class="mob-nav-item active" id="mob-nav-home" title="Home">
@@ -452,6 +587,12 @@
 
     <!-- Mobile Full Screen Player Overlay (Visible only on mobile) -->
     <div id="mobile-fullscreen-player" class="mobile-fullscreen-player">
+        <!-- Fluid Ambient Glow Background for Mobile Player -->
+        <div class="ambient-glow-container">
+            <div class="ambient-blob fs-blob-1" id="fs-blob-1"></div>
+            <div class="ambient-blob fs-blob-2" id="fs-blob-2"></div>
+            <div class="ambient-blob fs-blob-3" id="fs-blob-3"></div>
+        </div>
         <!-- Close/Chevron and Playlist Info header -->
         <header class="fs-header">
             <button id="fs-close-btn" class="fs-close-btn" title="Minimize">
@@ -513,11 +654,8 @@
 
     </div>
 
-    <script>
-        const scriptEl = document.createElement('script');
-        scriptEl.src = 'script.js?cb=' + Date.now();
-        document.body.appendChild(scriptEl);
-    </script>
+    <script src="lyrics.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
