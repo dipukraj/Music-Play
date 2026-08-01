@@ -2567,6 +2567,9 @@ function loadSong(i, autoPlay = false) {
         if (typeof loadSongLyrics === 'function') {
             loadSongLyrics(currentPlaylist[i]);
         }
+        if (typeof loadSongComments === 'function') {
+            loadSongComments(currentPlaylist[i]);
+        }
 
         // Reset time display when loading a new song
         currentTimeEl.textContent = '0:00';
@@ -5571,4 +5574,226 @@ function initAccordion() {
 }
 
 // Initialize on load
-window.addEventListener('load', initAccordion);
+window.addEventListener('load', () => {
+    initAccordion();
+    initCommentsSection();
+});
+
+// --- FEATURE: Firebase Real-Time Live Comments ---
+let currentCommentsRef = null;
+let currentCommentsListener = null;
+
+function loadSongComments(song) {
+    const commentsList = document.getElementById('comments-list');
+    const commentCountEl = document.getElementById('comment-count');
+    if (!commentsList || !commentCountEl) return;
+
+    commentsList.innerHTML = `<div style="text-align: center; padding: 20px; font-size: 0.85rem; color: var(--text-secondary);"><i class="fas fa-spinner fa-spin"></i> Loading comments...</div>`;
+    commentCountEl.textContent = '0';
+
+    const songKey = getSongKey(song.title);
+    const commentsRef = database.ref('comments/' + songKey);
+
+    // Detach previous listener if exists
+    if (currentCommentsRef && currentCommentsListener) {
+        currentCommentsRef.off('value', currentCommentsListener);
+    }
+
+    currentCommentsRef = commentsRef;
+    currentCommentsListener = commentsRef.orderByChild('timestamp').on('value', (snapshot) => {
+        const commentsData = [];
+        snapshot.forEach((childSnapshot) => {
+            commentsData.push({
+                key: childSnapshot.key,
+                ...childSnapshot.val()
+            });
+        });
+        renderComments(commentsData);
+    }, (error) => {
+        console.error("Firebase comments error:", error);
+        commentsList.innerHTML = `<div class="no-comments">Error loading comments. Please try again.</div>`;
+    });
+}
+
+function submitComment() {
+    const commentTextEl = document.getElementById('comment-text');
+    const commentNicknameEl = document.getElementById('comment-nickname');
+    if (!commentTextEl || !commentNicknameEl) return;
+
+    const text = commentTextEl.value.trim();
+    let nickname = commentNicknameEl.value.trim();
+
+    if (!text) {
+        showToast("Please enter a comment!");
+        return;
+    }
+
+    // Fallback creative name if empty
+    if (!nickname) {
+        nickname = generateRandomNickname();
+        commentNicknameEl.value = nickname;
+    }
+
+    // Save nickname to localStorage
+    localStorage.setItem('commentNickname', nickname);
+
+    const currentSong = currentPlaylist[index];
+    if (!currentSong) return;
+
+    const songKey = getSongKey(currentSong.title);
+    const commentsRef = database.ref('comments/' + songKey);
+    const userId = generateUserId();
+
+    const commentData = {
+        name: nickname,
+        text: text,
+        timestamp: firebase.database.ServerValue.TIMESTAMP,
+        userId: userId
+    };
+
+    commentsRef.push(commentData).then(() => {
+        commentTextEl.value = '';
+        // Scroll comments to bottom
+        setTimeout(() => {
+            const commentsList = document.getElementById('comments-list');
+            if (commentsList) {
+                commentsList.scrollTop = commentsList.scrollHeight;
+            }
+        }, 100);
+    }).catch((err) => {
+        console.error("Error submitting comment:", err);
+        showToast("Failed to post comment. Try again.");
+    });
+}
+
+function generateRandomNickname() {
+    const adjectives = [
+        'Rocking', 'Melodious', 'Soulful', 'Groovy', 'Classic', 
+        'Harmonic', 'Rhythmic', 'Vibrant', 'Acoustic', 'Electric',
+        'Beat', 'Symphonic', 'Dreamy', 'Sukoon', 'Retro'
+    ];
+    const nouns = [
+        'Lover', 'Listener', 'Composer', 'Singer', 'Vibe', 
+        'Rider', 'DJ', 'Maestro', 'Fan', 'Beat', 
+        'Wanderer', 'Soul', 'Musician', 'Artist', 'Heart'
+    ];
+    const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+    const noun = nouns[Math.floor(Math.random() * nouns.length)];
+    const randNum = Math.floor(100 + Math.random() * 900); // 3-digit number
+    return `${adj}_${noun}_${randNum}`;
+}
+
+function renderComments(commentsData) {
+    const commentsList = document.getElementById('comments-list');
+    const commentCountEl = document.getElementById('comment-count');
+    if (!commentsList || !commentCountEl) return;
+
+    commentsList.innerHTML = '';
+    commentCountEl.textContent = commentsData.length;
+
+    if (commentsData.length === 0) {
+        commentsList.innerHTML = `<div class="no-comments">No comments yet. Be the first to share your thoughts! 💬</div>`;
+        return;
+    }
+
+    const currentUserId = generateUserId();
+
+    commentsData.forEach((comment) => {
+        const isMyComment = comment.userId === currentUserId;
+        const commentEl = document.createElement('div');
+        commentEl.className = `comment-item ${isMyComment ? 'my-comment' : ''}`;
+        
+        // Avatar letter
+        const firstLetter = comment.name ? comment.name.charAt(0).toUpperCase() : '?';
+        const avatarBgColor = getHashColor(comment.name || 'Anonymous');
+
+        // Human-readable timestamp
+        const timeStr = formatRelativeTime(comment.timestamp);
+
+        commentEl.innerHTML = `
+            <div class="comment-avatar" style="background-color: ${avatarBgColor};">
+                ${firstLetter}
+            </div>
+            <div class="comment-content">
+                <div class="comment-header">
+                    <span class="comment-author-name">${escapeHtml(comment.name)}</span>
+                    <span class="comment-timestamp" title="${new Date(comment.timestamp).toLocaleString()}">${timeStr}</span>
+                </div>
+                <div class="comment-text-body">
+                    ${escapeHtml(comment.text)}
+                </div>
+            </div>
+        `;
+        commentsList.appendChild(commentEl);
+    });
+
+    // Auto scroll to bottom
+    commentsList.scrollTop = commentsList.scrollHeight;
+}
+
+function escapeHtml(text) {
+    if (!text) return '';
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function getHashColor(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const h = Math.abs(hash % 360);
+    const s = 65; // Saturation 65%
+    const l = 45; // Lightness 45%
+    return `hsl(${h}, ${s}%, ${l}%)`;
+}
+
+function formatRelativeTime(timestamp) {
+    if (!timestamp) return 'just now';
+    const diff = Date.now() - timestamp;
+    const secs = Math.floor(diff / 1000);
+    if (secs < 60) return 'just now';
+    const mins = Math.floor(secs / 60);
+    if (mins < 60) return `${mins}m ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    if (days === 1) return 'yesterday';
+    return `${days}d ago`;
+}
+
+function initCommentsSection() {
+    const submitBtn = document.getElementById('submit-comment');
+    const commentNicknameEl = document.getElementById('comment-nickname');
+    const commentTextEl = document.getElementById('comment-text');
+
+    if (submitBtn) {
+        submitBtn.addEventListener('click', submitComment);
+    }
+
+    if (commentTextEl) {
+        commentTextEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                submitComment();
+            }
+        });
+    }
+
+    if (commentNicknameEl) {
+        const savedNickname = localStorage.getItem('commentNickname');
+        if (savedNickname) {
+            commentNicknameEl.value = savedNickname;
+        }
+    }
+
+    // Load initial comments for active song
+    const currentSong = currentPlaylist[index];
+    if (currentSong) {
+        loadSongComments(currentSong);
+    }
+}

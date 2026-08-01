@@ -241,14 +241,41 @@
                     </div>
                 </div>
 
-                <!-- Playlist Queue (Collapsible or hidden by default, styled beautifully) -->
-                <div class="playlist-container card-panel">
-                    <div class="panel-header">
-                        <h3><i class="fas fa-list-ul"></i> Play Queue <span id="song-count">(0 songs)</span></h3>
+                <!-- Bottom Layout Row for Play Queue and Live Comments -->
+                <div class="bottom-layout-row">
+                    <!-- Playlist Queue (Collapsible or hidden by default, styled beautifully) -->
+                    <div class="playlist-container card-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-list-ul"></i> Play Queue <span id="song-count">(0 songs)</span></h3>
+                        </div>
+                        <ul id="song-list">
+                            <!-- Songs list generated dynamically by Javascript -->
+                        </ul>
                     </div>
-                    <ul id="song-list">
-                        <!-- Songs list generated dynamically by Javascript -->
-                    </ul>
+
+                    <!-- Live Comments Panel -->
+                    <div class="comments-container card-panel">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-comments"></i> Live Comments</h3>
+                            <span id="comment-count" class="song-counter">0</span>
+                        </div>
+                        <div class="comments-list" id="comments-list">
+                            <div class="no-comments">No comments yet. Be the first to share your thoughts! 💬</div>
+                        </div>
+                        <div class="comment-input-area">
+                            <div class="comment-user-row">
+                                <input type="text" id="comment-nickname" placeholder="Your Name (eg: RockStar)"
+                                    maxlength="20">
+                            </div>
+                            <div class="comment-msg-row">
+                                <textarea id="comment-text" placeholder="Add a comment for this song..."
+                                    maxlength="200"></textarea>
+                                <button id="submit-comment" class="send-comment-btn" title="Post Comment">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Footer Section -->
