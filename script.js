@@ -2125,6 +2125,13 @@ const songs = [
         cover: "bhojpuriimage/system se mouse pe click kariye raja ji.jpg",
         category: "bhojpuri"
     },
+    {
+        title: "Barbadi Hoi - Shilpi Raj",
+        file: "bhojpurimusic/Barbadi Hoi Shilpi Raj.mp3",
+        cover: "bhojpuriimage/Barbadi Hoi Shilpi Raj.jpg",
+        category: "bhojpuri"
+    },
+
 
     // Bhakti Songs
     {
