@@ -2131,6 +2131,12 @@ const songs = [
         cover: "bhojpuriimage/Barbadi Hoi Shilpi Raj.jpg",
         category: "bhojpuri"
     },
+    {
+        title: "Lahanga Se Mahanga - Pawan Singh",
+        file: "bhojpurimusic/Lahanga Se Mahanga Pawan Singh.mp3",
+        cover: "bhojpuriimage/Lahanga Se Mahanga Pawan Singh.webp",
+        category: "bhojpuri"
+    },
 
 
     // Bhakti Songs
