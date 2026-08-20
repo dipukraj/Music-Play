@@ -596,6 +596,18 @@ const songs = [
         cover: "new image/Sitaare Ikkis.jpg",
         category: "new"
     },
+    {
+        title: "Aankhon Se Tune 2 Bhai Tera Star Hai",
+        file: "new music/Aankhon Se Tune 2 Bhai Tera Star Hai.mp3",
+        cover: "new image/Aankhon Se Tune 2 Bhai Tera Star Hai.jpg",
+        category: "new"
+    },
+    {
+        title: "Bandhu 2 Cocktail",
+        file: "new music/Bandhu 2 Cocktail.mp3",
+        cover: "new image/Bandhu 2 Cocktail.jpg",
+        category: "new"
+    },
 
     // Old Songs
     {
