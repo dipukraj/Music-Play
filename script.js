@@ -2152,6 +2152,97 @@ const songs = [
 
 
     // Bhakti Songs
+
+    {
+        title: "Aa Maa Aa Tujhe Dil Ne Pukara Gulshan Kumar Mamta Ka Mandir",
+        file: "bhakti music/Aa Maa Aa Tujhe Dil Ne Pukara.mp3",
+        cover: "bhakti image/Aa Maa Aa Tujhe Dil Ne Pukara.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "AADESH Mahakali (Original Edition) 🩸 आदेश महाकाली | Deepam S | Hreem Kleem Trance",
+        file: "bhakti music/AADESH Mahakali.mp3",
+        cover: "bhakti image/AADESH Mahakali.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Aaja Maa Tenu Ankhiyan Udeek Diyaan,Supehit Devi Bhajan,SONU NIGAM,GULSHAN KUMAR,Jai Maa VaishnoDevi",
+        file: "bhakti music/Aaja Maa Tenu Ankhiyan Udeek Diyaan.mp3",
+        cover: "bhakti image/Aaja Maa Tenu Ankhiyan Udeek Diyaan.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Apsara Aali Full Song | Natarang | Sonalee Kulkarni, Ajay Atul | Marathi Songs",
+        file: "bhakti music/Apsara Aali.mp3",
+        cover: "bhakti image/Apsara Aali.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Listen to Ashtalakshmi Stotram daily to gain wealth",
+        file: "bhakti music/Ashtalakshmi Stotram.mp3",
+        cover: "bhakti image/Ashtalakshmi Stotram.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Bhor Bhayi Din Chad Gaya | Ambe Maa Aarti | Vidhi Sharma | Devotional/ Spiritual Music",
+        file: "bhakti music/Bhor Bhayi Din Chad Gaya.mp3",
+        cover: "bhakti image/Bhor Bhayi Din Chad Gaya.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "धरती गगन में होती है Dharti Gagan Mein Hoti Hai SURESH WADKAR,ANURADHA PAUDWAL,Hindi English Lyrics",
+        file: "bhakti music/Dharti Gagan Mein Hoti Hai.mp3",
+        cover: "bhakti image/Dharti Gagan Mein Hoti Hai.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Duniya Se Door Ja Raha Hoo - Aarzoo (1999) Akshay Kumar _ Madhuri Dixit _ Full Video Song _HD_(720P)",
+        file: "bhakti music/Duniya Se Dur Ja Raha Hu.mp3",
+        cover: "bhakti image/Duniya Se Dur Ja Raha Hu.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Durga Hai Meri Maa Lyrical | दुर्गा है मेरी माँ | Mahendra Kapoor | Minoo P | Laxmikant-Pyarelal",
+        file: "bhakti music/Durga Hai Meri Maa Ambe Hai Meri Maa.mp3",
+        cover: "bhakti image/Durga Hai Meri Maa Ambe Hai Meri Maa.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "माँ मुझे दर्शन दे 🙏Mere Nainon Ki Pyaas Bujha De🙏🪔Maa Tu Mujhe Darshan De | SONU NIGAM | Devi Bhajan",
+        file: "bhakti music/Mere Nainon Ki Pyaas Bujha De.mp3",
+        cover: "bhakti image/Mere Nainon Ki Pyaas Bujha De.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "प्यारा सजा है तेरा द्वार भवानी I Pyara Saja Hai Tera Dwar Bhawani I LAKHBIR SINGH LAKKHA I Navratri",
+        file: "bhakti music/Pyara Saja HAi Tera Dwar Bhawani.mp3",
+        cover: "bhakti image/Pyara Saja HAi Tera Dwar Bhawani.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Sachi Re Mari - સાચી રે મારી | Gujarati Garba | Navarati Special Song 2018",
+        file: "bhakti music/Sachi Re Mari.mp3",
+        cover: "bhakti image/Sachi Re Mari.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Superhit Mata Ki Bhent I तुझे कबसे पुकारे तेरा लाल I Tujhe Kab Se Pukare Tera Laal I SONU NIGAM I HD",
+        file: "bhakti music/Tujhe Kab Se Pukare Tera Laal.mp3",
+        cover: "bhakti image/Tujhe Kab Se Pukare Tera Laal.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Hanuman Chalisa",
+        file: "bhakti music/Hanuman Chalisa.mp3",
+        cover: "bhakti image/Hanuman Chalisa.webp",
+        category: "bhakti"
+    },
+    {
+        title: "Hanuman Chalisa",
+        file: "bhakti music/Hanuman Chalisa.mp3",
+        cover: "bhakti image/Hanuman Chalisa.webp",
+        category: "bhakti"
+    },
     {
         title: "Hanuman Chalisa",
         file: "bhakti music/Hanuman Chalisa.mp3",
