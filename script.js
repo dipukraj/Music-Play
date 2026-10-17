@@ -2232,15 +2232,81 @@ const songs = [
         category: "bhakti"
     },
     {
-        title: "Hanuman Chalisa",
-        file: "bhakti music/Hanuman Chalisa.mp3",
-        cover: "bhakti image/Hanuman Chalisa.webp",
+        title: "Angana padharo maharani Original -अंगना पधारो महारानी - Manish aggrawal - Navratri Mata Rani Bhajan",
+        file: "bhakti music/Angna Padharo Maharani.mp3",
+        cover: "bhakti image/Angna Padharo Maharani.jpg",
         category: "bhakti"
     },
     {
-        title: "Hanuman Chalisa",
-        file: "bhakti music/Hanuman Chalisa.mp3",
-        cover: "bhakti image/Hanuman Chalisa.webp",
+        title: "दुलरी मयरिया | Pawan Singh | Dulari Mayariya Aa Gaili | Bhojpuri | Devi Geet | Music",
+        file: "bhakti music/Dulari Mayariya Aa Gaili.mp3",
+        cover: "bhakti image/Dulari Mayariya Aa Gaili.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "हे जग जननी, हे जगदंबा, मात भवानी शरण में ले | Jagdamba, ma Bhawani 🙏 | Jagdambe Bhajan 2026",
+        file: "bhakti music/Jagdamba ma Bhawani.mp3",
+        cover: "bhakti image/Jagdamba ma Bhawani.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Jai Maa Kali | Karan Arjun | Kali Mata Song | Navratri Song | Kumar Sanu, Alka Yagnik | Hindi Song",
+        file: "bhakti music/Jai Maa Kali.mp3",
+        cover: "bhakti image/Jai Maa Kali.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "अलगा अलगा रूप में माई | Pawan Singh | Kabahu Banke Sati Kuwari | Superhit Bhojpuri Durga Mata Bhajan",
+        file: "bhakti music/Kabahu Banke Sati Kuwari.mp3",
+        cover: "bhakti image/Kabahu Banke Sati Kuwari.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "माँ शेरावालिये तेरा शेर आ गया | नवरात्री स्पेशल | सोनू निगम | बॉलीवुड माता सॉंग | Maa Sherawaliye Tera Sher Aagya",
+        file: "bhakti music/Maa Sherawaliye Tera Sher Aagya Song.mp3",
+        cover: "bhakti image/Maa Sherawaliye Tera Sher Aagya Song.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "MAAI NI MAAI (Bhajan): Payal Dev | Sachet Tandon | Manoj Muntashir | Neelam Muntashir | Bhushan Kumar",
+        file: "bhakti music/MAAI NI MAAI.mp3",
+        cover: "bhakti image/MAAI NI MAAI.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "Main Balak Tu Mata Sheranwaliye I GULSHAN KUMAR I Mamta Ka Mandir Vol.1 I Full Song",
+        file: "bhakti music/Main Balak Tu Mata Sheranwaliye.mp3",
+        cover: "bhakti image/Main Balak Tu Mata Sheranwaliye.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "मेरी माँ | Kalpana Patowary | Meri Maa | Bhojpuri Bhakti Song 2026",
+        file: "bhakti music/Meri Maa.mp3",
+        cover: "bhakti image/Meri Maa.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "MERI MAIYYA VE | TERA PREM ANOKHA | NAVRATRI SONG | ASIT TRIPATHY | SUMIT KOHLI | TRENDING SONG",
+        file: "bhakti music/MERI MAIYYA VE.mp3",
+        cover: "bhakti image/MERI MAIYYA VE.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "दुर्गा स्तुति | Powerful Durga Stuti | Namami Durga Bramha Bramha | Chaitra Navratri 2025 | Bhakti Song",
+        file: "bhakti music/Navratri Special Powerful Durga Stuti.mp3",
+        cover: "bhakti image/Navratri Special Powerful Durga Stuti.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "नवरात्रि Special:SONU NIGAM Devi Bhajan,Sawan Ki Rut Hai Aaja Maa with Lyrics,सावन की रुत है आजा माँ",
+        file: "bhakti music/Sawan Ki Rut Hai Aaja Maa.mp3",
+        cover: "bhakti image/Sawan Ki Rut Hai Aaja Maa.jpg",
+        category: "bhakti"
+    },
+    {
+        title: "तेरे दर पे सर झुकाया Tere Dar Pe Sar Jhukaya Lyrics – Lakhbir Singh Lakkha || {Dj-Remix} Song",
+        file: "bhakti music/Tere Dar Pe Sar Jhukaya.mp3",
+        cover: "bhakti image/Tere Dar Pe Sar Jhukaya.jpg",
         category: "bhakti"
     },
     {
