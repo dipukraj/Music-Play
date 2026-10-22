@@ -106,6 +106,12 @@ const songs = [
         category: "80s"
     },
     {
+        title: "Tere Mere Beech Mein",
+        file: "music/Tere Mere Beech Mein.mp3",
+        cover: "image/tere mere beech me.jpg",
+        category: "80s"
+    },
+    {
         title: " Koi Jaye To Le Aaye",
         file: "80s music/koi jaye to le aye.mp3",
         cover: "80s image/koi jaye to le aye.jpg",
