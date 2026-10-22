@@ -58,57 +58,57 @@ const songs = [
 
 
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Ek Ajnabee Haseena Se with lyrics | एक अजनबी हसीना से गाने | Ajnabee | Rajesh Khanna | Zeenat Aman | R.D. Burman | Kishore Kumar",
+        file: "80s music/Ek Ajnabee Haseena Se.mp3",
+        cover: "80s image/Ek Ajnabee Haseena Se.jpg",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "O Mere Dil Ke Chain | Rajesh Khanna, Tanuja | Mere Jeevan Saathi (1972) | R.D Burman | Kishore Kumar",
+        file: "80s music/O Mere Dil Ke Chain Mere Jeevan Saathi.mp3",
+        cover: "80s image/O Mere Dil Ke Chain Mere Jeevan Saathi.jpg",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Yeh Shaam Mastani | Kishore Kumar | Rajesh Khanna | Kati Patang | Classic Bollywood Song",
+        file: "80s music/Yeh Shaam Mastani.mp3",
+        cover: "80s image/Yeh Shaam Mastani.jpg",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Pal Pal Dil Ke Paas (Official Lyrics)| Kishore Kumar | Dharmendra,Rakhee,Shatrughan | Blackmail",
+        file: "80s music/Pal Pal Dil Ke Paas.mp3",
+        cover: "80s image/Pal Pal Dil Ke Paas.webp",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Lag Jaa Gale Ki Phir Ye Haseen Raat Ho Na Ho | Lata Mangeshkar | Woh Kaun Thi | Manoj Kumar, Sadhana | Madan Mohan",
+        file: "80s music/Lag Ja Gale Ki Phir Ye Haseen Raat Ho Na Ho.mp3",
+        cover: "80s image/Lag Ja Gale Ki Phir Ye Haseen Raat Ho Na Ho.jpg",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Abhi Na Jaao Chhod Kar | Dev Anand | Sadhana | Mohd Rafi | Asha Bhosle | Hum Dono (1961)",
+        file: "80s music/Abhi Na Jaao Chhod Kar.mp3",
+        cover: "80s image/Abhi Na Jaao Chhod Kar.jpg",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Pyar Deewana Hota Hai Song : Kishore Kumar Classics | Rajesh Khanna | Hindi Romantic-Kati Patang",
+        file: "80s music/Pyar Deewana Hota Hai.mp3",
+        cover: "80s image/Pyar Deewana Hota Hai.jpg",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Hum Tere Pyar Mein - Lyrical | Dil Ek Mandir | Lata Mangeshkar, Meena Kumari | Old Hindi Songs",
+        file: "80s music/Ham Tere Pyar Mein.mp3",
+        cover: "80s image/Ham Tere Pyar Mein.jpg",
         category: "80s"
     },
     {
-        title: "Tere Mere Beech Mein",
-        file: "music/Tere Mere Beech Mein.mp3",
-        cover: "image/tere mere beech me.jpg",
+        title: "Tu Tu Hai Wahi (Full Version) | Yeh Vaada Raha (1982) | Rishi Kapoor, Poonam Dhillon, Tina Munim | R.D. Burman | Kishore Kumar",
+        file: "80s music/Tu tu hai wohi dilne jise apna kaha.mp3",
+        cover: "80s image/Tu tu hai wohi dilne jise apna kaha.jpg",
         category: "80s"
     },
     {
