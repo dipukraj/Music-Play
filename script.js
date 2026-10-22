@@ -386,6 +386,13 @@ const songs = [
     },
 
     // New Songs
+    
+    {
+        title: "Thodi Der -Full Song | Half Girlfriend | Arjun Kapoor & Shraddha Kapoor | Farhan S & Shreya Ghoshal",
+        file: "new music/Thodi Der.mp3",
+        cover: "new image/Thodi Der.jpg",
+        category: "new"
+    },
     {
         title: "Kesariya",
         file: "music/kesariya.mp3",
