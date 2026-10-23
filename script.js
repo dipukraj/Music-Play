@@ -4050,7 +4050,7 @@ songs.push(
         category: "other"
     },
     {
-        title: "52 GAJ KA DAMAN",
+        title: "52 GAJ KA",
         file: "other music/.mp3",
         cover: "other image/.jpg",
         category: "other"
