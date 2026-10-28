@@ -4073,6 +4073,12 @@ songs.push(
         cover: "other image/ .jpg",
         category: "other"
     },
+    {
+        title: "52 GAJ KA DAMAN",
+        file: "other music/52 GAJ KA DAMAN.mp3",
+        cover: "other image/52 GAJ KA DAMAN.jpg",
+        category: "other"
+    },
 );
 
 // Initialize with all songs
