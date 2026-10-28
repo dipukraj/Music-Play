@@ -4070,7 +4070,7 @@ songs.push(
     {
         title: " ",
         file: "other music/ .mp3",
-        cover: "other image/52 GAJ KA DAMAN.jpg",
+        cover: "other image/ .jpg",
         category: "other"
     },
 );
