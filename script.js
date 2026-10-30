@@ -4050,39 +4050,39 @@ songs.push(
         category: "other"
     },
     {
-        title: " ",
-        file: "other music/.mp3",
-        cover: "other image/.jpg",
+        title: "छठ पूजा Special उगs हे सूरज देव Uga Hai Suraj Dev,ANURADHA PAUDWAL,Hindi English Lyrics,Chhath Puja",
+        file: "other music/Ugg Ho Suraj Dev.mp3",
+        cover: "other image/Ugg Ho Suraj Dev.jpg",
         category: "other"
     },
     {
-        title: " ",
-        file: "other music/.mp3",
-        cover: "other image/.jpg",
+        title: "छठ पूजा: काँच ही बाँस के बहंगिया WITH LYRICS I Kaanch Hi Baans Ke Bahangiya I ANURADHA PAUDWAL",
+        file: "other music/Kaaach hi bash ke Bahgiya.mp3",
+        cover: "other image/Kaaach hi bash ke Bahgiya.jpg",
         category: "other"
     },
     {
-        title: " ",
-        file: "other music/ .mp3",
-        cover: "other image/ .jpg",
+        title: "पवन सिंह का सबसे ज्यादा बजने वाला छठ गीत - जोड़े जोड़े फलवा  #chhathpuja Jode Jode Falwa",
+        file: "other music/Jode Jode Falwa.mp3",
+        cover: "other image/Jode Jode Falwa.jpg",
         category: "other"
     },
     {
-        title: " ",
-        file: "other music/ .mp3",
-        cover: "other image/ .jpg",
+        title: "Chhathi Maiya - Palak Muchhal  | THE VVAAN | Sidharth Malhotra & Tamannaah | Vishal M",
+        file: "other music/Chhathi Maiya.mp3",
+        cover: "other image/Chhathi Maiya.jpg",
         category: "other"
     },
     {
-        title: " ",
-        file: "other music/ .mp3",
-        cover: "other image/ .jpg",
+        title: "Chhathi Maiya Bulaye - Vishal Mishra | Kaushal Kishore | Desh Unplugged | Chhath Song 2021",
+        file: "other music/Chhathi Maiya Bulaye.mp3",
+        cover: "other image/Chhathi Maiya Bulaye.jpg",
         category: "other"
     },
     {
-        title: " ",
-        file: "other music/ .mp3",
-        cover: "other image/ .jpg",
+        title: "चलS भउजी हाली हाली ||Chal Bhauji Hali Bhojpuri Chhath Song 2024 | Sonu Nigam & Pawan Singh",
+        file: "other music/Chal Bhauji Hali Bhojpuri Chhath.mp3",
+        cover: "other image/Chal Bhauji Hali Bhojpuri Chhath.jpg",
         category: "other"
     },
 );
