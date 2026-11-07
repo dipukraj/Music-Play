@@ -4115,6 +4115,12 @@ songs.push(
         cover: "other image/ .jpg",
         category: "other"
     },
+    {
+        title: "Chhathi Maiya Bulaye - Vishal Mishra | Kaushal Kishore | Desh Unplugged |",
+        file: "other music/Chhathi Maiya Bulaye.mp3",
+        cover: "other image/Chhathi Maiya Bulaye.jpg",
+        category: "other"
+    },
 );
 
 // Initialize with all songs
