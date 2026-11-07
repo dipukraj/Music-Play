@@ -4105,7 +4105,7 @@ songs.push(
     },
     {
         title: " ",
-        file: "other music/Chal Bhauji Hali Bhojpuri Chhath.mp3",
+        file: "other music/ .mp3",
         cover: "other image/Chal Bhauji Hali Bhojpuri Chhath.jpg",
         category: "other"
     },
