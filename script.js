@@ -4121,6 +4121,12 @@ songs.push(
         cover: "other image/.jpg",
         category: "other"
     },
+    {
+        title: "Chhathi Maiya Bulaye - Vishal Mishra | Kaushal Kishore | Desh Unplugged | Chhath Song 2021",
+        file: "other music/Chhathi Maiya Bulaye.mp3",
+        cover: "other image/Chhathi Maiya Bulaye.jpg",
+        category: "other"
+    },
 );
 
 // Initialize with all songs
