@@ -4158,7 +4158,7 @@ songs.push(
         category: "other"
     },
     {
-        title: "Chhathi Maiya Bulaye - Vishal Mishra | ",
+        title: "Chhathi Maiya Bulaye - ",
         file: "other music/Chhathi Maiya Bulaye.mp3",
         cover: "other image/Chhathi Maiya Bulaye.jpg",
         category: "other"
