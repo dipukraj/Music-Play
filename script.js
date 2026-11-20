@@ -2498,6 +2498,13 @@ const songs = [
     },
 
     // Mahadev Songs
+    
+    {
+        title: "Om Namah Shivaya",
+        file: "mahadev music/Om Namah Shivaya.mp3",
+        cover: "mahadev image/Om Namah Shivaya.webp",
+        category: "mahadev"
+    },
     {
         title: "Om Namah Shivaya",
         file: "mahadev music/Om Namah Shivaya.mp3",
