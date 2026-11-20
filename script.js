@@ -4087,21 +4087,21 @@ songs.push(
         category: "other"
     },
      {
-        title: " ",
-        file: "other music/ .mp3",
-        cover: "other image/ .jpg",
+        title: "Dukhwa Mitayin Chhathi Maiya | Sharda Sinha | Chhath Puja Song | Sharda Sinha Chhath Geet | छठ गीत",
+        file: "other music/Dukhwa Mitayin Chhathi Maiya.mp3",
+        cover: "other image/Dukhwa Mitayin Chhathi Maiya.jpg",
         category: "other"
     },
     {
-        title: "  ||  | ",
-        file: "other music/ .mp3",
-        cover: "other image/ .jpg",
+        title: "#Neelkamal Singh | कोशिया भराये लागल | Priyanka Singh | Bhojpuri Chhath Song 2024",
+        file: "other music/Koshiya Bharaye lagal.mp3",
+        cover: "other image/Koshiya Bharaye lagal.jpg",
         category: "other"
     },
     {
-        title: "  ||  | ",
-        file: "other music/ .mp3",
-        cover: "other image/ .jpg",
+        title: "shitali bayariya chhath puja song | Jode jode falwa pawan singh | shitali bayariya sital duje paniya | chhath puja song 2024",
+        file: "other music/shitali bayariya chhath puja song.mp3",
+        cover: "other image/shitali bayariya chhath puja song.jpg",
         category: "other"
     },
     {
