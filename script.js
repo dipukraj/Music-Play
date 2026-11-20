@@ -2500,7 +2500,7 @@ const songs = [
     // Mahadev Songs
     
     {
-        title: "Om Namah Shivaya",
+        title: "Namoh Namoh | Daler Mehndi | Full Lyrical song | Hindi Devotional Song 2018",
         file: "mahadev music/Om Namah Shivaya.mp3",
         cover: "mahadev image/Om Namah Shivaya.webp",
         category: "mahadev"
