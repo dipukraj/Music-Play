@@ -388,15 +388,15 @@ const songs = [
     // New Songs
     
     {
-        title: "Thodi Der -Full Song | Half Girlfriend | Arjun Kapoor & Shraddha Kapoor | Farhan S & Shreya Ghoshal",
-        file: "new music/Thodi Der.mp3",
-        cover: "new image/Thodi Der.jpg",
+        title: "DILRUBA DILNASHEEN - Dilfek - Rito Riba | Siddhant Kaushal | Arjun & Zahabiya | Anshul Garg",
+        file: "new music/DILRUBA DILNASHEEN.mp3",
+        cover: "new image/DILRUBA DILNASHEEN.jpg",
         category: "new"
     },
     {
-        title: "Thodi Der -Full Song | Half Girlfriend | Arjun Kapoor & Shraddha Kapoor | Farhan S & Shreya Ghoshal",
-        file: "new music/Thodi Der.mp3",
-        cover: "new image/Thodi Der.jpg",
+        title: "Jhumka Patola | Yeh Prem Mol Liya| Ayushmann, Sharvari, Sooraj Barjatya| Himesh R, Shreya G, Sonia K",
+        file: "new music/Jhumka Patola.mp3",
+        cover: "new image/Jhumka Patola.jpg",
         category: "new"
     },
     {
