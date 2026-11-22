@@ -4118,25 +4118,25 @@ songs.push(
     },
     {
         title: "  ",
-        file: "other music/ .mp3",
+        file: "other music/.mp3",
         cover: "other image/ .jpg",
         category: "other"
     },
     {
         title: " ",
-        file: "other music/ .mp3",
+        file: "other music/.mp3",
         cover: "other image/ .jpg",
         category: "other"
     },
     {
         title: " ",
-        file: "other music/ .mp3",
+        file: "other music/.mp3",
         cover: "other image/ .jpg",
         category: "other"
     },
     {
         title: "",
-        file: "other music/ .mp3",
+        file: "other music/.mp3",
         cover: "other image/.jpg",
         category: "other"
     },
