@@ -4195,7 +4195,7 @@ songs.push(
         category: "other"
     },
     {
-        title: "shitali bayariya chhath puja song |  ",
+        title: "  ",
         file: "other music/shitali bayariya chhath puja song.mp3",
         cover: "other image/shitali bayariya chhath puja song.jpg",
         category: "other"
