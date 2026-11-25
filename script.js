@@ -4195,7 +4195,7 @@ songs.push(
         category: "other"
     },
     {
-        title: "shitali bayariya chhath puja song | Jode jode falwa pawan singh | shitali bayariya sital duje paniya |  ",
+        title: "shitali bayariya chhath puja song | Jode jode falwa pawan singh |  ",
         file: "other music/shitali bayariya chhath puja song.mp3",
         cover: "other image/shitali bayariya chhath puja song.jpg",
         category: "other"
