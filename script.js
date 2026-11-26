@@ -4197,7 +4197,7 @@ songs.push(
     {
         title: "  ",
         file: "other music/ .mp3",
-        cover: "other image/shitali bayariya      .jpg",
+        cover: "other image/shitali        .jpg",
         category: "other"
     },
 );
